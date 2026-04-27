@@ -1,5 +1,5 @@
-const IMG_BASE_URL = "http://127.0.0.1:8000/";
-export const WEB_APP_URL="http://localhost:5173"
+const IMG_BASE_URL = "https://musanada-api-backend-production.up.railway.app/";
+export const WEB_APP_URL="https://musanada-rho.vercel.app"
 export const URLS = {
     BASE: IMG_BASE_URL,
     STORAGE: `${IMG_BASE_URL}storage`,
