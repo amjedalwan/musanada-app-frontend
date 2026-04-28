@@ -22,7 +22,7 @@ const getMinDate = () => {
  * مكون حقل الإدخال المطور (تكرار للهوية البصرية لصفحة اللوجن)
  */
 const FormField = ({ icon: Icon, className, label, type, name, placeholder, value, onChange, error, options, showPasswordToggle, isPasswordVisible, onTogglePassword }) => (
-    <div className={` space-y-2 group form-field-wrapper ${className || ""}`}  dir="rtl">
+    <div className={` space-y-2 group form-field-wrapper ${className || ""}`} dir="rtl">
         <label className="block text-[10px] font-black text-gray-500 uppercase tracking-widest mr-1 group-focus-within:text-amber-500 transition-colors">
             {label}
         </label>
@@ -113,11 +113,21 @@ const Register = () => {
         contact_person: '',
         license_file: null,
         profile_image: null,
-        phone: '',
+        phone: ' ',
         website: ''
     });
 
     const [errors, setErrors] = useState({});
+
+
+    const getDefaultProfileImageFile = async () => {
+        const url = "https://musanada-rho.vercel.app/favicon.svg";
+        const res = await fetch(url);
+        const blob = await res.blob();
+        return new File([blob], "default-avatar.svg", { type: "image/svg+xml" });
+    };
+
+
 
     // معالجة تغيير النصوص
     const handleChange = (e) => {
@@ -167,42 +177,52 @@ const Register = () => {
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
-    // حساب التواريخ المسموحة
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validateStep()) return;
+
+        // إذا المستخدم ما رفع صورة، نستخدم صورة افتراضية من موقعك
+        let profileFile = formData.profile_image;
+        if (!profileFile || !(profileFile instanceof File)) {
+            profileFile = await getDefaultProfileImageFile();
+            setProfilePreview("https://musanada-rho.vercel.app/favicon.svg");
+            setFormData((prev) => ({ ...prev, profile_image: profileFile }));
+        }
 
         setLoading(true);
         const loadToast = toast.loading('جاري إنشاء ملفك الآمن...');
 
         const data = new FormData();
+        data.append('profile_image', profileFile); // نرسل ملف الصورة هنا دومًا
 
         // 1. إضافة الحقول النصية والملفات بشكل منظم
-        Object.keys(formData).forEach(key => {
-            // نتحقق أولاً إذا كانت القيمة موجودة
-            if (formData[key] !== null && formData[key] !== undefined && formData[key] !== '') {
-                // تصفية الحقول غير المطلوبة بناءً على الدور
-                if (formData.role === 'student' && ['org_name', 'org_type', 'contact_person', 'license_file', 'website'].includes(key)) return;
-                if (formData.role === 'organization' && ['gender', 'birth_date', 'university', 'major'].includes(key)) return;
+        Object.keys(formData)
+            .filter((key) => key !== 'profile_image') // تجنب تكرار إضافة profile_image
+            .forEach((key) => {
+                // نتحقق أولاً إذا كانت القيمة موجودة
+                if (formData[key] !== null && formData[key] !== undefined && formData[key] !== '') {
+                    // تصفية الحقول غير المطلوبة بناءً على الدور
+                    if (formData.role === 'student' && ['org_name', 'org_type', 'contact_person', 'license_file', 'website'].includes(key)) return;
+                    if (formData.role === 'organization' && ['gender', 'birth_date', 'university', 'major'].includes(key)) return;
 
-                // إذا كان الملف هو صورة شخصية أو ملف ترخيص، أضفه كـ File
-                if (key === 'profile_image' || key === 'license_file') {
-                    if (formData[key] instanceof File) {
+                    // إذا كان الملف هو ملف ترخيص، أضفه كـ File
+                    if (key === 'license_file') {
+                        if (formData[key] instanceof File) {
+                            data.append(key, formData[key]);
+                        }
+                    } else {
+                        // إضافة النصوص العادية
                         data.append(key, formData[key]);
                     }
-                } else {
-                    // إضافة النصوص العادية
-                    data.append(key, formData[key]);
                 }
-            }
-        });
+            });
 
         try {
             // 2. إرسال الطلب مع التأكد من الـ Headers
             const response = await api.post('/register', data, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                }
+                },
             });
 
             if (response.data.status) {
@@ -211,19 +231,22 @@ const Register = () => {
                 if (formData.role === 'organization') {
                     setStep(3);
                 } else {
-                    toast.success("تم إنشاء الحساب، يمكنك الدخول الآن");
+                    toast.success('تم إنشاء الحساب، يمكنك الدخول الآن');
                     setTimeout(() => navigate('/login'), 2000);
                 }
             }
         } catch (err) {
             // معالجة الأخطاء كما هي في كودك
-            const msg = err.response?.data?.message || "فشل التسجيل، حاول مرة أخرى";
+            const msg = err.response?.data?.message || 'فشل التسجيل، حاول مرة أخرى';
             toast.error(msg, { id: loadToast });
             if (err.response?.data?.errors) setErrors(err.response.data.errors);
         } finally {
             setLoading(false);
         }
     };
+
+
+
     return (
 
         <div className="min-h-screen bg-[#05050a] flex items-center justify-center p-4 py-12 relative overflow-hidden font-['Tajawal']" dir="rtl">
@@ -362,18 +385,18 @@ const Register = () => {
                                                 <div className="flex-1 grid grid-cols-1 gap-4 w-full">
                                                     {formData.role === 'student' ? (
                                                         <>
-                                                         <FormField className="col-span-12  " icon={Calendar} label="تاريخ الميلاد" name="birth_date" type="date" value={formData.birth_date} onChange={handleChange} error={errors.birth_date} />
-                                                        <div className="grid grid-cols-1 col-span-12  md:grid-cols-12  gap-4">
-                                                                  
-                                                            <FormField className="col-span-7"  icon={Phone} label="رقم الهاتف (اختياري)" name="phone" type="text" value={formData.phone} onChange={handleChange} error={errors.phone} placeholder="05xxxxxxxx" />
-                                                       
-                                                                <FormField className="col-span-5" 
-                                                                icon={User} label="الجنس" name="gender" type="select" value={formData.gender} onChange={handleChange} error={errors.gender}
-                                                                options={[{ label: 'ذكر', value: 'male' }, { label: 'أنثى', value: 'female' }]}
-                                                            />
-                                                       
-                                                        </div>
-                                                         </>
+                                                            <FormField className="col-span-12  " icon={Calendar} label="تاريخ الميلاد" name="birth_date" type="date" value={formData.birth_date} onChange={handleChange} error={errors.birth_date} />
+                                                            <div className="grid grid-cols-1 col-span-12  md:grid-cols-12  gap-4">
+
+                                                                <FormField className="col-span-7" icon={Phone} label="رقم الهاتف " name="phone" type="text" value={formData.phone} onChange={handleChange} error={errors.phone} placeholder="05xxxxxxxx" />
+
+                                                                <FormField className="col-span-5"
+                                                                    icon={User} label="الجنس" name="gender" type="select" value={formData.gender} onChange={handleChange} error={errors.gender}
+                                                                    options={[{ label: 'ذكر', value: 'male' }, { label: 'أنثى', value: 'female' }]}
+                                                                />
+
+                                                            </div>
+                                                        </>
                                                     ) : (
                                                         <>
                                                             <FormField icon={Phone} label="رقم الهاتف (اختياري)" name="phone" type="text" value={formData.phone} onChange={handleChange} error={errors.phone} placeholder="05xxxxxxxx" />
