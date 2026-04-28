@@ -71,8 +71,8 @@ const AdminSidebar = () => {
             groupName: "التقارير والنظام",
             items: [
                 { name: 'الإحصائيات المتقدمة', path: '/admin/analytics', icon: BarChart3 },
-              
-                { name: 'إعدادات المنصة', path: '/', icon: Settings  },
+
+                { name: 'إعدادات المنصة', path: '/', icon: Settings },
             ]
         }
     ];
@@ -117,6 +117,7 @@ const AdminSidebar = () => {
                 />
             )}
         </AnimatePresence>
+
         <motion.aside
             initial={false}
             animate={{
@@ -126,11 +127,11 @@ const AdminSidebar = () => {
             }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             style={{ zIndex: 9999 }}
-            className="fixed lg:sticky top-0 right-0 bottom-0 h-screen bg-[#070710] border-l border-white/5 flex flex-col shadow-2xl"
+            className="fixed lg:sticky top-0 right-0 bottom-0 h-screen bg-[#070710]  border-l-0 lg:border-l  border-white/5 flex flex-col shadow-2xl"
             dir="rtl"
         >
             {/* 1. Admin Identity Header */}
-             <div className="p-5 flex items-center justify-between min-h-[80px] gap-1">
+            <div className="p-5 flex items-center justify-between min-h-[80px] gap-1">
                 <div className={`flex items-center gap-4 ${isCollapsed ? 'justify-center' : ''}`}>
                     <div className="relative">
                         <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 to-red-600 flex items-center justify-center text-white shadow-lg shadow-red-600/20">
@@ -213,19 +214,28 @@ const AdminSidebar = () => {
                         })}
                     </div>
                 ))}
+                <div
+                    className="mt-auto p-4 border-t border-white/5"
+                    style={{ position: 'relative', zIndex: 100 }}
+                >
+                    <button
+                        onClick={handleLogout}
+                        className={`flex items-center gap-3 w-full p-3 rounded-2xl text-red-500/70 hover:text-red-500 hover:bg-red-500/5 transition-all ${isCollapsed ? 'justify-center' : ''
+                            }`}
+                    >
+                        <LogOut size={20} />
+                        {!isCollapsed && (
+                            <span className="text-xs font-black uppercase tracking-widest">
+                                إنهاء الجلسة
+                            </span>
+                        )}
+                    </button>
+                </div>
+
             </nav>
 
 
-            {/* 4. Logout Action */}
-            <div className="p-4 border-t border-white/5">
-                <button
-                    onClick={handleLogout}
-                    className={`flex items-center gap-3 w-full p-3 rounded-2xl text-red-500/70 hover:text-red-500 hover:bg-red-500/5 transition-all ${isCollapsed ? 'justify-center' : ''}`}
-                >
-                    <LogOut size={20} />
-                    {!isCollapsed && <span className="text-xs font-black uppercase tracking-widest">إنهاء الجلسة</span>}
-                </button>
-            </div>
+       
         </motion.aside>
     </>
     );

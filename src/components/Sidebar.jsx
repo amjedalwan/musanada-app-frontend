@@ -130,7 +130,7 @@ const Sidebar = () => {
         ]
     };
     const handleLogout = async () => {
-       
+
         setIsOpen(false);
         const result = await Swal.fire({
             title: 'هل أنت متأكد؟',
@@ -343,6 +343,8 @@ const Sidebar = () => {
                         </button>
                     )}
                 </div>
+
+
             </motion.aside>
 
             <style>{`
