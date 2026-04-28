@@ -10,10 +10,7 @@ import Sidebar from '../components/Sidebar';
 import api from '../api/axios';
 import Swal from 'sweetalert2';
 
-/**
- * مكون سجل ساعات المتطوع - مشروع مساندة
- * صمم بواسطة: أمجد علوان (بناءً على الهوية البصرية المعتمدة)
- */
+
 const StudentHoursLog = () => {
     // --- States ---
     const [logs, setLogs] = useState([]);

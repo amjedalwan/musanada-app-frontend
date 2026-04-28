@@ -499,7 +499,7 @@ const OpportunityModeration = () => {
                                 <span className="text-[9px] font-black text-emerald-500 italic uppercase">Secure Connection</span>
                             </div>
                         </div>
-                        <p className="text-[10px] text-gray-700 font-bold">جميع الحقوق محفوظة © {new Date().getFullYear()} • تصميم أمجد علوان</p>
+                        <p className="text-[10px] text-gray-700 font-bold">جميع الحقوق محفوظة © {new Date().getFullYear()} • لمنصة مساندة</p>
                     </div>
 
                     <div className="flex gap-10">

@@ -68,7 +68,7 @@ const EditOpportunity = () => {
         tomorrow.setDate(tomorrow.getDate() + 1);
         return tomorrow.toISOString().split('T')[0];
     };
-    // 1. جلب البيانات عند التحميل
+  
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -140,9 +140,6 @@ const EditOpportunity = () => {
     // 5. إرسال البيانات (Handle Update)
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // --- 1. التحقق من صحة البيانات (Client-side Validation) ---
-
         // أ- التحقق من التاريخ (يجب أن يكون من غدٍ فصاعداً)
         const startDate = new Date(formData.start_date);
         const selectedDate = new Date(formData.deadline);
@@ -436,7 +433,7 @@ const EditOpportunity = () => {
                                             type="date"
                                             className="w-full bg-white/[0.05] border border-white/10 rounded-xl py-3 px-4 outline-none focus:border-purple-500 transition-all"
                                             value={formData.deadline}
-                                            min={formData.start_date || getTomorrowDate()} // التقديم ينتهي بعد البداية أو غداً
+                                           
                                             onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
                                         />
                                     </div>

@@ -21,8 +21,8 @@ const getMinDate = () => {
 /**
  * مكون حقل الإدخال المطور (تكرار للهوية البصرية لصفحة اللوجن)
  */
-const FormField = ({ icon: Icon, label, type, name, placeholder, value, onChange, error, options, showPasswordToggle, isPasswordVisible, onTogglePassword }) => (
-    <div className="space-y-2 group" dir="rtl">
+const FormField = ({ icon: Icon, className, label, type, name, placeholder, value, onChange, error, options, showPasswordToggle, isPasswordVisible, onTogglePassword }) => (
+    <div className={` space-y-2 group form-field-wrapper ${className || ""}`}  dir="rtl">
         <label className="block text-[10px] font-black text-gray-500 uppercase tracking-widest mr-1 group-focus-within:text-amber-500 transition-colors">
             {label}
         </label>
@@ -38,7 +38,7 @@ const FormField = ({ icon: Icon, label, type, name, placeholder, value, onChange
                     onChange={onChange}
                     className="w-full pr-12 pl-4 py-4 bg-white/[0.02] border border-white/5 rounded-2xl outline-none focus:border-amber-500/50 focus:bg-white/[0.05] transition-all text-sm text-white appearance-none backdrop-blur-xl"
                 >
-                    <option value="" className="bg-[#0f0f1a]">اختر {label}</option>
+                    <option value="" className="bg-[#0f0f1a]"> {label}</option>
                     {options.map(opt => (
                         <option key={opt.value} value={opt.value} className="bg-[#0f0f1a]">{opt.label}</option>
                     ))}
@@ -359,16 +359,21 @@ const Register = () => {
                                                     </button>
                                                     <input type="file" name="profile_image" ref={profileInputRef} className="hidden" accept="image/*" onChange={handleFileChange} />
                                                 </div>
-                                                <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                                                <div className="flex-1 grid grid-cols-1 gap-4 w-full">
                                                     {formData.role === 'student' ? (
                                                         <>
-                                                            <FormField
+                                                         <FormField className="col-span-12  " icon={Calendar} label="تاريخ الميلاد" name="birth_date" type="date" value={formData.birth_date} onChange={handleChange} error={errors.birth_date} />
+                                                        <div className="grid grid-cols-1 col-span-12  md:grid-cols-12  gap-4">
+                                                                  
+                                                            <FormField className="col-span-7"  icon={Phone} label="رقم الهاتف (اختياري)" name="phone" type="text" value={formData.phone} onChange={handleChange} error={errors.phone} placeholder="05xxxxxxxx" />
+                                                       
+                                                                <FormField className="col-span-5" 
                                                                 icon={User} label="الجنس" name="gender" type="select" value={formData.gender} onChange={handleChange} error={errors.gender}
                                                                 options={[{ label: 'ذكر', value: 'male' }, { label: 'أنثى', value: 'female' }]}
                                                             />
-                                                            <FormField icon={Calendar} label="تاريخ الميلاد" name="birth_date" type="date" value={formData.birth_date} onChange={handleChange} error={errors.birth_date} />
-                                                            <FormField icon={Phone} label="رقم الهاتف (اختياري)" name="phone" type="text" value={formData.phone} onChange={handleChange} error={errors.phone} placeholder="05xxxxxxxx" />
-                                                        </>
+                                                       
+                                                        </div>
+                                                         </>
                                                     ) : (
                                                         <>
                                                             <FormField icon={Phone} label="رقم الهاتف (اختياري)" name="phone" type="text" value={formData.phone} onChange={handleChange} error={errors.phone} placeholder="05xxxxxxxx" />
