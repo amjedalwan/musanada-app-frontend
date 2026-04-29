@@ -86,7 +86,7 @@ const AdminSidebar = () => {
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: 50, opacity: 0 }}
                     onClick={() => setIsOpen(true)}
-                    className="lg:hidden fixed top-1/2 -translate-y-1/2 right-0 z-[9995] flex items-center justify-center w-6 h-16 bg-indigo-600 text-white rounded-l-xl shadow-[0_0_15px_rgba(79,70,229,0.4)] border-y border-l border-white/20"
+                    className="lg:hidden fixed top-1/2 -translate-y-1/2 right-0 z-[9995] flex items-center justify-center w-6 h-16 bg-emerald-600 text-white rounded-l-xl shadow-[0_0_15px_rgba(16,185,129,0.4)] border-y border-l border-emerald-500/20"
                 >
                     <motion.div animate={{ x: [0, -3, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
@@ -127,33 +127,33 @@ const AdminSidebar = () => {
             }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             style={{ zIndex: 9999 }}
-            className="fixed lg:sticky top-0 right-0 bottom-0 h-screen bg-[#070710]  border-l-0 lg:border-l  border-white/5 flex flex-col shadow-2xl"
+            className="fixed lg:sticky top-0 right-0 bottom-0 h-screen bg-white border-l border-slate-200 flex flex-col shadow-xl"
             dir="rtl"
         >
             {/* 1. Admin Identity Header */}
             <div className="p-5 flex items-center justify-between min-h-[80px] gap-1">
                 <div className={`flex items-center gap-4 ${isCollapsed ? 'justify-center' : ''}`}>
                     <div className="relative">
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 to-red-600 flex items-center justify-center text-white shadow-lg shadow-red-600/20">
+                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-700 flex items-center justify-center text-white shadow-lg shadow-emerald-600/20">
                             <ShieldCheck size={26} strokeWidth={2.5} />
                         </div>
-                        <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 border-2 border-[#0a0a12] rounded-full animate-pulse"></span>
+                        <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full animate-pulse"></span>
                     </div>
 
                     {!isCollapsed && (
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                            <h2 className="text-white font-black text-sm tracking-tight leading-none">مدير النظام</h2>
-                            <p className="text-amber-500/70 text-[10px] font-bold uppercase mt-1 tracking-widest">Root Access</p>
+                            <h2 className="text-slate-900 font-black text-sm tracking-tight leading-none">مدير النظام</h2>
+                            <p className="text-emerald-600 text-[10px] font-bold uppercase mt-1 tracking-widest">Root Access</p>
                         </motion.div>
                     )}
                 </div>
                 <button
                     onClick={() => setIsCollapsed(!isCollapsed)}
-                    className="hidden lg:flex   w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center text-black hover:scale-110 transition-transform"
+                    className="hidden lg:flex w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg shadow-emerald-500/20"
                 >
                     {isCollapsed ? <PanelLeftOpen size={14} /> : <PanelLeftClose size={14} />}
                 </button>
-                <button onClick={() => setIsOpen(false)} className="lg:hidden p-2 text-gray-400 hover:text-white">
+                <button onClick={() => setIsOpen(false)} className="lg:hidden p-2 text-slate-400 hover:text-emerald-600">
                     <X size={24} />
                 </button>
                 {/* Toggle Button */}
@@ -165,7 +165,7 @@ const AdminSidebar = () => {
                 {menuGroups.map((group, gIdx) => (
                     <div key={gIdx} className="space-y-2">
                         {!isCollapsed && (
-                            <h3 className="text-[10px] font-black text-gray-600 uppercase tracking-[0.2em] px-4 mb-2">
+                            <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] px-4 mb-2">
                                 {group.groupName}
                             </h3>
                         )}
@@ -179,8 +179,8 @@ const AdminSidebar = () => {
                                     className={`
                                         relative group flex items-center gap-4 p-3 rounded-2xl transition-all duration-300
                                         ${isActive
-                                            ? 'bg-gradient-to-l from-amber-500/10 to-transparent text-amber-500'
-                                            : 'text-gray-500 hover:text-white hover:bg-white/5'}
+                                            ? 'bg-emerald-50 text-emerald-700 shadow-sm'
+                                            : 'text-slate-500 hover:text-emerald-600 hover:bg-emerald-50/50'}
                                         ${isCollapsed ? 'justify-center' : ''}
                                     `}
                                 >
@@ -198,7 +198,7 @@ const AdminSidebar = () => {
 
                                     {/* Tooltip for Collapsed State */}
                                     {isCollapsed && (
-                                        <div className="absolute left-full ml-4 px-3 py-2 bg-amber-500 text-black text-[11px] font-black rounded-xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all whitespace-nowrap z-[200]">
+                                        <div className="absolute left-full ml-4 px-3 py-2 bg-emerald-600 text-white text-[11px] font-black rounded-xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all whitespace-nowrap z-[200]">
                                             {item.name}
                                         </div>
                                     )}
@@ -206,7 +206,7 @@ const AdminSidebar = () => {
                                     {isActive && (
                                         <motion.div
                                             layoutId="activePill"
-                                            className="absolute right-0 w-1 h-8 bg-amber-500 rounded-l-full"
+                                            className="absolute right-0 w-1 h-8 bg-emerald-600 rounded-l-full"
                                         />
                                     )}
                                 </Link>
@@ -215,12 +215,12 @@ const AdminSidebar = () => {
                     </div>
                 ))}
                 <div
-                    className="mt-auto p-4 border-t border-white/5"
+                    className="mt-auto p-4 border-t border-slate-100"
                     style={{ position: 'relative', zIndex: 100 }}
                 >
                     <button
                         onClick={handleLogout}
-                        className={`flex items-center gap-3 w-full p-3 rounded-2xl text-red-500/70 hover:text-red-500 hover:bg-red-500/5 transition-all ${isCollapsed ? 'justify-center' : ''
+                        className={`flex items-center gap-3 w-full p-3 rounded-2xl text-red-500/70 hover:text-red-500 hover:bg-red-50 transition-all ${isCollapsed ? 'justify-center' : ''
                             }`}
                     >
                         <LogOut size={20} />

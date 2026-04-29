@@ -17,11 +17,11 @@ const AdvancedInput = ({
     showPasswordToggle, isPasswordVisible, onTogglePassword
 }) => (
     <div className="space-y-2 group" dir="rtl">
-        <label className="block text-[11px] font-black text-gray-500 uppercase tracking-widest mr-1 group-focus-within:text-amber-500 transition-colors">
+        <label className="block text-[11px] font-black text-slate-500 uppercase tracking-widest mr-1 group-focus-within:text-emerald-600 transition-colors">
             {label}
         </label>
         <div className="relative">
-            <div className="absolute inset-y-0 right-0 flex items-center pr-4 text-gray-500 group-focus-within:text-amber-500 transition-all z-20">
+            <div className="absolute inset-y-0 right-0 flex items-center pr-4 text-slate-400 group-focus-within:text-emerald-600 transition-all z-20">
                 <Icon size={18} strokeWidth={2.5} />
             </div>
 
@@ -33,10 +33,10 @@ const AdvancedInput = ({
                 autoComplete="current-password"
                 placeholder={placeholder}
                 className={`
-                    w-full text-end pr-12 pl-12 py-4 bg-white/[0.02] border rounded-[1.5rem] 
-                    outline-none transition-all duration-300 font-bold text-sm text-white
-                    placeholder:text-gray-700 backdrop-blur-xl
-                    ${error ? 'border-red-500/50 bg-red-500/5' : 'border-white/5 focus:border-amber-500/50 focus:bg-white/[0.05]'}
+                    w-full text-end pr-12 pl-12 py-4 bg-slate-50 border rounded-[1.5rem] 
+                    outline-none transition-all duration-300 font-bold text-sm text-slate-900
+                    placeholder:text-slate-600
+                    ${error ? 'border-red-200 bg-red-50' : 'border-slate-100 focus:border-emerald-500 focus:bg-white'}
                 `}
             />
 
@@ -44,14 +44,14 @@ const AdvancedInput = ({
                 <button
                     type="button"
                     onClick={onTogglePassword}
-                    className="absolute inset-y-0 left-0 flex items-center pl-4 text-gray-600 hover:text-white transition-colors z-20"
+                    className="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400 hover:text-slate-600 transition-colors z-20"
                 >
                     {isPasswordVisible ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
             )}
 
             {/* خط سفلي متحرك */}
-            <div className="absolute bottom-0 right-1/2 translate-x-1/2 w-0 h-[2px] bg-amber-500 group-focus-within:w-[80%] transition-all duration-500 opacity-50" />
+            <div className="absolute bottom-0 right-1/2 translate-x-1/2 w-0 h-[2px] bg-emerald-500 group-focus-within:w-[80%] transition-all duration-500 opacity-50" />
         </div>
         <AnimatePresence>
             {error && (
@@ -117,11 +117,11 @@ const Login = () => {
         try {
             const response = await api.post('/login', credentials);
             const { token, user, role } = response.data;
-           console.log(role)
+           
 
             // التحقق من حالة المؤسسة
             if (role === 'organization' && user.status === 'pending') {
-                console.log('from if: '+role)
+               
                 toast.error("حسابك قيد المراجعة من قبل الإدارة، ستصلك رسالة عند التفعيل.");
                 return;
             }
@@ -154,21 +154,21 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[#05050a] flex items-center justify-center p-4 relative overflow-hidden font-['Tajawal']" dir="rtl">
+        <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4 relative overflow-hidden font-['Tajawal']" dir="rtl">
             <Toaster position="top-center" toastOptions={{
-                style: { background: '#0f0f1a', color: '#fff', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', fontWeight: 'bold' }
+                style: { background: '#ffffff', color: '#0f172a', border: '1px solid #e2e8f0', borderRadius: '20px', fontWeight: 'bold' }
             }} />
 
             <div className="absolute inset-0 z-0">
                 <motion.div
                     animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
                     transition={{ duration: 10, repeat: Infinity }}
-                    className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-amber-600/10 rounded-full blur-[120px]"
+                    className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-emerald-600/5 rounded-full blur-[120px]"
                 />
                 <motion.div
                     animate={{ scale: [1, 1.3, 1], opacity: [0.05, 0.15, 0.05] }}
                     transition={{ duration: 15, repeat: Infinity, delay: 2 }}
-                    className="absolute bottom-[-20%] right-[-10%] w-[800px] h-[800px] bg-red-900/10 rounded-full blur-[120px]"
+                    className="absolute bottom-[-20%] right-[-10%] w-[800px] h-[800px] bg-slate-400/5 rounded-full blur-[120px]"
                 />
             </div>
 
@@ -182,9 +182,9 @@ const Login = () => {
                 <div className="text-center mb-10">
                     <motion.div
                         whileHover={{ scale: 1.05, rotate: 5 }}
-                        className="inline-flex relative p-5 rounded-[2.5rem] bg-gradient-to-tr from-amber-500 to-amber-600 shadow-2xl shadow-amber-600/20 mb-6 group cursor-pointer"
+                        className="inline-flex relative p-5 rounded-[2.5rem] bg-gradient-to-tr from-emerald-500 to-emerald-600 shadow-2xl shadow-emerald-600/20 mb-6 group cursor-pointer"
                     >
-                        <ShieldCheck size={48} className="text-black stroke-[2.5]" />
+                        <ShieldCheck size={48} className="text-slate-900 stroke-[2.5]" />
                         <motion.div
                             animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
                             transition={{ duration: 2, repeat: Infinity }}
@@ -192,15 +192,15 @@ const Login = () => {
                         />
                     </motion.div>
 
-                    <h1 className="text-4xl font-black text-white tracking-tighter mb-2">مـسـانـدة</h1>
-                    <div className="flex items-center justify-center gap-2 text-gray-500 font-bold text-xs uppercase tracking-[0.3em]">
-                        <Sparkles size={14} className="text-amber-500" />
+                    <h1 className="text-4xl font-black text-slate-900 tracking-tighter mb-2">مـسـانـدة</h1>
+                    <div className="flex items-center justify-center gap-2 text-slate-400 font-bold text-xs uppercase tracking-[0.3em]">
+                        <Sparkles size={14} className="text-emerald-500" />
                         بوابة الدخول الموحدة
                     </div>
                 </div>
 
                 {/* 2. جسم البطاقة (Glassmorphism Effect) */}
-                <div className="bg-[#0f0f1a]/60 backdrop-blur-3xl border border-white/5 p-8 md:p-12 rounded-[3.5rem] shadow-[0_30px_100px_rgba(0,0,0,0.5)]">
+                <div className="bg-white/80 backdrop-blur-3xl border border-slate-200 p-8 md:p-12 rounded-[3.5rem] shadow-[0_30px_100px_rgba(0,0,0,0.05)]">
 
                     <form onSubmit={onLoginSubmit} className="space-y-7">
                         {/* حقل البريد */}
@@ -231,10 +231,10 @@ const Login = () => {
                                 onTogglePassword={() => setShowPassword(!showPassword)}
                             />
                             <div className="flex justify-between items-center px-1">
-                                <Link to="/forgot-password" size="sm" className="text-[10px] font-black text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-widest">
+                                <Link to="/forgot-password" size="sm" className="text-[10px] font-black text-emerald-600 hover:text-emerald-700 transition-colors uppercase tracking-widest">
                                     نسيت كلمة السر؟
                                 </Link>
-                                <div className="flex items-center gap-1.5 text-[10px] text-gray-600 font-bold">
+                                <div className="flex items-center gap-1.5 text-[10px] text-slate-400 font-bold">
                                     <ShieldAlert size={12} />
                                     اتصال مشفر SSL
                                 </div>
@@ -248,7 +248,7 @@ const Login = () => {
                             className={`
                                 w-full py-5 rounded-[1.8rem] font-black text-sm uppercase tracking-[0.2em]
                                 transition-all duration-500 relative overflow-hidden group active:scale-95
-                                ${loginStatus === 'success' ? 'bg-emerald-500 text-white' : 'bg-white text-black hover:bg-amber-500'}
+                                ${loginStatus === 'success' ? 'bg-emerald-500 text-slate-900' : 'bg-slate-900 text-slate-900 hover:bg-emerald-600'}
                                 disabled:opacity-50 disabled:cursor-not-allowed
                             `}
                         >
@@ -277,8 +277,8 @@ const Login = () => {
                                         initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                                         className="flex items-center justify-center gap-3"
                                     >
-                                        <span>تسجيل الدخول</span>
-                                        <Fingerprint size={20} className="group-hover:scale-110 transition-transform" />
+                                        <span className='group-hover:text-black text-white'>تسجيل الدخول</span>
+                                        <Fingerprint size={20} className="group-hover:scale-110 group-hover:text-black text-white transition-transform" />
                                     </motion.div>
                                 )}
                             </AnimatePresence>
@@ -286,14 +286,14 @@ const Login = () => {
                     </form>
 
                     {/* 3. الروابط التبادلية */}
-                    <div className="mt-12 pt-8 border-t border-white/5">
+                    <div className="mt-12 pt-8 border-t border-slate-100">
                         <div className="grid grid-cols-1 gap-4">
-                            <p className="text-center text-gray-600 text-[11px] font-bold mb-2">ليس لديك حساب في المنصة؟</p>
+                            <p className="text-center text-slate-400 text-[11px] font-bold mb-2">ليس لديك حساب في المنصة؟</p>
                             <Link
                                 to="/register"
-                                className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-white/5 border border-white/5 text-white text-xs font-black hover:bg-white/10 transition-all group"
+                                className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-slate-50 border border-slate-100 text-slate-600 text-xs font-black hover:bg-slate-100 transition-all group"
                             >
-                                <UserCircle size={18} className="text-amber-500" />
+                                <UserCircle size={18} className="text-emerald-500" />
                                 أنشئ حسابك كمتطوع أو مؤسسة
                                 <ExternalLink size={14} className="opacity-0 group-hover:opacity-100 transition-all mr-2" />
                             </Link>
@@ -303,26 +303,26 @@ const Login = () => {
 
                 {/* --- تذييل الصفحة (Footer Information) --- */}
                 <div className="mt-10 flex flex-col items-center gap-4">
-                    <div className="flex items-center gap-6 text-[10px] font-black text-gray-700 uppercase tracking-[0.2em]">
-                        <a href="#" className="hover:text-amber-500 transition-colors">سياسة الخصوصية</a>
-                        <span className="w-1 h-1 bg-gray-800 rounded-full" />
-                        <a href="#" className="hover:text-amber-500 transition-colors">مركز المساعدة</a>
-                        <span className="w-1 h-1 bg-gray-800 rounded-full" />
-                        <a href="#" className="hover:text-amber-500 transition-colors">اتصل بنا</a>
+                    <div className="flex items-center gap-6 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
+                        <a href="#" className="hover:text-emerald-600 transition-colors">سياسة الخصوصية</a>
+                        <span className="w-1 h-1 bg-slate-200 rounded-full" />
+                        <a href="#" className="hover:text-emerald-600 transition-colors">مركز المساعدة</a>
+                        <span className="w-1 h-1 bg-slate-200 rounded-full" />
+                        <a href="#" className="hover:text-emerald-600 transition-colors">اتصل بنا</a>
                     </div>
-                    <p className="text-[9px] text-gray-800 font-mono tracking-widest uppercase">
+                    <p className="text-[9px] text-slate-400 font-mono tracking-widest uppercase">
                         &copy; 2026 Musanada Deployment • System v4.2.0-Stable
                     </p>
                 </div>
             </motion.div>
 
             {/* عناصر ديكورية جانبية */}
-            <div className="hidden xl:block absolute left-12 bottom-12 p-6 bg-white/5 border border-white/5 backdrop-blur-xl rounded-3xl max-w-[200px]">
-                <div className="flex items-center gap-2 text-amber-500 mb-2">
+            <div className="hidden xl:block absolute left-12 bottom-12 p-6 bg-white/80 border border-slate-100 backdrop-blur-xl rounded-3xl shadow-sm max-w-[200px]">
+                <div className="flex items-center gap-2 text-emerald-600 mb-2">
                     <Info size={16} />
                     <span className="text-[10px] font-black uppercase">نصيحة أمنية</span>
                 </div>
-                <p className="text-[9px] text-gray-500 font-bold leading-relaxed">
+                <p className="text-[9px] text-slate-500 font-bold leading-relaxed">
                     لا تشارك كلمة المرور الخاصة بك مع أي شخص، فريق مساندة لن يطلبها منك أبداً عبر الإيميل.
                 </p>
             </div>

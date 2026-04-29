@@ -57,7 +57,7 @@ const Certificates = () => {
     ];
 
     return (
-        <div className="flex min-h-screen bg-[#020205] text-white font-['Cairo'] overflow-hidden selection:bg-purple-500/40" dir="rtl">
+        <div className="flex min-h-screen bg-slate-50 text-slate-900 font-['Cairo'] overflow-hidden selection:bg-emerald-500/40" dir="rtl">
             <Toaster position="top-center" reverseOrder={false} />
             <Sidebar role="student" />
   {/* Grid Container */}
@@ -67,7 +67,7 @@ const Certificates = () => {
             <main className="flex-1 h-screen overflow-y-auto custom-scrollbar relative">
                 {/* خلفية فنية متطورة */}
                 <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-                    <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[120px] animate-pulse"></div>
+                    <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[120px] animate-pulse"></div>
                     <div className="absolute bottom-[-5%] left-[-5%] w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[100px]"></div>
                     <div className="absolute top-[20%] left-[10%] w-[2px] h-[60%] bg-gradient-to-b from-transparent via-purple-500/10 to-transparent"></div>
                 </div>
@@ -82,15 +82,15 @@ const Certificates = () => {
                         >
                             <div>
                                 <div className="flex items-center gap-3 mb-4">
-                                    <span className="px-3 py-1 bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-400 text-xs font-bold tracking-widest uppercase">
+                                    <span className="px-3 py-1 bg-emerald-500/10 border border-emerald-200 rounded-full text-emerald-600 text-xs font-bold tracking-widest uppercase">
                                         المحفظة الرقمية
                                     </span>
-                                    <div className="h-[1px] w-12 bg-purple-500/30"></div>
+                                    <div className="h-[1px] w-12 bg-emerald-500/30"></div>
                                 </div>
                                 <h1 className="text-5xl font-black tracking-tight mb-4">
-                                    سجل <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">الشهادات الموثقة</span>
+                                    سجل <span className="bg-gradient-to-r from-emerald-600 via-blue-400 to-indigo-400 bg-clip-text text-transparent">الشهادات الموثقة</span>
                                 </h1>
-                                <p className="text-gray-400 max-w-xl leading-relaxed">
+                                <p className="text-slate-500 max-w-xl leading-relaxed">
                                     استعرض وحمل شهاداتك المعتمدة الصادرة عن المؤسسات الشريكة. كل شهادة مزودة برمز استجابة سريع (QR) للتحقق من صحتها عالمياً.
                                 </p>
                             </div>
@@ -106,19 +106,19 @@ const Certificates = () => {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: i * 0.1 }}
-                                    className={`relative group bg-white/[0.03] border border-white/10 p-8 rounded-[2.5rem] overflow-hidden backdrop-blur-2xl hover:bg-white/[0.05] transition-all duration-500 ${stat.shadow}`}
+                                    className={`relative group bg-slate-50 border border-slate-200 p-8 rounded-[2.5rem] overflow-hidden backdrop-blur-2xl hover:bg-slate-50 transition-all duration-500 ${stat.shadow}`}
                                 >
                                     <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${stat.color} opacity-[0.03] rounded-bl-[5rem] group-hover:opacity-[0.08] transition-opacity`}></div>
                                     <div className="flex items-center justify-between relative z-10">
                                         <div>
-                                            <p className="text-gray-400 text-sm font-medium mb-2">{stat.label}</p>
+                                            <p className="text-slate-500 text-sm font-medium mb-2">{stat.label}</p>
                                             <div className="flex items-baseline gap-2">
                                                 <h3 className="text-4xl font-black tracking-tighter">{stat.value}</h3>
-                                                {i === 0 && <span className="text-xs text-purple-400 font-bold">وثيقة</span>}
+                                                {i === 0 && <span className="text-xs text-emerald-600 font-bold">وثيقة</span>}
                                             </div>
                                         </div>
                                         <div className={`p-4 rounded-2xl bg-gradient-to-br ${stat.color} shadow-lg`}>
-                                            <stat.icon size={26} className="text-white" />
+                                            <stat.icon size={26} className="text-slate-900" />
                                         </div>
                                     </div>
                                 </motion.div>
@@ -128,27 +128,27 @@ const Certificates = () => {
 
                     {/* قسم التحكم والفلترة */}
                     <div className="sticky top-4 z-40 mb-10">
-                        <div className="bg-white/[0.03] border border-white/10 backdrop-blur-3xl p-3 rounded-[2rem] shadow-2xl flex flex-col md:flex-row gap-3">
+                        <div className="bg-slate-50 border border-slate-200 backdrop-blur-3xl p-3 rounded-[2rem] shadow-2xl flex flex-col md:flex-row gap-3">
                             <div className="relative flex-1 group">
-                                <Search className="absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-purple-500 transition-colors" size={20} />
+                                <Search className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-emerald-600 transition-colors" size={20} />
                                 <input
                                     type="text"
                                     placeholder="ابحث برقم الشهادة، اسم المؤسسة أو عنوان الفرصة..."
-                                    className="w-full bg-black/40 border border-white/5 pr-14 pl-6 py-4 rounded-2xl outline-none focus:border-purple-500/40 focus:ring-4 focus:ring-purple-500/5 transition-all text-sm"
+                                    className="w-full bg-white border border-slate-100 pr-14 pl-6 py-4 rounded-2xl outline-none focus:border-purple-500/40 focus:ring-4 focus:ring-purple-500/5 transition-all text-sm"
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
                                 />
                             </div>
                             <div className="flex gap-3">
                                 <div className="relative">
-                                    <Filter className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={18} />
+                                    <Filter className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" size={18} />
                                     <select
-                                        className="bg-black/40 border border-white/5 pr-12 pl-8 py-4 rounded-2xl outline-none focus:border-purple-500/40 appearance-none text-sm cursor-pointer hover:bg-black/60 transition-colors min-w-[180px]"
+                                        className="bg-white border border-slate-100 pr-12 pl-8 py-4 rounded-2xl outline-none focus:border-purple-500/40 appearance-none text-sm cursor-pointer hover:bg-black/60 transition-colors min-w-[180px]"
                                         onChange={(e) => setFilterType(e.target.value)}
                                     >
-                                        <option className="bg-gray-900 text-white" value="all">جميع الأنواع</option>
-                                        <option className="bg-gray-900 text-white" value="voluntary">تطوعي</option>
-                                        <option className="bg-gray-900 text-white" value="training">تدريبي</option>
+                                        <option className="bg-white text-slate-900" value="all">جميع الأنواع</option>
+                                        <option className="bg-white text-slate-900" value="voluntary">تطوعي</option>
+                                        <option className="bg-white text-slate-900" value="training">تدريبي</option>
                                     </select>
                                 </div>
 
@@ -160,22 +160,22 @@ const Certificates = () => {
                     {loading ? (
                         <div className="flex flex-col items-center justify-center py-40">
                             <div className="relative">
-                                <Loader2 className="animate-spin text-purple-500 relative z-10" size={60} />
-                                <div className="absolute inset-0 blur-2xl bg-purple-500/20 animate-pulse"></div>
+                                <Loader2 className="animate-spin text-emerald-600 relative z-10" size={60} />
+                                <div className="absolute inset-0 blur-2xl bg-emerald-500/20 animate-pulse"></div>
                             </div>
-                            <p className="mt-6 text-gray-400 font-medium animate-pulse tracking-widest">جاري استرجاع الوثائق الرسمية...</p>
+                            <p className="mt-6 text-slate-500 font-medium animate-pulse tracking-widest">جاري استرجاع الوثائق الرسمية...</p>
                         </div>
                     ) : filteredLogs.length === 0 ? (
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            className="text-center py-32 bg-white/[0.01] border-2 border-dashed border-white/5 rounded-[4rem]"
+                            className="text-center py-32 bg-white border-2 border-dashed border-slate-100 rounded-[4rem]"
                         >
-                            <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-8 border border-white/10">
-                                <Info className="text-gray-600" size={40} />
+                            <div className="w-24 h-24 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-8 border border-slate-200">
+                                <Info className="text-slate-400" size={40} />
                             </div>
-                            <h3 className="text-2xl font-bold text-gray-300 mb-2">لا يوجد سجلات متوفرة</h3>
-                            <p className="text-gray-500">لم يتم العثور على أي شهادات تطابق معايير البحث الحالية.</p>
+                            <h3 className="text-2xl font-bold text-slate-600 mb-2">لا يوجد سجلات متوفرة</h3>
+                            <p className="text-slate-400">لم يتم العثور على أي شهادات تطابق معايير البحث الحالية.</p>
                         </motion.div>
                     ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -194,11 +194,11 @@ const Certificates = () => {
                 </div>
 
                 {/* تذييل الصفحة */}
-                <footer className="max-w-7xl mx-auto px-12 py-10 border-t border-white/5 mt-20 flex flex-col md:flex-row justify-between items-center gap-6 text-gray-500 text-sm">
+                <footer className="max-w-7xl mx-auto px-12 py-10 border-t border-slate-100 mt-20 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-400 text-sm">
                     <p>© 2026 منصة مساندة - جميع الشهادات الصادرة موثقة رقمياً عبر سجلاتنا المركزية.</p>
                     <div className="flex gap-8">
-                        <a href="#" className="hover:text-purple-400 transition-colors">سياسة التوثيق</a>
-                        <a href="#" className="hover:text-purple-400 transition-colors">التحقق من شهادة</a>
+                        <a href="#" className="hover:text-emerald-600 transition-colors">سياسة التوثيق</a>
+                        <a href="#" className="hover:text-emerald-600 transition-colors">التحقق من شهادة</a>
                     </div>
                 </footer>
             </main>)}
@@ -242,7 +242,7 @@ const CertificateGlassCard = ({ log, index, onClick }) => {
                     style: {
                         borderRadius: '15px',
                         background: '#18181b',
-                        color: '#fff',
+                        color: '#1e293b',
                         border: '1px solid rgba(255,255,255,0.1)'
                     }
                 });
@@ -256,19 +256,19 @@ const CertificateGlassCard = ({ log, index, onClick }) => {
         MySwal.fire({
             html: (
                 <div className="flex flex-col items-center p-4">
-                    <div className="w-20 h-20 bg-purple-500/10 rounded-3xl flex items-center justify-center mx-auto mb-4">
-                        <QrCode size={40} className="text-purple-400" />
+                    <div className="w-20 h-20 bg-emerald-500/10 rounded-3xl flex items-center justify-center mx-auto mb-4">
+                        <QrCode size={40} className="text-emerald-600" />
                     </div>
-                    <h3 className="text-xl font-black text-white">التحقق السريع</h3>
-                    <p className="text-gray-400 text-sm mt-2">وجه كاميرا الهاتف لمسح الرمز</p>
+                    <h3 className="text-xl font-black text-slate-900">التحقق السريع</h3>
+                    <p className="text-slate-500 text-sm mt-2">وجه كاميرا الهاتف لمسح الرمز</p>
 
                     <div className="bg-white p-6 rounded-[2.5rem] mt-6 shadow-2xl">
                         <QRCodeSVG value={shareUrl} size={200} level="H" />
                     </div>
 
                     <div className="mt-8 w-full">
-                        <p className="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-bold mb-2">كود التحقق</p>
-                        <div className="bg-black/40 border border-white/5 py-3 px-6 rounded-2xl font-mono text-purple-400 text-sm">
+                        <p className="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold mb-2">كود التحقق</p>
+                        <div className="bg-white border border-slate-100 py-3 px-6 rounded-2xl font-mono text-emerald-600 text-sm">
                             {log.certificate_code}
                         </div>
                     </div>
@@ -278,8 +278,8 @@ const CertificateGlassCard = ({ log, index, onClick }) => {
             showConfirmButton: false,
             showCloseButton: true,
             customClass: {
-                popup: 'rounded-[3rem] border border-white/10',
-                closeButton: 'text-gray-500'
+                popup: 'rounded-[3rem] border border-slate-200',
+                closeButton: 'text-slate-400'
             }
         });
     };
@@ -297,11 +297,11 @@ const CertificateGlassCard = ({ log, index, onClick }) => {
                 {/* توهج خلفي عند التحويم */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/20 via-blue-600/20 to-purple-600/20 rounded-[3rem] blur-xl opacity-0 group-hover:opacity-100 transition duration-1000"></div>
 
-                <div className="relative bg-gradient-to-br from-white/[0.07] to-white/[0.01] border border-white/10 backdrop-blur-xl rounded-[3rem] p-1 overflow-hidden transition-all duration-500 group-hover:border-white/20 group-hover:-translate-y-3 shadow-2xl">
+                <div className="relative bg-gradient-to-br from-white/[0.07] to-white/[0.01] border border-slate-200 backdrop-blur-xl rounded-[3rem] p-1 overflow-hidden transition-all duration-500 group-hover:border-slate-300 group-hover:-translate-y-3 shadow-2xl">
 
                     {/* زخرفة الشهادة داخل الكرت */}
                     <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <Hexagon size={180} strokeWidth={0.5} className="rotate-12 text-purple-400" />
+                        <Hexagon size={180} strokeWidth={0.5} className="rotate-12 text-emerald-600" />
                     </div>
 
                     <div className="relative p-8 flex flex-col h-full min-h-[380px]">
@@ -309,11 +309,11 @@ const CertificateGlassCard = ({ log, index, onClick }) => {
                         <div className="flex justify-between items-start mb-10">
                             <div className="flex items-center gap-4">
                                 <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-700 rounded-2xl flex items-center justify-center shadow-2xl shadow-purple-600/20 group-hover:rotate-6 transition-transform">
-                                    <Award className="text-white" size={32} />
+                                    <Award className="text-slate-900" size={32} />
                                 </div>
                                 <div>
-                                    <h4 className="text-xs font-black text-purple-400 tracking-widest uppercase mb-1">شهادة إنجاز</h4>
-                                    <p className="text-[10px] text-gray-500 font-mono tracking-tighter">{log.certificate_code}</p>
+                                    <h4 className="text-xs font-black text-emerald-600 tracking-widest uppercase mb-1">شهادة إنجاز</h4>
+                                    <p className="text-[10px] text-slate-400 font-mono tracking-tighter">{log.certificate_code}</p>
                                 </div>
                             </div>
                             <button
@@ -321,9 +321,9 @@ const CertificateGlassCard = ({ log, index, onClick }) => {
                                     e.stopPropagation();
                                     showQrAlert();
                                 }}
-                                className="bg-white/5 border border-white/10 p-3 rounded-2xl hover:bg-purple-500/20 hover:border-purple-500/50 transition-all active:scale-95"
+                                className="bg-slate-50 border border-slate-200 p-3 rounded-2xl hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-all active:scale-95"
                             >
-                                <QrCode size={30} className="text-gray-400 group-hover:text-purple-300 transition-colors" />
+                                <QrCode size={30} className="text-slate-500 group-hover:text-purple-300 transition-colors" />
                             </button>
                         </div>
 
@@ -334,11 +334,11 @@ const CertificateGlassCard = ({ log, index, onClick }) => {
                             </h3>
 
                             <div className="space-y-3">
-                                <div className="flex items-center gap-3 text-gray-400">
+                                <div className="flex items-center gap-3 text-slate-500">
                                     <Building2 size={16} className="text-blue-500" />
                                     <span className="text-sm font-bold">{log.organization_name}</span>
                                 </div>
-                                <div className="flex items-center gap-3 text-gray-500">
+                                <div className="flex items-center gap-3 text-slate-400">
                                     <Calendar size={16} />
                                     <span className="text-xs">تاريخ الإصدار: {new Date(log.issue_date).toLocaleDateString('ar-YE', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                                 </div>
@@ -347,15 +347,15 @@ const CertificateGlassCard = ({ log, index, onClick }) => {
 
                         {/* شبكة البيانات المصغرة */}
                         <div className="grid grid-cols-2 gap-4 mt-auto">
-                            <div className="bg-black/30 border border-white/5 rounded-[1.5rem] p-4 group-hover:bg-black/50 transition-colors">
-                                <p className="text-[10px] text-gray-500 font-black mb-1 uppercase tracking-tighter">الساعات الموثقة</p>
+                            <div className="bg-black/30 border border-slate-100 rounded-[1.5rem] p-4 group-hover:bg-black/50 transition-colors">
+                                <p className="text-[10px] text-slate-400 font-black mb-1 uppercase tracking-tighter">الساعات الموثقة</p>
                                 <div className="flex items-center gap-2">
                                     <span className="text-xl font-black text-blue-400">{log.approved_hours || 0}</span>
-                                    <span className="text-[10px] text-gray-400">ساعة عمل</span>
+                                    <span className="text-[10px] text-slate-500">ساعة عمل</span>
                                 </div>
                             </div>
-                            <div className="bg-black/30 border border-white/5 rounded-[1.5rem] p-4 group-hover:bg-black/50 transition-colors">
-                                <p className="text-[10px] text-gray-500 font-black mb-1 uppercase tracking-tighter">التحقق الرقمي</p>
+                            <div className="bg-black/30 border border-slate-100 rounded-[1.5rem] p-4 group-hover:bg-black/50 transition-colors">
+                                <p className="text-[10px] text-slate-400 font-black mb-1 uppercase tracking-tighter">التحقق الرقمي</p>
                                 <div className="flex items-center gap-2 text-emerald-500">
                                     <CheckCircle2 size={14} />
                                     <span className="text-[10px] font-bold">صالح ومعتمد</span>
@@ -364,13 +364,13 @@ const CertificateGlassCard = ({ log, index, onClick }) => {
                         </div>
 
                         {/* أزرار الإجراءات السريعة */}
-                        <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between">
+                        <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
                             <div className="flex gap-2 ">
                                 <button onClick={
                                     (e) => {
                                         e.stopPropagation();
                                         handleView(log.certificate_code)
-                                    }} className=" cursor-pointer  p-3 bg-white/5 hover:bg-white/10 rounded-xl transition-colors text-gray-400 hover:text-white" title="عرض الشهادة">
+                                    }} className=" cursor-pointer  p-3 bg-slate-50 hover:bg-slate-50 rounded-xl transition-colors text-slate-500 hover:text-slate-900" title="عرض الشهادة">
                                     <Eye size={18} />
 
                                 </button>
@@ -381,7 +381,7 @@ const CertificateGlassCard = ({ log, index, onClick }) => {
                                     e.stopPropagation();
                                     handleShare();
                                 }}
-                                className="cursor-pointer p-3 bg-white/5 hover:bg-white/10 rounded-xl transition-colors text-gray-400 hover:text-white"
+                                className="cursor-pointer p-3 bg-slate-50 hover:bg-slate-50 rounded-xl transition-colors text-slate-500 hover:text-slate-900"
                                 title="مشاركة"
                             >
                                 <Share2 size={18} />
@@ -401,11 +401,11 @@ const CertificateGlassCard = ({ log, index, onClick }) => {
 const LoadingSpinner = () => (
     <div className="flex flex-col items-center justify-center py-40 w-full">
         <div className="relative">
-            <div className="w-16 h-16 border-4 border-purple-500/10 border-t-purple-500 rounded-full animate-spin" />
+            <div className="w-16 h-16 border-4 border-emerald-100 border-t-purple-500 rounded-full animate-spin" />
             <div className="absolute inset-0 w-16 h-16 border-4 border-transparent border-b-emerald-500 rounded-full animate-spin animate-pulse" />
         </div>
-        <h2 className="mt-8 text-xl font-black text-white tracking-widest animate-pulse uppercase">Syncing Database...</h2>
-        <p className="text-gray-600 mt-2 font-bold">يرجى الانتظار، جاري تحضير البيانات</p>
+        <h2 className="mt-8 text-xl font-black text-slate-900 tracking-widest animate-pulse uppercase">Syncing Database...</h2>
+        <p className="text-slate-400 mt-2 font-bold">يرجى الانتظار، جاري تحضير البيانات</p>
     </div>
 );
 export default Certificates;

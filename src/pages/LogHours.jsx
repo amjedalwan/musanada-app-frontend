@@ -72,7 +72,7 @@ const LogHours = () => {
     };
 
     return (
-        <div className="flex min-h-screen bg-[#020205] text-white font-['Cairo'] selection:bg-purple-500/30" dir="rtl">
+        <div className="flex min-h-screen bg-slate-50 text-slate-900 font-['Cairo'] selection:bg-emerald-500/30" dir="rtl">
             <Toaster position="top-center" />
             <Sidebar role="organization" />
   {/* Grid Container */}
@@ -83,14 +83,14 @@ const LogHours = () => {
                 <header className="max-w-4xl mx-auto mb-8">
                     <button
                         onClick={() => navigate(-1)}
-                        className="flex items-center gap-2 text-gray-500 hover:text-purple-400 transition-all mb-4 group text-sm font-bold"
+                        className="flex items-center gap-2 text-slate-400 hover:text-emerald-600 transition-all mb-4 group text-sm font-bold"
                     >
                         <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
                         العودة للمتقدمين
                     </button>
 
                     <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-purple-400 shrink-0">
+                        <div className="w-10 h-10 rounded-xl bg-emerald-600/20 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0">
                             <ShieldCheck size={24} />
                         </div>
                         <h1 className="text-2xl md:text-3xl font-black bg-gradient-to-l from-white to-gray-500 bg-clip-text text-transparent">
@@ -105,10 +105,10 @@ const LogHours = () => {
                     <div className="lg:col-span-4 space-y-6">
                         <motion.div
                             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                            className="bg-[#0a0a0c] border border-white/5 rounded-2xl p-5 text-center"
+                            className="bg-white border border-slate-100 rounded-2xl p-5 text-center"
                         >
                             <div className="w-20 h-20 mx-auto mb-3 relative">
-                                <div className="w-full h-full rounded-2xl bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-white/10 flex items-center justify-center text-xl font-black text-purple-400 overflow-hidden">
+                                <div className="w-full h-full rounded-2xl bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-slate-200 flex items-center justify-center text-xl font-black text-emerald-600 overflow-hidden">
                                     {userData?.profile_image ? (
                                         <img src={userData.profile_image} className="w-full h-full object-cover" alt="" />
                                     ) : (
@@ -116,19 +116,19 @@ const LogHours = () => {
                                     )}
                                 </div>
                                 <div className="absolute -bottom-1 -right-1 bg-emerald-500 p-1 rounded-lg border-2 border-[#0a0a0c]">
-                                    <User size={12} className="text-white" />
+                                    <User size={12} className="text-slate-900" />
                                 </div>
                             </div>
                             <h3 className="text-base font-bold mb-0.5 truncate">{userData?.full_name || "تحميل..."}</h3>
-                            <p className="text-gray-500 text-[11px] mb-4 truncate">{userData?.email}</p>
+                            <p className="text-slate-400 text-[11px] mb-4 truncate">{userData?.email}</p>
 
-                            <div className="grid grid-cols-2 gap-2 border-t border-white/5 pt-4">
+                            <div className="grid grid-cols-2 gap-2 border-t border-slate-100 pt-4">
                                 <div>
-                                    <div className="text-[9px] text-gray-500 uppercase font-black">الساعات</div>
-                                    <div className="text-sm font-black text-purple-400">{userData?.total_hours || 0}</div>
+                                    <div className="text-[9px] text-slate-400 uppercase font-black">الساعات</div>
+                                    <div className="text-sm font-black text-emerald-600">{userData?.total_hours || 0}</div>
                                 </div>
                                 <div>
-                                    <div className="text-[9px] text-gray-500 uppercase font-black">المرتبة</div>
+                                    <div className="text-[9px] text-slate-400 uppercase font-black">المرتبة</div>
                                     <div className="text-sm lg:text-[10px] text-wrap font-black text-amber-500 truncate">{userData?.rank || 'برونزي'}</div>
                                 </div>
                             </div>
@@ -145,14 +145,14 @@ const LogHours = () => {
                     {/* Compact Form */}
                     <motion.div
                         initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}
-                        className="lg:col-span-8 bg-[#0a0a0c] border border-white/5 rounded-2xl p-6 md:p-8"
+                        className="lg:col-span-8 bg-white border border-slate-100 rounded-2xl p-6 md:p-8"
                     >
                         <form onSubmit={handleSubmit} className="space-y-6">
 
                             {/* Hours Input */}
                             <div className="space-y-2">
-                                <label className="text-xs font-bold text-gray-400 flex items-center gap-2">
-                                    <Clock size={14} className="text-purple-500" /> عدد الساعات
+                                <label className="text-xs font-bold text-slate-500 flex items-center gap-2">
+                                    <Clock size={14} className="text-emerald-600" /> عدد الساعات
                                 </label>
                                 <div className="relative group">
                                     <input
@@ -164,7 +164,7 @@ const LogHours = () => {
                                         /* منع الرموز العلمية والإشارات */
                                         onKeyDown={(e) => ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()}
                                         /* إخفاء أسهم الزيادة والنقصان الافتراضية عبر CSS inline */
-                                        className="w-full bg-white/[0.03] border border-white/10 rounded-xl py-3 px-4 
+                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 
                        focus:outline-none focus:border-purple-500/50 transition-all 
                        text-xl font-bold [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                                         placeholder="0"
@@ -177,7 +177,7 @@ const LogHours = () => {
                                             }
                                         }}
                                     />
-                                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600 text-sm font-bold pointer-events-none">
+                                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm font-bold pointer-events-none">
                                         ساعة
                                     </span>
                                 </div>
@@ -185,8 +185,8 @@ const LogHours = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="space-y-2">
-                                    <label className="text-xs font-bold text-gray-400 flex items-center gap-2">
-                                        <Calendar size={14} className="text-purple-500" /> التاريخ
+                                    <label className="text-xs font-bold text-slate-500 flex items-center gap-2">
+                                        <Calendar size={14} className="text-emerald-600" /> التاريخ
                                     </label>
                                     <input
                                         ref={dateInputRef} 
@@ -195,7 +195,7 @@ const LogHours = () => {
                                         max={today}
                                         /* هذه الدالة تجعل الحقل يفتح التقويم عند النقر في أي مكان */
                                         onClick={() => dateInputRef.current.showPicker()}
-                                        className="w-full bg-white/[0.03] border border-white/10 rounded-xl py-2.5 px-4 
+                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-4 
                    focus:outline-none focus:border-purple-500/50 transition-all 
                    text-sm font-bold cursor-pointer" // أضفنا cursor-pointer لتحسين التجربة
                                         value={formData.date_logged}
@@ -206,7 +206,7 @@ const LogHours = () => {
                                     <Info className="text-blue-400 shrink-0 mt-0.5" size={16} />
                                     <div className="space-y-1">
                                         <p className="text-[10px] text-blue-200 font-bold leading-tight">سياسة التوثيق الزمني</p>
-                                        <p className="text-[9px] text-gray-500 leading-relaxed font-medium">
+                                        <p className="text-[9px] text-slate-400 leading-relaxed font-medium">
                                             يرجى اختيار تاريخ تنفيذ العمل الفعلي. النظام يمنع تسجيل ساعات مستقبلية لضمان نزاهة السجل الرقمي للمتطوع. كل ساعة يتم توثيقها تمنح المتطوع 10 نقاط خبرة فورية.
                                         </p>
                                     </div>
@@ -214,13 +214,13 @@ const LogHours = () => {
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-xs font-bold text-gray-400 flex items-center gap-2">
-                                    <FileText size={14} className="text-purple-500" /> التفاصيل
+                                <label className="text-xs font-bold text-slate-500 flex items-center gap-2">
+                                    <FileText size={14} className="text-emerald-600" /> التفاصيل
                                 </label>
                                 <textarea
                                     rows="3"
                                     placeholder="وصف مختصر لما تم إنجازه..."
-                                    className="w-full bg-white/[0.03] border border-white/10 rounded-xl py-3 px-4 focus:outline-none focus:border-purple-500/50 transition-all text-sm font-medium resize-none"
+                                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:border-purple-500/50 transition-all text-sm font-medium resize-none"
                                     value={formData.notes}
                                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                                 ></textarea>
@@ -228,10 +228,10 @@ const LogHours = () => {
 
                             <button
                                 type="submit" disabled={loading}
-                                className="w-full bg-purple-600 hover:bg-purple-500 disabled:bg-gray-800 py-3.5 rounded-xl font-black text-sm flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-lg shadow-purple-900/10"
+                                className="w-full bg-emerald-600 hover:bg-emerald-500 disabled:bg-gray-800 py-3.5 rounded-xl font-black text-sm flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-lg shadow-purple-900/10"
                             >
                                 {loading ? (
-                                    <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
+                                    <div className="w-5 h-5 border-2 border-slate-300 border-t-white rounded-full animate-spin"></div>
                                 ) : (
                                     <>
                                         <Send size={16} /> اعتماد الساعات
@@ -249,11 +249,11 @@ const LogHours = () => {
 const LoadingSpinner = () => (
     <div className="flex flex-col items-center justify-center py-40 w-full">
         <div className="relative">
-            <div className="w-16 h-16 border-4 border-purple-500/10 border-t-purple-500 rounded-full animate-spin" />
+            <div className="w-16 h-16 border-4 border-emerald-100 border-t-purple-500 rounded-full animate-spin" />
             <div className="absolute inset-0 w-16 h-16 border-4 border-transparent border-b-emerald-500 rounded-full animate-spin animate-pulse" />
         </div>
-        <h2 className="mt-8 text-xl font-black text-white tracking-widest animate-pulse uppercase">Syncing Database...</h2>
-        <p className="text-gray-600 mt-2 font-bold">يرجى الانتظار، جاري تحضير البيانات</p>
+        <h2 className="mt-8 text-xl font-black text-slate-900 tracking-widest animate-pulse uppercase">Syncing Database...</h2>
+        <p className="text-slate-400 mt-2 font-bold">يرجى الانتظار، جاري تحضير البيانات</p>
     </div>
 );
 export default LogHours;

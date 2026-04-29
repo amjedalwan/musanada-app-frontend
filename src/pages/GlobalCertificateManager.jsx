@@ -60,7 +60,7 @@ const GlobalCertificateManager = () => {
         }
     }, [certData]);
     if (loading) return (
-        <div className="min-h-screen bg-[#050508] flex items-center justify-center">
+        <div className="min-h-screen bg-slate-50 flex items-center justify-center">
             <div className="w-12 h-12 border-4 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
     );
@@ -89,22 +89,22 @@ const GlobalCertificateManager = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[#0f1115] font-['Cairo'] text-right" dir="rtl">
+        <div className="min-h-screen bg-slate-50 font-['Cairo'] text-right" dir="rtl">
             <Toaster position="top-center" />
 
             {/* شريط التحكم (لا يظهر عند الطباعة) */}
-            <nav className="fixed top-0 left-0 right-0 z-50 p-4 bg-black/40 backdrop-blur-xl border-b border-white/5 flex justify-between items-center no-print">
-                <div className="flex items-center gap-3 text-white">
+            <nav className="fixed top-0 left-0 right-0 z-50 p-4 bg-white backdrop-blur-xl border-b border-slate-100 flex justify-between items-center no-print">
+                <div className="flex items-center gap-3 text-slate-900">
                     <div className="p-2 bg-amber-600 rounded-lg shadow-lg">
                         <Award size={20} />
                     </div>
                     <span className="font-bold text-sm hidden md:block">منصة مساندة - نظام تصديق الشهادات الرقمي</span>
                 </div>
                 <div className="flex gap-4">
-                    <div className="flex bg-white/5 rounded-xl border border-white/10 p-1 items-center text-white">
-                        <button onClick={() => setScale(s => Math.max(0.4, s - 0.1))} className="p-2 hover:bg-white/10 rounded-lg"><ZoomOut size={16} /></button>
+                    <div className="flex bg-slate-50 rounded-xl border border-slate-200 p-1 items-center text-slate-900">
+                        <button onClick={() => setScale(s => Math.max(0.4, s - 0.1))} className="p-2 hover:bg-slate-50 rounded-lg"><ZoomOut size={16} /></button>
                         <span className="text-xs font-mono w-10 text-center">{Math.round(scale * 100)}%</span>
-                        <button onClick={() => setScale(s => Math.min(1.5, s + 0.1))} className="p-2 hover:bg-white/10 rounded-lg"><ZoomIn size={16} /></button>
+                        <button onClick={() => setScale(s => Math.min(1.5, s + 0.1))} className="p-2 hover:bg-slate-50 rounded-lg"><ZoomIn size={16} /></button>
                     </div>
                     <button
                         onClick={() => {
@@ -122,14 +122,14 @@ const GlobalCertificateManager = () => {
 
                             }, 250); // زدنا المهلة قليلاً هنا لضمان التوافق مع المتصفحات الأبطأ
                         }}
-                        className="bg-amber-600 text-white hover:bg-amber-500 transition-all px-6 py-2 rounded-xl text-xs font-black flex items-center gap-2"
+                        className="bg-amber-600 text-slate-900 hover:bg-amber-500 transition-all px-6 py-2 rounded-xl text-xs font-black flex items-center gap-2"
                     >
                         <Download size={16} /> طباعة وحفظ
                     </button>
                 </div>
             </nav>
 
-            <main className="pt-10 pb-10 flex flex-col items-center min-h-screen bg-[#0f1115]">
+            <main className="pt-10 pb-10 flex flex-col items-center min-h-screen bg-slate-50">
                 <div style={{
                     transform: `scale(${scale})`,
                     transition: '0.3s',
@@ -146,14 +146,14 @@ const GlobalCertificateManager = () => {
                             style={{ backgroundColor: colors.headerBg, color: textColorHeader }}
                             className="relative h-[220px]  flex flex-col items-center justify-center overflow-hidden"
                         >
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32"></div>
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-slate-50 rounded-full -mr-32 -mt-32"></div>
                             <div className="absolute bottom-0 left-0 w-32 h-32 bg-black/10 rounded-full -ml-16 -mb-16"></div>
 
                             {
                                 certData.orgLogo ? (
                                     <img src={`${API_BASE_URL}/storage/${certData.orgLogo}`} alt="Logo" className="w-24 h-24 mb-4 z-10 object-contain bg-white p-2 rounded-2xl shadow-xl" />
                                 ) : (
-                                    <div className="w-20 h-20 mb-4 z-10 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20">
+                                    <div className="w-20 h-20 mb-4 z-10 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-slate-300">
                                         <Building2 size={40} />
                                     </div>
                                 )
@@ -209,10 +209,10 @@ const GlobalCertificateManager = () => {
 
                             <div className="relative mb-6">
                                 {/* طبقة الزجاج الرئيسية */}
-                                <div className="relative bg-white/5 backdrop-blur-sm border border-white/40 py-6 px-10 rounded-2xl shadow-xl shadow-amber-950/5 overflow-hidden group">
+                                <div className="relative bg-slate-50 backdrop-blur-sm border border-white/40 py-6 px-10 rounded-2xl shadow-xl shadow-amber-950/5 overflow-hidden group">
 
                                     {/* لمعة زجاجية ديكورية في الزاوية */}
-                                    <div className="absolute -top-10 -left-10 w-24 h-24 bg-white/50 rounded-full blur-sm transition-all group-hover:scale-150"></div>
+                                    <div className="absolute -top-10 -left-10 w-24 h-24 bg-slate-500 rounded-full blur-sm transition-all group-hover:scale-150"></div>
 
                                     {/* النص - تأكد من استخدام لون داكن للتباين */}
                                     <span className="relative z-10 text-2xl font-black text-amber-950 tracking-tight">
@@ -278,7 +278,7 @@ const GlobalCertificateManager = () => {
                                             style={{ filter: textColorFooter === '#ffffff' ? 'brightness(0) invert(1)' : 'none' }}
                                         />
                                     ) : (
-                                        <div className="h-20 flex items-center justify-center italic text-slate-300 font-serif">Official Stamp</div>
+                                        <div className="h-20 flex items-center justify-center italic text-slate-600 font-serif">Official Stamp</div>
                                     )}
                                     <div className="w-40 h-px bg-slate-300"></div>
                                     <p className="text-[10px] mt-2 font-black text-slate-500 uppercase tracking-widest">التوقيع والختم الرقمي</p>

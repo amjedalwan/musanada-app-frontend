@@ -220,11 +220,11 @@ const EditOpportunity = () => {
                 icon: 'success',
                 title: 'تم التحديث بنجاح!',
                 text: 'تم حفظ كافة التغييرات وتحديث بيانات الفرصة',
-                background: '#0a0a0c',
-                color: '#fff',
-                confirmButtonColor: '#7c3aed',
+                background: '#ffffff',
+                color: '#1e293b',
+                confirmButtonColor: '#059669',
                 customClass: {
-                    popup: 'rounded-[2rem] border border-white/10'
+                    popup: 'rounded-[2rem] border border-slate-200'
                 }
             });
 
@@ -239,13 +239,13 @@ const EditOpportunity = () => {
     };
 
     if (loading) return (
-        <div className="flex min-h-screen bg-[#020205] items-center justify-center">
-            <Loader2 className="animate-spin text-purple-500" size={40} />
+        <div className="flex min-h-screen bg-slate-50 items-center justify-center">
+            <Loader2 className="animate-spin text-emerald-600" size={40} />
         </div>
     );
 
     return (
-        <div className="flex min-h-screen bg-[#020205] text-white font-['Cairo']" dir="rtl">
+        <div className="flex min-h-screen bg-slate-50 text-slate-900 font-['Cairo']" dir="rtl">
             <Toaster position="top-left" />
             <Sidebar role="organization" />
 
@@ -258,9 +258,9 @@ const EditOpportunity = () => {
                             <h1 className="text-4xl font-black bg-gradient-to-l from-white to-gray-500 bg-clip-text text-transparent">
                                 تعديل الفرصة
                             </h1>
-                            <p className="text-gray-500 mt-2 text-sm">قم بتحديث معلومات الفرصة والموقع الجغرافي</p>
+                            <p className="text-slate-400 mt-2 text-sm">قم بتحديث معلومات الفرصة والموقع الجغرافي</p>
                         </div>
-                        <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors bg-white/5 px-4 py-2 rounded-xl">
+                        <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors bg-slate-50 px-4 py-2 rounded-xl">
                             <ArrowRight size={20} /> العودة
                         </button>
                     </div>
@@ -273,21 +273,21 @@ const EditOpportunity = () => {
                            
 
                             {/* Content Section */}
-                            <div className="bg-white/[0.02] border border-white/10 p-8 rounded-[2.5rem] space-y-6">
+                            <div className="bg-slate-50 border border-slate-200 p-8 rounded-[2.5rem] space-y-6">
                                 <div className="space-y-3">
-                                    <label className="flex items-center gap-2 text-sm font-bold text-gray-400"><AlignLeft size={16} /> عنوان الفرصة</label>
+                                    <label className="flex items-center gap-2 text-sm font-bold text-slate-500"><AlignLeft size={16} /> عنوان الفرصة</label>
                                     <input
                                         type="text" required
-                                        className="w-full bg-white/[0.05] border border-white/10 rounded-2xl py-4 px-6 focus:border-purple-500 outline-none transition-all text-xl font-bold"
+                                        className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-4 px-6 focus:border-purple-500 outline-none transition-all text-xl font-bold"
                                         value={formData.title}
                                         onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                                     />
                                 </div>
                                 <div className="space-y-3">
-                                    <label className="flex items-center gap-2 text-sm font-bold text-gray-400"><FileText size={16} /> وصف التفاصيل والمتطلبات</label>
+                                    <label className="flex items-center gap-2 text-sm font-bold text-slate-500"><FileText size={16} /> وصف التفاصيل والمتطلبات</label>
                                     <textarea
                                         rows="8" required
-                                        className="w-full bg-white/[0.05] border border-white/10 rounded-2xl py-4 px-6 focus:border-purple-500 outline-none transition-all resize-none leading-relaxed"
+                                        className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-4 px-6 focus:border-purple-500 outline-none transition-all resize-none leading-relaxed"
                                         value={formData.description}
                                         onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                                     />
@@ -295,9 +295,9 @@ const EditOpportunity = () => {
                             </div>
 
                             {/* Map Card */}
-                            <div className="bg-white/[0.02] border border-white/10 p-6 rounded-[2.5rem] space-y-4">
+                            <div className="bg-slate-50 border border-slate-200 p-6 rounded-[2.5rem] space-y-4">
                                 <div className="flex justify-between items-center">
-                                    <label className="flex items-center gap-2 text-xs font-black text-gray-500 uppercase tracking-wider">
+                                    <label className="flex items-center gap-2 text-xs font-black text-slate-400 uppercase tracking-wider">
                                         <Globe size={14} /> الموقع الجغرافي الدقيق
                                     </label>
 
@@ -305,14 +305,14 @@ const EditOpportunity = () => {
                                     <button
                                         type="button"
                                         onClick={handleGetCurrentLocation}
-                                        className="flex items-center gap-1 text-[10px] bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 px-3 py-1.5 rounded-full border border-purple-500/20 transition-all group"
+                                        className="flex items-center gap-1 text-[10px] bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 px-3 py-1.5 rounded-full border border-emerald-200 transition-all group"
                                     >
                                         <MapPin size={12} className="group-hover:animate-bounce" />
                                         تحديد موقعي الآن
                                     </button>
                                 </div>
 
-                                <div className="h-64 rounded-3xl overflow-hidden border border-white/10 relative z-0 shadow-2xl">
+                                <div className="h-64 rounded-3xl overflow-hidden border border-slate-200 relative z-0 shadow-2xl">
                                     <InteractiveMap
                                         lat={formData.lat}
                                         lng={formData.lng}
@@ -324,7 +324,7 @@ const EditOpportunity = () => {
                                 <input
                                     type="text"
                                     placeholder="وصف الموقع (مثال:  الرياض - الدرعية)"
-                                    className="w-full bg-white/[0.05] border border-white/10 rounded-xl py-3 px-4 outline-none text-sm focus:border-purple-500/50 transition-all"
+                                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 outline-none text-sm focus:border-purple-500/50 transition-all"
                                     value={formData.location}
                                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                                 />
@@ -335,25 +335,25 @@ const EditOpportunity = () => {
                         <div className="lg:col-span-4 space-y-6">
                             {/* Configuration Card */}
                              {/* Image Section */}
-                            <div className="bg-white/[0.02] border border-white/10 p-6 rounded-[2.5rem]">
-                                <label className="flex items-center gap-2 text-sm font-bold text-gray-400 mb-4">
+                            <div className="bg-slate-50 border border-slate-200 p-6 rounded-[2.5rem]">
+                                <label className="flex items-center gap-2 text-sm font-bold text-slate-500 mb-4">
                                     <ImageIcon size={18} /> صورة الغلاف المطورة
                                 </label>
                                 <div
                                     onClick={() => fileInputRef.current.click()}
-                                    className="relative h-64 bg-white/[0.03] border-2 border-dashed border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:border-purple-500/50 transition-all group"
+                                    className="relative h-64 bg-slate-50 border-2 border-dashed border-slate-200 rounded-3xl overflow-hidden cursor-pointer hover:border-emerald-500/50 transition-all group"
                                 >
                                     {imagePreview ? (
                                         <>
                                             <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
-                                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                                <div className="bg-white/10 backdrop-blur-md p-4 rounded-full border border-white/20">
+                                            <div className="absolute inset-0 bg-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <div className="bg-white/10 backdrop-blur-md p-4 rounded-full border border-slate-300">
                                                     <Camera size={32} />
                                                 </div>
                                             </div>
                                         </>
                                     ) : (
-                                        <div className="flex flex-col items-center justify-center h-full text-gray-500">
+                                        <div className="flex flex-col items-center justify-center h-full text-slate-400">
                                             <Camera size={40} className="mb-2" />
                                             <p>اضغط لتغيير الصورة (Max 2MB)</p>
                                         </div>
@@ -361,50 +361,50 @@ const EditOpportunity = () => {
                                     <input type="file" ref={fileInputRef} hidden onChange={handleImageChange} accept="image/*" />
                                 </div>
                             </div>
-                            <div className="bg-white/[0.02] border border-white/10 p-6 rounded-[2.5rem] space-y-5">
+                            <div className="bg-slate-50 border border-slate-200 p-6 rounded-[2.5rem] space-y-5">
 
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-black text-gray-500 uppercase">النوع</label>
+                                        <label className="text-[10px] font-black text-slate-400 uppercase">النوع</label>
                                         <select
                                             value={formData.type}
                                             onChange={e => setFormData({ ...formData, type: e.target.value })}
-                                            className="w-full bg-white/5 border border-white/10 rounded-xl py-2 px-3 text-xs text-purple-400 outline-none"
+                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 px-3 text-xs text-emerald-600 outline-none"
                                         >
-                                            <option className="bg-gray-900 text-white" value="voluntary">تطوعي</option>
-                                            <option className="bg-gray-900 text-white" value="training">تدريب</option>
-                                            <option className="bg-gray-900 text-white" value="course">دورة</option>
+                                            <option className="bg-white text-slate-900" value="voluntary">تطوعي</option>
+                                            <option className="bg-white text-slate-900" value="training">تدريب</option>
+                                            <option className="bg-white text-slate-900" value="course">دورة</option>
                                         </select>
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-black text-gray-500 uppercase">الجنس</label>
+                                        <label className="text-[10px] font-black text-slate-400 uppercase">الجنس</label>
                                         <select
                                             value={formData.gender}
                                             onChange={e => setFormData({ ...formData, gender: e.target.value })}
-                                            className="w-full bg-white/5 border border-white/10 rounded-xl py-2 px-3 text-xs outline-none"
+                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 px-3 text-xs outline-none"
                                         >
-                                            <option className="bg-gray-900 text-white" value="both">للجنسين</option>
-                                            <option className="bg-gray-900 text-white" value="male">ذكور</option>
-                                            <option className="bg-gray-900 text-white" value="female">إناث</option>
+                                            <option className="bg-white text-slate-900" value="both">للجنسين</option>
+                                            <option className="bg-white text-slate-900" value="male">ذكور</option>
+                                            <option className="bg-white text-slate-900" value="female">إناث</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="flex items-center gap-2 text-xs font-black text-gray-500 uppercase"><Clock size={14} /> الوقت المتوقع</label>
+                                    <label className="flex items-center gap-2 text-xs font-black text-slate-400 uppercase"><Clock size={14} /> الوقت المتوقع</label>
                                     <input
                                         type="text"
-                                        className="w-full bg-white/[0.05] border border-white/10 rounded-xl py-3 px-4 outline-none"
+                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 outline-none"
                                         value={formData.duration}
                                         onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
                                     />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="flex items-center gap-2 text-xs font-black text-gray-500 uppercase"><Users size={14} /> العدد المطلوب</label>
+                                    <label className="flex items-center gap-2 text-xs font-black text-slate-400 uppercase"><Users size={14} /> العدد المطلوب</label>
                                     <input
                                         type="number"
                                         min="1"
-                                        className="w-full bg-white/[0.05] border border-white/10 rounded-xl py-3 px-4 outline-none"
+                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 outline-none"
                                         value={formData.required_volunteers}
                                         onChange={(e) => setFormData({ ...formData, required_volunteers: e.target.value })}
                                     />
@@ -413,12 +413,12 @@ const EditOpportunity = () => {
                                 <div className="grid grid-cols-1 gap-4">
                                     {/* تاريخ البداية */}
                                     <div className="space-y-2">
-                                        <label className="flex items-center gap-2 text-xs font-black text-gray-500 uppercase">
+                                        <label className="flex items-center gap-2 text-xs font-black text-slate-400 uppercase">
                                             <Calendar size={14} /> تاريخ البداية
                                         </label>
                                         <input
                                             type="date"
-                                            className="w-full bg-white/[0.05] border border-white/10 rounded-xl py-3 px-4 outline-none focus:border-purple-500 transition-all"
+                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 outline-none focus:border-purple-500 transition-all"
                                             value={formData.start_date}
                                             onChange={(e) => setFormData({ ...formData, start_date: e.target.value })}
                                         />
@@ -426,12 +426,12 @@ const EditOpportunity = () => {
 
                                     {/* الموعد النهائي (موجود مسبقاً) */}
                                     <div className="space-y-2">
-                                        <label className="flex items-center gap-2 text-xs font-black text-gray-500 uppercase">
+                                        <label className="flex items-center gap-2 text-xs font-black text-slate-400 uppercase">
                                             <Calendar size={14} />تاريخ الانتهاء
                                         </label>
                                         <input
                                             type="date"
-                                            className="w-full bg-white/[0.05] border border-white/10 rounded-xl py-3 px-4 outline-none focus:border-purple-500 transition-all"
+                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 outline-none focus:border-purple-500 transition-all"
                                             value={formData.deadline}
                                            
                                             onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
@@ -439,16 +439,16 @@ const EditOpportunity = () => {
                                     </div>
                                 </div>
 
-                                <div className="space-y-2 pt-2 border-t border-white/5">
-                                    <label className="flex items-center gap-2 text-xs font-black text-gray-500 uppercase"><Target size={14} /> المهارات المطلوبة</label>
+                                <div className="space-y-2 pt-2 border-t border-slate-100">
+                                    <label className="flex items-center gap-2 text-xs font-black text-slate-400 uppercase"><Target size={14} /> المهارات المطلوبة</label>
                                     <div className="flex flex-wrap gap-2 max-h-32 overflow-y-auto custom-scrollbar p-1">
                                         {skillsList.map(skill => (
                                             <button
                                                 key={skill.id} type="button"
                                                 onClick={() => toggleSkill(skill.id)}
                                                 className={`px-3 py-1.5 rounded-lg text-[10px] font-bold border transition-all ${formData.skill_ids.includes(skill.id)
-                                                    ? 'bg-purple-600 border-purple-400 text-white'
-                                                    : 'bg-white/5 border-white/10 text-gray-400 hover:border-white/20'
+                                                    ? 'bg-emerald-600 border-purple-400 text-slate-900'
+                                                    : 'bg-slate-50 border-slate-200 text-slate-500 hover:border-slate-300'
                                                     }`}
                                             >
                                                 {skill.name}

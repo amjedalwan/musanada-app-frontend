@@ -31,8 +31,8 @@ const CreateOpportunity = () => {
         description: '',
         type: 'voluntary',
         location: '',
-        lat: 15.3694,
-        lng: 44.1910,
+        lat: 24.5694,
+        lng: 46.5910,
         duration: '',
         requirements: '',
         required_volunteers: 1,
@@ -208,11 +208,11 @@ const CreateOpportunity = () => {
                 icon: 'success',
                 title: 'نجحت العملية !',
                 text: '"تم انشاء و نشر الفرصة بنجاح!',
-                background: '#0a0a0c',
-                color: '#fff',
-                confirmButtonColor: '#7c3aed',
+                background: '#ffffff',
+                color: '#1e293b',
+                confirmButtonColor: '#059669',
                 customClass: {
-                    popup: 'rounded-[2rem] border border-white/10'
+                    popup: 'rounded-[2rem] border border-slate-200'
                 }
             });
 
@@ -227,7 +227,7 @@ const CreateOpportunity = () => {
     };
 
     return (
-        <div className="flex min-h-screen bg-[#050508] text-slate-200 font-sans" dir="rtl">
+        <div className="flex min-h-screen bg-slate-50 text-slate-900 font-sans" dir="rtl">
             <Toaster position="top-center" />
             <Sidebar role={user?.role} />
             {/* Grid Container */}
@@ -236,21 +236,21 @@ const CreateOpportunity = () => {
             ) : (
                 <main className="flex-1 p-4 lg:p-10 overflow-y-auto relative custom-scrollbar">
                     <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-                        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-indigo-600/10 blur-[150px] rounded-full" />
+                        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-emerald-600/10 blur-[150px] rounded-full" />
                     </div>
 
                     <div className="max-w-6xl mx-auto">
                         {/* الرأس */}
                         <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="flex justify-between items-center mb-10">
                             <div>
-                                <h1 className="text-3xl font-black text-white flex items-center gap-4">
-                                    <div className="p-2 bg-indigo-500/20 rounded-2xl">
-                                        <PlusCircle className="text-indigo-400" size={32} />
+                                <h1 className="text-3xl font-black text-slate-900 flex items-center gap-4">
+                                    <div className="p-2 bg-emerald-500/20 rounded-2xl">
+                                        <PlusCircle className="text-emerald-600" size={32} />
                                     </div>
-                                    إنشاء فرصة <span className="text-indigo-400">جديدة</span>
+                                    إنشاء فرصة <span className="text-emerald-600">جديدة</span>
                                 </h1>
                             </div>
-                            <button onClick={() => navigate(-1)} className="px-5 py-2 bg-white/5 rounded-xl flex items-center gap-2 text-sm border border-white/10 hover:bg-white/10 transition-all">
+                            <button onClick={() => navigate(-1)} className="px-5 py-2 bg-slate-50 rounded-xl flex items-center gap-2 text-sm border border-slate-200 hover:bg-slate-50 transition-all">
                                 <ChevronLeft size={18} /> تراجع
                             </button>
                         </motion.div>
@@ -261,27 +261,27 @@ const CreateOpportunity = () => {
                             <div className="lg:col-span-8 space-y-8">
 
                                 {/* قسم رفع الغلاف */}
-                                <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-[#0c0c14] border border-white/5 rounded-[2rem] p-6 shadow-2xl overflow-hidden group">
-                                    <div className="flex items-center gap-3 mb-6 border-b border-white/5 pb-4">
-                                        <ImageIcon className="text-indigo-400" size={20} />
-                                        <h3 className="text-lg font-bold text-white">غلاف الفرصة</h3>
+                                <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-white border border-slate-100 rounded-[2rem] p-6 shadow-2xl overflow-hidden group">
+                                    <div className="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
+                                        <ImageIcon className="text-emerald-600" size={20} />
+                                        <h3 className="text-lg font-bold text-slate-900">غلاف الفرصة</h3>
                                     </div>
 
                                     <div
                                         onClick={() => fileInputRef.current.click()}
-                                        className="relative h-64 bg-white/[0.03] border-2 border-dashed border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:border-purple-500/50 transition-all group"
+                                        className="relative h-64 bg-slate-50 border-2 border-dashed border-slate-200 rounded-3xl overflow-hidden cursor-pointer hover:border-emerald-500/50 transition-all group"
                                     >
                                         {imagePreview ? (
                                             <>
                                                 <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
-                                                <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                                    <div className="bg-white/10 backdrop-blur-md p-4 rounded-full border border-white/20">
+                                                <div className="absolute inset-0 bg-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                                    <div className="bg-white/10 backdrop-blur-md p-4 rounded-full border border-slate-300">
                                                         <Camera size={32} />
                                                     </div>
                                                 </div>
                                             </>
                                         ) : (
-                                            <div className="flex flex-col items-center justify-center h-full text-gray-500">
+                                            <div className="flex flex-col items-center justify-center h-full text-slate-400">
                                                 <Camera size={40} className="mb-2" />
                                                 <p>اضغط لاختيار غلاف للفرصة (Max 2MB)</p>
                                             </div>
@@ -291,48 +291,48 @@ const CreateOpportunity = () => {
                                 </motion.section>
 
                                 {/* معلومات أساسية */}
-                                <motion.section initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="bg-[#0c0c14] border border-white/5 rounded-[2rem] p-6 md:p-8 shadow-2xl">
-                                    <div className="flex items-center gap-3 mb-8 border-b border-white/5 pb-5">
-                                        <FileText className="text-indigo-400" size={22} />
-                                        <h3 className="text-lg font-bold text-white">المعلومات الأساسية</h3>
+                                <motion.section initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="bg-white border border-slate-100 rounded-[2rem] p-6 md:p-8 shadow-2xl">
+                                    <div className="flex items-center gap-3 mb-8 border-b border-slate-100 pb-5">
+                                        <FileText className="text-emerald-600" size={22} />
+                                        <h3 className="text-lg font-bold text-slate-900">المعلومات الأساسية</h3>
                                     </div>
 
                                     <div className="space-y-6">
 
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div>
-                                                <label className="text-xs font-bold text-gray-500 mb-3 block">عنوان الفرصة</label>
+                                                <label className="text-xs font-bold text-slate-400 mb-3 block">عنوان الفرصة</label>
                                                 <input
                                                     name="title" required value={formData.title} onChange={handleChange}
-                                                    className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-6 focus:border-indigo-500 outline-none transition-all text-white"
+                                                    className="w-full bg-white border border-slate-200 rounded-2xl py-4 px-6 focus:border-emerald-500 outline-none transition-all text-slate-900"
                                                     placeholder="عنوان جذاب للفرصة..."
                                                 />
                                             </div>
                                             <div>
-                                                <label className="text-xs font-bold text-gray-500 mb-3 block">موقع الفرصة </label>
+                                                <label className="text-xs font-bold text-slate-400 mb-3 block">موقع الفرصة </label>
                                                 <input
                                                     name="location" required value={formData.location} onChange={handleChange}
-                                                    className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-6 focus:border-indigo-500 outline-none transition-all text-white"
+                                                    className="w-full bg-white border border-slate-200 rounded-2xl py-4 px-6 focus:border-emerald-500 outline-none transition-all text-slate-900"
                                                     placeholder=" مثلا : المجاردة - جامعة الملك خالد .."
                                                 />
                                             </div>
                                         </div>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div>
-                                                <label className="text-xs font-bold text-gray-500 mb-3 block">مدة العمل</label>
-                                                <input name="duration" value={formData.duration} onChange={handleChange} className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-6 outline-none text-white focus:border-indigo-500" placeholder="مثلاً: 3 أيام" />
+                                                <label className="text-xs font-bold text-slate-400 mb-3 block">مدة العمل</label>
+                                                <input name="duration" value={formData.duration} onChange={handleChange} className="w-full bg-white border border-slate-200 rounded-2xl py-4 px-6 outline-none text-slate-900 focus:border-emerald-500" placeholder="مثلاً: 3 أيام" />
                                             </div>
                                             <div>
-                                                <label className="text-xs font-bold text-gray-500 mb-3 block">المتطلبات</label>
-                                                <input name="requirements" value={formData.requirements} onChange={handleChange} className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-6 outline-none text-white focus:border-indigo-500" placeholder="مثلاً: لابتوب" />
+                                                <label className="text-xs font-bold text-slate-400 mb-3 block">المتطلبات</label>
+                                                <input name="requirements" value={formData.requirements} onChange={handleChange} className="w-full bg-white border border-slate-200 rounded-2xl py-4 px-6 outline-none text-slate-900 focus:border-emerald-500" placeholder="مثلاً: لابتوب" />
                                             </div>
                                         </div>
 
                                         <div>
-                                            <label className="text-xs font-bold text-gray-500 mb-3 block">الوصف التفصيلي</label>
+                                            <label className="text-xs font-bold text-slate-400 mb-3 block">الوصف التفصيلي</label>
                                             <textarea
                                                 name="description" required rows="5" value={formData.description} onChange={handleChange}
-                                                className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-6 focus:border-indigo-500 outline-none text-gray-300 resize-none"
+                                                className="w-full bg-white border border-slate-200 rounded-2xl py-4 px-6 focus:border-emerald-500 outline-none text-slate-600 resize-none"
                                                 placeholder="اشرح المهام والهدف من الفرصة..."
                                             />
                                         </div>
@@ -340,12 +340,12 @@ const CreateOpportunity = () => {
                                 </motion.section>
 
                                 {/* الخريطة */}
-                                <motion.section className="bg-[#0c0c14] border border-white/5 rounded-[2rem] p-6 shadow-2xl">
+                                <motion.section className="bg-white border border-slate-100 rounded-[2rem] p-6 shadow-2xl">
                                     <div className="flex items-center justify-between mb-8">
-                                        <div className="flex items-center gap-3"><MapIcon className="text-emerald-400" size={22} /><h3 className="text-lg font-bold text-white">موقع التنفيذ</h3></div>
-                                        <button type="button" onClick={getCurrentLocation} className="text-xs font-black text-emerald-400 bg-emerald-400/10 px-4 py-2 rounded-xl border border-emerald-400/20">تحديد موقعي</button>
+                                        <div className="flex items-center gap-3"><MapIcon className="text-emerald-600" size={22} /><h3 className="text-lg font-bold text-slate-900">موقع التنفيذ</h3></div>
+                                        <button type="button" onClick={getCurrentLocation} className="text-xs font-black text-emerald-600 bg-emerald-400/10 px-4 py-2 rounded-xl border border-emerald-400/20">تحديد موقعي</button>
                                     </div>
-                                    <div className="h-[350px] rounded-[1.5rem] overflow-hidden border border-white/10 relative">
+                                    <div className="h-[350px] rounded-[1.5rem] overflow-hidden border border-slate-200 relative">
                                         <InteractiveMap lat={formData.lat} lng={formData.lng} onLocationSelect={handleLocationSelect} isEditing={true} />
                                     </div>
                                 </motion.section>
@@ -354,12 +354,12 @@ const CreateOpportunity = () => {
 
                             {/* الجانب الأيسر (الإعدادات) */}
                             <div className="lg:col-span-4 space-y-8">
-                                <motion.section className="bg-[#0c0c14] border border-white/5 rounded-[2rem] p-6 shadow-2xl sticky top-8">
+                                <motion.section className="bg-white border border-slate-100 rounded-[2rem] p-6 shadow-2xl sticky top-8">
                                     <div className="space-y-8">
                                         {/* التصنيف */}
 
                                         <div>
-                                            <label className="text-[10px] text-gray-500 font-black mb-3 block uppercase">تصنيف الفرصة</label>
+                                            <label className="text-[10px] text-slate-400 font-black mb-3 block uppercase">تصنيف الفرصة</label>
                                             <div className="relative">
                                                 <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
 
@@ -369,25 +369,25 @@ const CreateOpportunity = () => {
                                                     onChange={handleChange}
                                                     className="filter-select"
                                                 >
-                                                    <option className="bg-gray-900 text-white" value="voluntary">تطوعي</option>
-                                                    <option className="bg-gray-900 text-white" value="training">تدريب تعاوني</option>
-                                                    <option className="bg-gray-900 text-white" value="course">دورة تدريبية</option>
+                                                    <option className="bg-white text-slate-900" value="voluntary">تطوعي</option>
+                                                    <option className="bg-white text-slate-900" value="training">تدريب تعاوني</option>
+                                                    <option className="bg-white text-slate-900" value="course">دورة تدريبية</option>
                                                 </select>
                                             </div>
                                         </div>
 
                                         {/* المهارات داخل الصندوق الجانبي لسرعة الوصول */}
                                         <div>
-                                            <label className="text-[10px] text-gray-500 font-black mb-3 block uppercase">المهارات ({formData.skill_ids.length})</label>
+                                            <label className="text-[10px] text-slate-400 font-black mb-3 block uppercase">المهارات ({formData.skill_ids.length})</label>
                                             <div className="relative mb-3">
-                                                <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500" size={14} />
-                                                <input type="text" placeholder="بحث..." value={skillSearch} onChange={(e) => setSkillSearch(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-lg py-2 pr-9 pl-3 text-xs outline-none focus:border-indigo-500" />
+                                                <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400" size={14} />
+                                                <input type="text" placeholder="بحث..." value={skillSearch} onChange={(e) => setSkillSearch(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg py-2 pr-9 pl-3 text-xs outline-none focus:border-emerald-500" />
                                             </div>
                                             <div className="flex flex-wrap gap-2 max-h-40 overflow-y-auto custom-scrollbar p-1">
                                                 {filteredSkills.map(skill => (
                                                     <button
                                                         key={skill.id} type="button" onClick={() => toggleSkill(skill.id)}
-                                                        className={`px-3 py-1.5 rounded-lg text-[11px] font-bold border transition-all ${formData.skill_ids.includes(skill.id) ? 'bg-indigo-600 border-indigo-400 text-white' : 'bg-white/5 border-white/10 text-gray-400'}`}
+                                                        className={`px-3 py-1.5 rounded-lg text-[11px] font-bold border transition-all ${formData.skill_ids.includes(skill.id) ? 'bg-emerald-600 border-emerald-500 text-slate-900' : 'bg-slate-50 border-slate-200 text-slate-500'}`}
                                                     >
                                                         {skill.name}
                                                     </button>
@@ -397,15 +397,15 @@ const CreateOpportunity = () => {
 
                                         {/* عدد المتطوعين */}
                                         <div>
-                                            <label className="text-[10px] text-gray-500 font-black mb-3 block uppercase">العدد المطلوب</label>
-                                            <div className="flex items-center gap-4 bg-black/40 border border-white/10 rounded-2xl p-3">
-                                                <Users size={20} className="text-indigo-400" />
-                                                <input type="number" name="required_volunteers" min="1" value={formData.required_volunteers} onChange={handleChange} className="bg-transparent w-full outline-none font-bold text-white" />
+                                            <label className="text-[10px] text-slate-400 font-black mb-3 block uppercase">العدد المطلوب</label>
+                                            <div className="flex items-center gap-4 bg-white border border-slate-200 rounded-2xl p-3">
+                                                <Users size={20} className="text-emerald-600" />
+                                                <input type="number" name="required_volunteers" min="1" value={formData.required_volunteers} onChange={handleChange} className="bg-transparent w-full outline-none font-bold text-slate-900" />
                                             </div>
                                         </div>
                                         {/* اختيار الجنس */}
                                         <div>
-                                            <label className="text-[10px] text-gray-500 font-black mb-3 block uppercase">الجنس المطلوب</label>
+                                            <label className="text-[10px] text-slate-400 font-black mb-3 block uppercase">الجنس المطلوب</label>
                                             <div className="grid grid-cols-3 gap-2">
                                                 {['both', 'male', 'female'].map((g) => (
                                                     <button
@@ -413,8 +413,8 @@ const CreateOpportunity = () => {
                                                         type="button"
                                                         onClick={() => setFormData(prev => ({ ...prev, gender: g }))}
                                                         className={`py-2 rounded-xl text-[10px] font-bold border transition-all ${formData.gender === g
-                                                            ? 'bg-indigo-600 border-indigo-400 text-white'
-                                                            : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10'
+                                                            ? 'bg-emerald-600 border-emerald-500 text-slate-900'
+                                                            : 'bg-slate-50 border-slate-200 text-slate-500 hover:bg-slate-50'
                                                             }`}
                                                     >
                                                         {g === 'both' ? 'الكل' : g === 'male' ? 'ذكور' : 'إناث'}
@@ -425,12 +425,12 @@ const CreateOpportunity = () => {
                                         <div className="grid grid-cols-2 gap-4 flex w-full flex-row">
                                             {/* تاريخ البداية */}
                                             <div className="space-y-2">
-                                                <label className="flex items-center gap-2 text-xs font-black text-gray-500 uppercase">
+                                                <label className="flex items-center gap-2 text-xs font-black text-slate-400 uppercase">
                                                     <Calendar size={14} /> تاريخ البداية
                                                 </label>
                                                 <input
                                                     type="date"
-                                                    className="text-sm w-full md:text-md bg-white/[0.05] border border-white/10 rounded-xl py-3 px-4 outline-none focus:border-purple-500 transition-all"
+                                                    className="text-sm w-full md:text-md bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 outline-none focus:border-purple-500 transition-all"
                                                     value={formData.start_date}
                                                     onChange={(e) => setFormData({ ...formData, start_date: e.target.value })}
                                                 />
@@ -438,12 +438,12 @@ const CreateOpportunity = () => {
 
                                             {/* الموعد النهائي (موجود مسبقاً) */}
                                             <div className="space-y-2">
-                                                <label className="flex items-center gap-2 text-xs font-black text-gray-500 uppercase">
+                                                <label className="flex items-center gap-2 text-xs font-black text-slate-400 uppercase">
                                                     <Calendar size={14} /> تاريخ الانتهاء
                                                 </label>
                                                 <input
                                                     type="date"
-                                                    className="w-full text-sm md:text-md bg-white/[0.05] border border-white/10 rounded-xl py-3 px-4 outline-none focus:border-purple-500 transition-all"
+                                                    className="w-full text-sm md:text-md bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 outline-none focus:border-purple-500 transition-all"
                                                     value={formData.deadline}
                                                     min={formData.start_date || getTomorrowDate()} // التقديم ينتهي بعد البداية أو غداً
                                                     onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
@@ -456,7 +456,7 @@ const CreateOpportunity = () => {
                                         {/* زر النشر */}
                                         <button
                                             type="submit" disabled={saving}
-                                            className="w-full bg-indigo-600 hover:bg-indigo-500 disabled:bg-gray-800 text-white rounded-2xl py-4 font-black flex items-center justify-center gap-3 transition-all shadow-lg shadow-indigo-600/20 active:scale-95"
+                                            className="w-full bg-emerald-600 hover:bg-emerald-500 disabled:bg-gray-800 text-slate-900 rounded-2xl py-4 font-black flex items-center justify-center gap-3 transition-all shadow-lg shadow-emerald-600/20 active:scale-95"
                                         >
                                             {saving ? <Loader2 className="animate-spin" size={20} /> : <><Send size={20} /> نشر الفرصة</>}
                                         </button>
@@ -480,11 +480,11 @@ const CreateOpportunity = () => {
 const LoadingSpinner = () => (
     <div className="flex flex-col items-center justify-center py-40 w-full">
         <div className="relative">
-            <div className="w-16 h-16 border-4 border-purple-500/10 border-t-purple-500 rounded-full animate-spin" />
+            <div className="w-16 h-16 border-4 border-emerald-100 border-t-purple-500 rounded-full animate-spin" />
             <div className="absolute inset-0 w-16 h-16 border-4 border-transparent border-b-emerald-500 rounded-full animate-spin animate-pulse" />
         </div>
-        <h2 className="mt-8 text-xl font-black text-white tracking-widest animate-pulse uppercase">Syncing Database...</h2>
-        <p className="text-gray-600 mt-2 font-bold">يرجى الانتظار، جاري تحضير البيانات</p>
+        <h2 className="mt-8 text-xl font-black text-slate-900 tracking-widest animate-pulse uppercase">Syncing Database...</h2>
+        <p className="text-slate-400 mt-2 font-bold">يرجى الانتظار، جاري تحضير البيانات</p>
     </div>
 );
 

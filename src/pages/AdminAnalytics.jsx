@@ -214,24 +214,24 @@ const AdminAnalytics = () => {
     if (loading) return <LoadingScreen />;
 
     return (
-        <div className="flex min-h-screen bg-[#05050a] text-gray-200 font-['Cairo'] rtl" dir="rtl">
+        <div className="flex min-h-screen bg-slate-50 text-slate-900 font-['Cairo'] rtl" dir="rtl">
             <AdminSidebar activePage="analytics" />
 
             <main className="flex-1 flex flex-col h-screen overflow-hidden">
                 {/* Dynamic Header */}
-                <header className="h-24 border-b border-white/5 flex items-center justify-between px-10 bg-[#0a0a16]/80 backdrop-blur-3xl z-30">
+                <header className="h-24 border-b border-slate-100 flex items-center justify-between px-10 bg-white/80 backdrop-blur-3xl z-30">
                     <div className="flex items-center gap-5">
                         <div className="relative group">
-                            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                            <div className="relative p-4 bg-[#0f0f1a] rounded-2xl text-blue-500 border border-white/10">
+                            <div className="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                            <div className="relative p-4 bg-white rounded-2xl text-emerald-600 border border-slate-100">
                                 <Database size={28} />
                             </div>
                         </div>
                         <div>
-                            <h1 className="text-2xl font-black text-white tracking-tight">الإحصائيات المتقدمة</h1>
+                            <h1 className="text-2xl font-black text-slate-900 tracking-tight">الإحصائيات المتقدمة</h1>
                             <div className="flex items-center gap-2 mt-1">
                                 <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-[0.3em]"> استخراج البيانات وتصديرها ملفات Excel </p>
+                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.3em]"> استخراج البيانات وتصديرها ملفات Excel </p>
                             </div>
                         </div>
                     </div>
@@ -239,17 +239,17 @@ const AdminAnalytics = () => {
                     <div className="flex items-center gap-4">
                         <button
                             onClick={loadData}
-                            className={`p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all ${refreshing ? 'animate-spin' : ''}`}
+                            className={`p-3 rounded-xl bg-slate-50 border border-slate-100 hover:bg-slate-100 transition-all ${refreshing ? 'animate-spin' : ''}`}
                         >
-                            <RefreshCw size={20} className="text-blue-400" />
+                            <RefreshCw size={20} className="text-emerald-600" />
                         </button>
                         <button
                             onClick={() => handleExport('annual_report')}
-                            className="group relative flex items-center gap-3 px-8 py-3 bg-white text-black rounded-2xl font-black text-xs transition-all hover:scale-105 active:scale-95 overflow-hidden"
+                            className="group relative flex items-center gap-3 px-8 py-3 bg-emerald-600 text-slate-900 rounded-2xl font-black text-xs transition-all hover:scale-105 active:scale-95 overflow-hidden"
                         >
-                            <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 opacity-0 group-hover:opacity-100 transition-opacity" />
                             <Award size={18} className="relative z-10" />
-                            <span className="relative z-10 text-black group-hover:text-white transition-colors">تصدير التقرير السنوي الشامل</span>
+                            <span className="relative z-10 text-slate-900 transition-colors">تصدير التقرير السنوي الشامل</span>
                         </button>
                     </div>
                 </header>
@@ -259,8 +259,8 @@ const AdminAnalytics = () => {
                     {/* Control Panel: Data Export Hub */}
                     <section>
                         <div className="flex items-center gap-3 mb-8">
-                            <Layers className="text-purple-500" size={20} />
-                            <h2 className="text-lg font-black text-white">منصة استخراج السجلات (Master Export)</h2>
+                            <Layers className="text-emerald-600" size={20} />
+                            <h2 className="text-lg font-black text-slate-900">منصة استخراج السجلات (Master Export)</h2>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                             <ExportCard
@@ -297,14 +297,14 @@ const AdminAnalytics = () => {
                     {/* Analytics Matrix */}
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         {/* الجهد الزمني */}
-                        <div className="lg:col-span-2 bg-[#0f0f1a] border border-white/5 p-8 rounded-[3rem] shadow-2xl relative overflow-hidden group">
+                        <div className="lg:col-span-2 bg-white border border-slate-100 p-8 rounded-[3rem] shadow-sm shadow-emerald-500/5 relative overflow-hidden group">
                             <div className="flex justify-between items-center mb-10">
                                 <div>
-                                    <h3 className="text-xl font-black text-white uppercase tracking-tighter">سجل الإنتاجية الزمنية</h3>
-                                    <p className="text-xs text-gray-500 mt-1 font-bold">إجمالي الساعات الموثقة عبر النظام شهرياً</p>
+                                    <h3 className="text-xl font-black text-slate-900 uppercase tracking-tighter">سجل الإنتاجية الزمنية</h3>
+                                    <p className="text-xs text-slate-400 mt-1 font-bold">إجمالي الساعات الموثقة عبر النظام شهرياً</p>
                                 </div>
                                 <div className="flex gap-2">
-                                    <div className="px-4 py-2 bg-blue-500/10 rounded-xl border border-blue-500/20 text-blue-500 text-[10px] font-black">
+                                    <div className="px-4 py-2 bg-emerald-50 rounded-xl border border-emerald-100 text-emerald-600 text-[10px] font-black">
                                         سنة {new Date().getFullYear()}
                                     </div>
                                 </div>
@@ -314,22 +314,22 @@ const AdminAnalytics = () => {
                                     <AreaChart data={data.monthlyHours}>
                                         <defs>
                                             <linearGradient id="hourGradient" x1="0" y1="0" x2="0" y2="1">
-                                                <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3} />
-                                                <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+                                                <stop offset="5%" stopColor="#10b981" stopOpacity={0.3} />
+                                                <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
                                             </linearGradient>
                                         </defs>
-                                        <CartesianGrid strokeDasharray="3 3" stroke="#ffffff05" vertical={false} />
-                                        <XAxis dataKey="month" stroke="#4b5563" fontSize={10} tickLine={false} axisLine={false} />
-                                        <YAxis stroke="#4b5563" fontSize={10} tickLine={false} axisLine={false} />
-                                        <Tooltip content={<CustomTooltip />} cursor={{ stroke: 'rgba(255,255,255,0.1)', strokeWidth: 1, strokeDasharray: '4 4' }} />
+                                        <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
+                                        <XAxis dataKey="month" stroke="#94a3b8" fontSize={10} tickLine={false} axisLine={false} />
+                                        <YAxis stroke="#94a3b8" fontSize={10} tickLine={false} axisLine={false} />
+                                        <Tooltip content={<CustomTooltip />} cursor={{ stroke: 'rgba(16,185,129,0.1)', strokeWidth: 1, strokeDasharray: '4 4' }} />
                                         <Area
                                             type="monotone"
                                             dataKey="total_hours"
-                                            stroke="#3b82f6"
+                                            stroke="#10b981"
                                             strokeWidth={4}
                                             fill="url(#hourGradient)"
                                             animationDuration={2000}
-                                            activeDot={{ r: 8, stroke: '#0f0f1a', strokeWidth: 3, fill: '#3b82f6' }}
+                                            activeDot={{ r: 8, stroke: '#fff', strokeWidth: 3, fill: '#10b981' }}
                                         />
                                     </AreaChart>
                                 </ResponsiveContainer>
@@ -337,8 +337,8 @@ const AdminAnalytics = () => {
                         </div>
 
                         {/* توزيع الحالات */}
-                        <div className="bg-[#0f0f1a] border border-white/5 p-8 rounded-[3rem] shadow-2xl flex flex-col">
-                            <h3 className="text-lg font-black text-white mb-8 text-center uppercase tracking-widest">فرص النظام</h3>
+                        <div className="bg-white border border-slate-100 p-8 rounded-[3rem] shadow-sm shadow-emerald-500/5 flex flex-col">
+                            <h3 className="text-lg font-black text-slate-900 mb-8 text-center uppercase tracking-widest">فرص النظام</h3>
                             <div className="flex-1 min-h-[300px]">
                                 <ResponsiveContainer width="100%" height="100%">
                                     <PieChart>
@@ -353,9 +353,9 @@ const AdminAnalytics = () => {
                                             animationDuration={1500}
                                         >
                                             {data.opportunityStats.map((entry, index) => {
-                                                const STATUS_COLORS = { open: '#10b981', closed: '#ef4444', completed: '#3b82f6', pending: '#f59e0b' };
+                                                const STATUS_COLORS = { open: '#10b981', closed: '#ef4444', completed: '#0ea5e9', pending: '#f59e0b' };
                                                 const fill = STATUS_COLORS[entry.status] || COLORS[index % COLORS.length];
-                                                return <Cell key={`cell-${index}`} fill={fill} stroke="rgba(15, 15, 26, 0.5)" strokeWidth={2} style={{ filter: 'drop-shadow(0px 10px 10px rgba(0,0,0,0.3))', cursor: 'pointer' }} />;
+                                                return <Cell key={`cell-${index}`} fill={fill} stroke="#fff" strokeWidth={2} style={{ filter: 'drop-shadow(0px 10px 10px rgba(0,0,0,0.05))', cursor: 'pointer' }} />;
                                             })}
                                         </Pie>
                                         <Tooltip content={<PieTooltip />} />
@@ -368,12 +368,12 @@ const AdminAnalytics = () => {
                                 </ResponsiveContainer>
                             </div>
 
-                            <div className="mt-auto space-y-4 pt-6 border-t border-white/5">
+                            <div className="mt-auto space-y-4 pt-6 border-t border-slate-50">
                                 <div className="flex justify-between items-center">
-                                    <span className="text-[10px] font-black text-gray-500 uppercase">معدل الإنجاز الكلي</span>
+                                    <span className="text-[10px] font-black text-slate-400 uppercase">معدل الإنجاز الكلي</span>
                                     <span className="text-xs font-black text-emerald-500">92.4%</span>
                                 </div>
-                                <div className="w-full h-2 bg-white/5 rounded-full overflow-hidden">
+                                <div className="w-full h-2 bg-slate-50 rounded-full overflow-hidden">
                                     <motion.div
                                         initial={{ width: 0 }}
                                         animate={{ width: '92.4%' }}
@@ -386,22 +386,22 @@ const AdminAnalytics = () => {
                     </div>
 
                     {/* Skill Gap Analysis Matrix */}
-                    <div className="bg-[#0f0f1a]/80 border border-white/5 p-10 rounded-[3rem] backdrop-blur-xl relative overflow-hidden">
-                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-30" />
+                    <div className="bg-white border border-slate-100 p-10 rounded-[3rem] shadow-sm shadow-emerald-500/5 relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent opacity-30" />
 
                         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
                             <div>
-                                <h3 className="text-2xl font-black text-white flex items-center gap-4">
+                                <h3 className="text-2xl font-black text-slate-900 flex items-center gap-4">
                                     <Star className="text-amber-500" size={32} />
                                     تحليل فجوة المهارات (Skill Gap Analysis)
                                 </h3>
-                                <p className="text-sm text-gray-500 mt-2 font-medium max-w-2xl leading-relaxed">
+                                <p className="text-sm text-slate-400 mt-2 font-medium max-w-2xl leading-relaxed">
                                     يوضح هذا الجدول التوازن بين المهارات التي تطلبها المؤسسات (الطلب) والمهارات المتوفرة لدى قاعدة الكوادر (العرض). المهارات ذات الفجوة العالية تتطلب تدخلات تدريبية عاجلة.
                                 </p>
                             </div>
                             <button
                                 onClick={() => handleExport('skills_analytics')}
-                                className="flex items-center gap-3 px-6 py-3 bg-purple-500/10 text-purple-500 rounded-2xl hover:bg-purple-500 hover:text-white transition-all font-black text-xs"
+                                className="flex items-center gap-3 px-6 py-3 bg-emerald-50 text-emerald-600 rounded-2xl hover:bg-emerald-600 hover:text-slate-900 transition-all font-black text-xs border border-emerald-100"
                             >
                                 <FileSpreadsheet size={18} />
                                 تصدير مصفوفة المهارات
@@ -415,7 +415,7 @@ const AdminAnalytics = () => {
                                 const gap = Math.max(0, demand - supply);
                                 const percentage = demand > 0 ? (supply / demand) * 100 : 100;
                                 // هذا غير موجود 
-                                console.log(skill.users_count)
+                                
                                 return (
                                     <motion.div
                                         key={skill.id}
@@ -427,33 +427,33 @@ const AdminAnalytics = () => {
                                     >
                                         <div className="flex justify-between items-end mb-4">
                                             <div className="flex items-center gap-4">
-                                                <span className="text-3xl font-black text-white/5 group-hover:text-purple-500/20 transition-colors">0{index + 1}</span>
+                                                <span className="text-3xl font-black text-slate-100 group-hover:text-emerald-500/20 transition-colors">0{index + 1}</span>
                                                 <div>
-                                                    <h4 className="text-base font-black text-gray-200 uppercase tracking-wide group-hover:text-white transition-colors">{skill.name}</h4>
-                                                    <span className="text-[10px] text-gray-500 font-bold">مؤشر الكفاءة: {percentage.toFixed(0)}%</span>
+                                                    <h4 className="text-base font-black text-slate-800 uppercase tracking-wide group-hover:text-emerald-600 transition-colors">{skill.name}</h4>
+                                                    <span className="text-[10px] text-slate-400 font-bold">مؤشر الكفاءة: {percentage.toFixed(0)}%</span>
                                                 </div>
                                             </div>
                                             <div className="text-left">
                                                 <div className="flex items-center gap-2">
-                                                    <span className="text-lg font-black text-white">{demand}</span>
-                                                    <TrendingUp size={14} className="text-blue-500" />
+                                                    <span className="text-lg font-black text-slate-900">{demand}</span>
+                                                    <TrendingUp size={14} className="text-emerald-500" />
                                                 </div>
-                                                <span className="text-[9px] text-gray-500 font-black uppercase tracking-tighter">طلب مؤسسي نشط</span>
+                                                <span className="text-[9px] text-slate-400 font-black uppercase tracking-tighter">طلب مؤسسي نشط</span>
                                             </div>
                                         </div>
 
-                                        <div className="h-4 w-full bg-white/5 rounded-full p-1 overflow-hidden">
+                                        <div className="h-4 w-full bg-slate-50 rounded-full p-1 overflow-hidden border border-slate-100">
                                             <motion.div
                                                 initial={{ width: 0 }}
                                                 whileInView={{ width: `${Math.min(100, (supply / Math.max(demand, supply)) * 100)}%` }}
-                                                className={`h-full rounded-full ${gap > 5 ? 'bg-gradient-to-r from-red-500 to-orange-500' : 'bg-gradient-to-r from-blue-600 to-purple-600'}`}
+                                                className={`h-full rounded-full ${gap > 5 ? 'bg-gradient-to-r from-red-500 to-orange-500' : 'bg-gradient-to-r from-emerald-600 to-teal-600'}`}
                                             />
                                         </div>
 
                                         <div className="flex justify-between items-center mt-3">
                                             <div className="flex items-center gap-2">
-                                                <Users size={12} className="text-gray-600" />
-                                                <span className="text-[10px] text-gray-400 font-bold">المتوفر: {supply} كادر</span>
+                                                <Users size={12} className="text-slate-600" />
+                                                <span className="text-[10px] text-slate-400 font-bold">المتوفر: {supply} كادر</span>
                                             </div>
                                             {gap > 0 && (
                                                 <div className="flex items-center gap-1.5 px-3 py-1 bg-red-500/10 rounded-full border border-red-500/20">
@@ -477,29 +477,29 @@ const AdminAnalytics = () => {
 
 const ExportCard = ({ title, desc, icon: Icon, color, onClick }) => {
     const themes = {
-        blue: 'border-blue-500/10 hover:border-blue-500/40 text-blue-500 shadow-blue-900/5 hover:bg-blue-500/5',
-        emerald: 'border-emerald-500/10 hover:border-emerald-500/40 text-emerald-500 shadow-emerald-900/5 hover:bg-emerald-500/5',
+        blue: 'border-emerald-500/10 hover:border-emerald-500/40 text-emerald-600 shadow-emerald-900/5 hover:bg-emerald-500/5',
+        emerald: 'border-teal-500/10 hover:border-teal-500/40 text-teal-600 shadow-teal-900/5 hover:bg-teal-500/5',
         amber: 'border-amber-500/10 hover:border-amber-500/40 text-amber-500 shadow-amber-900/5 hover:bg-amber-500/5',
-        purple: 'border-purple-500/10 hover:border-purple-500/40 text-purple-500 shadow-purple-900/5 hover:bg-purple-500/5',
+        purple: 'border-emerald-500/10 hover:border-emerald-500/40 text-emerald-600 shadow-emerald-900/5 hover:bg-emerald-500/5',
     };
 
     return (
         <motion.div
             whileHover={{ y: -8, transition: { duration: 0.2 } }}
             onClick={onClick}
-            className={`p-8 rounded-[2.5rem] border-2 cursor-pointer transition-all bg-[#0f0f1a]/60 backdrop-blur-xl flex flex-col gap-6 group ${themes[color]}`}
+            className={`p-8 rounded-[2.5rem] border-2 cursor-pointer transition-all bg-white flex flex-col gap-6 group ${themes[color]}`}
         >
             <div className="flex justify-between items-start">
-                <div className={`p-4 bg-white/5 rounded-2xl group-hover:scale-110 transition-transform`}>
+                <div className={`p-4 bg-slate-50 rounded-2xl group-hover:scale-110 transition-transform`}>
                     <Icon size={32} />
                 </div>
-                <div className="p-2 bg-white/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="p-2 bg-slate-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
                     <Download size={16} />
                 </div>
             </div>
             <div>
-                <h4 className="text-lg font-black text-white mb-2">{title}</h4>
-                <p className="text-xs text-gray-500 font-bold leading-relaxed">{desc}</p>
+                <h4 className="text-lg font-black text-slate-900 mb-2">{title}</h4>
+                <p className="text-xs text-slate-400 font-bold leading-relaxed">{desc}</p>
             </div>
             <div className="mt-2 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest opacity-50 group-hover:opacity-100">
                 <span>استخراج الآن</span>
@@ -512,15 +512,15 @@ const ExportCard = ({ title, desc, icon: Icon, color, onClick }) => {
 const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
         return (
-            <div className="bg-[#0f0f1a] border border-white/10 p-5 rounded-2xl shadow-2xl backdrop-blur-2xl">
-                <p className="text-[10px] font-black text-blue-400 mb-3 uppercase tracking-[0.2em]">{label}</p>
+            <div className="bg-white border border-slate-100 p-5 rounded-2xl shadow-xl shadow-emerald-500/10">
+                <p className="text-[10px] font-black text-emerald-600 mb-3 uppercase tracking-[0.2em]">{label}</p>
                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
-                        <Clock className="text-blue-500" size={20} />
+                    <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center">
+                        <Clock className="text-emerald-600" size={20} />
                     </div>
                     <div>
-                        <p className="text-lg font-black text-white">{payload[0].value.toLocaleString()}</p>
-                        <p className="text-[10px] text-gray-500 font-bold">ساعة معتمدة سجلت</p>
+                        <p className="text-lg font-black text-slate-900">{payload[0].value.toLocaleString()}</p>
+                        <p className="text-[10px] text-slate-400 font-bold">ساعة معتمدة سجلت</p>
                     </div>
                 </div>
             </div>
@@ -534,8 +534,8 @@ const PieTooltip = ({ active, payload }) => {
         const statuses = { open: 'متاحة (Open)', closed: 'مغلقة (Closed)', completed: 'منجزة (Completed)', pending: 'قيد الانتظار (Pending)' };
         const label = statuses[payload[0].name] || payload[0].name;
         return (
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-5 rounded-2xl shadow-2xl">
-                <p className="text-[10px] font-black text-gray-400 mb-2 uppercase tracking-widest">{label}</p>
+            <div className="bg-white border border-slate-100 p-5 rounded-2xl shadow-xl shadow-emerald-500/10">
+                <p className="text-[10px] font-black text-slate-400 mb-2 uppercase tracking-widest">{label}</p>
                 <p className="text-3xl font-black" style={{ color: payload[0].payload.fill }}>{payload[0].value}</p>
             </div>
         );
@@ -544,13 +544,13 @@ const PieTooltip = ({ active, payload }) => {
 };
 
 const HealthBadge = ({ icon: Icon, value, label, color }) => (
-    <div className="flex items-center gap-4 px-5 py-3 bg-[#0f0f1a]/95 border border-white/10 rounded-2xl backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-        <div className={`p-2 bg-${color}-500/10 rounded-lg`}>
-            <Icon size={16} className={`text-${color}-500`} />
+    <div className="flex items-center gap-4 px-5 py-3 bg-white border border-slate-100 rounded-2xl shadow-sm">
+        <div className={`p-2 bg-${color}-50 rounded-lg`}>
+            <Icon size={16} className={`text-${color}-600`} />
         </div>
         <div className="flex flex-col">
-            <span className="text-[8px] font-black text-gray-500 uppercase tracking-tighter">{label}</span>
-            <span className="text-xs font-black text-white">{value}</span>
+            <span className="text-[8px] font-black text-slate-400 uppercase tracking-tighter">{label}</span>
+            <span className="text-xs font-black text-slate-900">{value}</span>
         </div>
     </div>
 );
@@ -563,15 +563,15 @@ const TrendingUp = ({ size, className }) => (
 );
 
 const LoadingScreen = () => (
-    <div className="h-screen bg-[#05050a] flex flex-col items-center justify-center relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full" />
+    <div className="h-screen bg-slate-50 flex flex-col items-center justify-center relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/5 blur-[150px] rounded-full" />
         <div className="relative">
-            <div className="w-32 h-32 border-4 border-blue-500/10 border-t-blue-500 rounded-full animate-spin" />
-            <div className="absolute inset-4 border-4 border-purple-500/10 border-b-purple-500 rounded-full animate-spin-slow" />
+            <div className="w-32 h-32 border-4 border-emerald-500/10 border-t-emerald-500 rounded-full animate-spin" />
+            <div className="absolute inset-4 border-4 border-teal-500/10 border-b-teal-500 rounded-full animate-spin-slow" />
         </div>
         <div className="mt-12 text-center relative z-10">
-            <h2 className="text-2xl font-black text-white tracking-[0.3em] uppercase">Musanada Intelligence</h2>
-            <p className="text-xs text-blue-400 mt-4 font-bold animate-pulse">جاري تجميع البيانات من بحيرة البيانات المركزية...</p>
+            <h2 className="text-2xl font-black text-slate-900 tracking-[0.3em] uppercase">Musanada Intelligence</h2>
+            <p className="text-xs text-emerald-600 mt-4 font-bold animate-pulse">جاري تجميع البيانات من بحيرة البيانات المركزية...</p>
         </div>
     </div>
 );

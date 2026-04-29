@@ -54,7 +54,7 @@ const StudentHoursLog = () => {
                 title: 'عذراً.. تعذر جلب السجل',
                 text: 'تأكد من اتصالك بالإنترنت أو حاول تسجيل الدخول مرة أخرى',
                 background: '#0a0a0f',
-                color: '#fff',
+                color: '#1e293b',
                 confirmButtonColor: '#6366f1'
             });
         } finally {
@@ -79,10 +79,10 @@ const StudentHoursLog = () => {
     }, [logs, searchTerm, filterStatus]);
 
     return (
-        <div className="flex min-h-screen bg-[#050508] text-right font-['Tajawal'] overflow-hidden" dir="rtl">
+        <div className="flex min-h-screen bg-slate-50 text-right font-['Tajawal'] overflow-hidden" dir="rtl">
             {/* الخلفية المشوشة (Blur Background) */}
             <div className="fixed top-0 left-0 w-full h-full pointer-events-none">
-                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-600/10 blur-[120px] rounded-full"></div>
+                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-emerald-600/10 blur-[120px] rounded-full"></div>
                 <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-violet-600/10 blur-[120px] rounded-full"></div>
             </div>
 
@@ -102,14 +102,14 @@ const StudentHoursLog = () => {
                                 animate={{ opacity: 1, x: 0 }}
                                 className="space-y-2"
                             >
-                                <h1 className="text-3xl lg:text-4xl font-black text-white tracking-tight">
-                                    سجل <span className="text-indigo-500 italic">النشاط الزمني</span>
+                                <h1 className="text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
+                                    سجل <span className="text-emerald-600 italic">النشاط الزمني</span>
                                 </h1>
-                                <div className="flex items-center gap-3 text-slate-500 text-xs lg:text-sm bg-white/5 w-fit px-4 py-1.5 rounded-full border border-white/5">
-                                    <Calendar size={14} className="text-indigo-400" />
+                                <div className="flex items-center gap-3 text-slate-500 text-xs lg:text-sm bg-slate-50 w-fit px-4 py-1.5 rounded-full border border-slate-100">
+                                    <Calendar size={14} className="text-emerald-600" />
                                     <span>تاريخ اليوم: {new Date().toLocaleDateString('ar-YE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
                                     <span className="w-1 h-1 rounded-full bg-slate-700"></span>
-                                    <span className="text-indigo-300"><span className='mx-1'>{filteredLogs.length} </span>سجل  </span>
+                                    <span className="text-emerald-500"><span className='mx-1'>{filteredLogs.length} </span>سجل  </span>
                                 </div>
                             </motion.div>
 
@@ -118,7 +118,7 @@ const StudentHoursLog = () => {
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     onClick={fetchLogs}
-                                    className="p-4 bg-white/5 border border-white/10 rounded-2xl text-slate-400 hover:text-white transition-colors cursor-pointer"
+                                    className="p-4 bg-slate-50 border border-slate-200 rounded-2xl text-slate-400 hover:text-slate-900 transition-colors cursor-pointer"
                                 >
                                     <RefreshCcw size={20} className={loading ? "animate-spin" : ""} />
                                 </motion.button>
@@ -159,13 +159,13 @@ const StudentHoursLog = () => {
                         </section>
 
                         {/* --- Controls Bar --- */}
-                        <div className="bg-white/[0.02] backdrop-blur-xl border border-white/5 p-4 rounded-[2rem] flex flex-col md:flex-row gap-4">
+                        <div className="bg-slate-50 backdrop-blur-xl border border-slate-100 p-4 rounded-[2rem] flex flex-col md:flex-row gap-4">
                             <div className="relative flex-1 group">
-                                <Search className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-indigo-400 transition-colors" size={18} />
+                                <Search className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-emerald-600 transition-colors" size={18} />
                                 <input
                                     type="text"
                                     placeholder="البحث حسب اسم الفرصة..."
-                                    className="w-full bg-black/40 border border-white/5 rounded-2xl py-3.5 pr-12 pl-4 outline-none focus:border-indigo-500/30 transition-all text-sm placeholder:text-slate-600"
+                                    className="w-full bg-white border border-slate-100 rounded-2xl py-3.5 pr-12 pl-4 outline-none focus:border-emerald-500/30 transition-all text-sm placeholder:text-slate-600"
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
                                 />
@@ -176,8 +176,8 @@ const StudentHoursLog = () => {
                                         key={status}
                                         onClick={() => setFilterStatus(status)}
                                         className={`px-5 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer border ${filterStatus === status
-                                            ? 'bg-indigo-500/20 border-indigo-500/40 text-indigo-300 shadow-inner'
-                                            : 'bg-white/5 border-white/5 text-slate-500 hover:bg-white/10'
+                                            ? 'bg-emerald-500/20 border-emerald-500/40 text-emerald-500 shadow-inner'
+                                            : 'bg-slate-50 border-slate-100 text-slate-500 hover:bg-slate-50'
                                             }`}
                                     >
                                         {status === 'all' ? 'الكل' : status === 'approved' ? 'المعتمدة' : status === 'pending' ? 'المعلقة' : 'المرفوضة'}
@@ -187,11 +187,11 @@ const StudentHoursLog = () => {
                         </div>
 
                         {/* --- Main Table Container --- */}
-                        <div className="bg-[#0a0a0f] border border-white/5 rounded-[2.5rem] shadow-3xl overflow-hidden relative">
+                        <div className="bg-white border border-slate-100 rounded-[2.5rem] shadow-3xl overflow-hidden relative">
                             <div className="overflow-x-auto">
                                 <table className="w-full text-right">
                                     <thead>
-                                        <tr className="bg-white/[0.01] border-b border-white/5">
+                                        <tr className="bg-white border-b border-slate-100">
                                             <th className="p-6 text-slate-500 font-bold text-[10px] lg:text-xs uppercase tracking-[0.15em]">تفاصيل الفرصة</th>
                                             <th className="p-6 text-slate-500 font-bold text-[10px] lg:text-xs uppercase tracking-[0.15em]">التاريخ</th>
                                             <th className="p-6 text-slate-500 font-bold text-[10px] lg:text-xs uppercase tracking-[0.15em] text-center">المدة</th>
@@ -210,15 +210,15 @@ const StudentHoursLog = () => {
                                                         initial={{ opacity: 0, y: 10 }}
                                                         animate={{ opacity: 1, y: 0 }}
                                                         transition={{ delay: index * 0.05 }}
-                                                        className="hover:bg-white/[0.01] transition-all group border-transparent border-r-2 hover:border-r-indigo-500"
+                                                        className="hover:bg-white transition-all group border-transparent border-r-2 hover:border-r-indigo-500"
                                                     >
                                                         <td className="p-6">
                                                             <div className="flex items-center gap-4">
-                                                                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 flex items-center justify-center text-indigo-400 border border-white/5 group-hover:scale-105 transition-transform">
+                                                                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 flex items-center justify-center text-emerald-600 border border-slate-100 group-hover:scale-105 transition-transform">
                                                                     <FileText size={20} />
                                                                 </div>
                                                                 <div>
-                                                                    <div className="font-bold text-white group-hover:text-indigo-400 transition-colors text-sm lg:text-base">
+                                                                    <div className="font-bold text-slate-900 group-hover:text-emerald-600 transition-colors text-sm lg:text-base">
                                                                         {log.opportunity?.title || 'فرصة تطوعية'}
                                                                     </div>
                                                                     <div className="flex items-center gap-2 mt-1">
@@ -232,7 +232,7 @@ const StudentHoursLog = () => {
                                                         </td>
                                                         <td className="p-6">
                                                             <div className="flex flex-col gap-1">
-                                                                <div className="text-slate-300 font-mono text-sm flex items-center gap-2">
+                                                                <div className="text-slate-600 font-mono text-sm flex items-center gap-2">
                                                                     <Calendar size={14} className="text-slate-600" />
                                                                     {new Date(log.date_logged).toLocaleDateString('en-EG')}
                                                                 </div>
@@ -241,8 +241,8 @@ const StudentHoursLog = () => {
                                                         </td>
                                                         <td className="p-6 text-center">
                                                             <div className="inline-flex flex-col items-center">
-                                                                <span className="text-xl font-black text-white font-mono leading-none">{log.hours}</span>
-                                                                <span className="text-[9px] text-indigo-400 font-bold uppercase tracking-tighter">ساعة</span>
+                                                                <span className="text-xl font-black text-slate-900 font-mono leading-none">{log.hours}</span>
+                                                                <span className="text-[9px] text-emerald-600 font-bold uppercase tracking-tighter">ساعة</span>
                                                             </div>
                                                         </td>
                                                         <td className="p-6">
@@ -255,7 +255,7 @@ const StudentHoursLog = () => {
                                                 <motion.tr initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                                                     <td colSpan="5" className="p-24 text-center">
                                                         <div className="flex flex-col items-center gap-4 opacity-30">
-                                                            <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center">
+                                                            <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center">
                                                                 <Search size={40} />
                                                             </div>
                                                             <p className="text-xl font-bold italic tracking-wider">لا توجد سجلات مطابقة لمعايير البحث</p>
@@ -270,15 +270,15 @@ const StudentHoursLog = () => {
                         </div>
 
                         {/* --- Footer Pagination (Dummy for UI) --- */}
-                        <footer className="flex justify-between items-center bg-white/[0.02] border border-white/5 p-4 rounded-2xl">
+                        <footer className="flex justify-between items-center bg-slate-50 border border-slate-100 p-4 rounded-2xl">
                             <div className="text-xs text-slate-500 font-bold px-4">
                                 عرض {filteredLogs.length} من أصل {logs.length} سجل
                             </div>
                             <div className="flex gap-2">
-                                <button className="p-2 bg-white/5 border border-white/10 rounded-lg text-slate-500 hover:text-white disabled:opacity-30 cursor-pointer transition-all">
+                                <button className="p-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-500 hover:text-slate-900 disabled:opacity-30 cursor-pointer transition-all">
                                     <ChevronRight size={20} />
                                 </button>
-                                <button className="p-2 bg-white/5 border border-white/10 rounded-lg text-slate-500 hover:text-white disabled:opacity-30 cursor-pointer transition-all">
+                                <button className="p-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-500 hover:text-slate-900 disabled:opacity-30 cursor-pointer transition-all">
                                     <ChevronLeft size={20} />
                                 </button>
                             </div>
@@ -293,8 +293,8 @@ const StudentHoursLog = () => {
 
 const QuickStat = ({ label, value, sub, icon, color }) => {
     const themes = {
-        indigo: "text-indigo-400 bg-indigo-500/5 border-indigo-500/10 shadow-indigo-500/5 hover:bg-indigo-500/10 hover:border-indigo-500/30",
-        emerald: "text-emerald-400 bg-emerald-500/5 border-emerald-500/10 shadow-emerald-500/5 hover:bg-emerald-500/10 hover:border-emerald-500/30",
+        indigo: "text-emerald-600 bg-emerald-500/5 border-emerald-500/10 shadow-indigo-500/5 hover:bg-emerald-500/10 hover:border-emerald-500/30",
+        emerald: "text-emerald-600 bg-emerald-500/5 border-emerald-500/10 shadow-emerald-500/5 hover:bg-emerald-500/10 hover:border-emerald-500/30",
         orange: "text-orange-400 bg-orange-500/5 border-orange-500/10 shadow-orange-500/5 hover:bg-orange-500/10 hover:border-orange-500/30",
         rose: "text-rose-400 bg-rose-500/5 border-rose-500/10 shadow-rose-500/5 hover:bg-rose-500/10 hover:border-rose-500/30",
     };
@@ -309,7 +309,7 @@ const QuickStat = ({ label, value, sub, icon, color }) => {
                 <div className="p-3 bg-black/30 rounded-2xl ring-1 ring-white/10 group-hover:scale-110 transition-transform">{icon}</div>
             </div>
             <div className="space-y-1">
-                <div className="text-4xl font-black text-white tabular-nums tracking-tighter flex items-baseline gap-1">
+                <div className="text-4xl font-black text-slate-900 tabular-nums tracking-tighter flex items-baseline gap-1">
                     {value}
                     <span className="text-xs font-bold text-slate-500">h</span>
                 </div>
@@ -322,7 +322,7 @@ const QuickStat = ({ label, value, sub, icon, color }) => {
 
 const StatusChip = ({ status }) => {
     const config = {
-        approved: { label: "معتمد رسمي", color: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20", dot: "bg-emerald-500" },
+        approved: { label: "معتمد رسمي", color: "bg-emerald-500/10 text-emerald-600 border-emerald-500/20", dot: "bg-emerald-500" },
         pending: { label: "بانتظار المراجعة", color: "bg-orange-500/10 text-orange-400 border-orange-500/20", dot: "bg-orange-500" },
         rejected: { label: "تم الرفض", color: "bg-rose-500/10 text-rose-400 border-rose-500/20", dot: "bg-rose-500" },
     };
@@ -337,21 +337,21 @@ const StatusChip = ({ status }) => {
 const LoadingSpinner = () => (
     <div className="flex flex-col items-center justify-center py-40 w-full">
         <div className="relative">
-            <div className="w-16 h-16 border-4 border-purple-500/10 border-t-purple-500 rounded-full animate-spin" />
+            <div className="w-16 h-16 border-4 border-emerald-100 border-t-purple-500 rounded-full animate-spin" />
             <div className="absolute inset-0 w-16 h-16 border-4 border-transparent border-b-emerald-500 rounded-full animate-spin animate-pulse" />
         </div>
-        <h2 className="mt-8 text-xl font-black text-white tracking-widest animate-pulse uppercase">Syncing Database...</h2>
-        <p className="text-gray-600 mt-2 font-bold">يرجى الانتظار، جاري تحضير البيانات</p>
+        <h2 className="mt-8 text-xl font-black text-slate-900 tracking-widest animate-pulse uppercase">Syncing Database...</h2>
+        <p className="text-slate-400 mt-2 font-bold">يرجى الانتظار، جاري تحضير البيانات</p>
     </div>
 );
 const TableRowLoader = () => (
     Array(5).fill(0).map((_, i) => (
         <tr key={i} className="animate-pulse">
-            <td className="p-6"><div className="flex gap-4 items-center"><div className="w-12 h-12 bg-white/5 rounded-2xl"></div><div className="space-y-2"><div className="h-4 w-32 bg-white/5 rounded"></div><div className="h-2 w-20 bg-white/5 rounded"></div></div></div></td>
-            <td className="p-6"><div className="h-4 w-24 bg-white/5 rounded"></div></td>
-            <td className="p-6"><div className="h-8 w-12 mx-auto bg-white/5 rounded-full"></div></td>
-            <td className="p-6"><div className="h-8 w-24 bg-white/5 rounded-2xl"></div></td>
-            <td className="p-6"><div className="h-4 w-4 bg-white/5 rounded ml-auto"></div></td>
+            <td className="p-6"><div className="flex gap-4 items-center"><div className="w-12 h-12 bg-slate-50 rounded-2xl"></div><div className="space-y-2"><div className="h-4 w-32 bg-slate-50 rounded"></div><div className="h-2 w-20 bg-slate-50 rounded"></div></div></div></td>
+            <td className="p-6"><div className="h-4 w-24 bg-slate-50 rounded"></div></td>
+            <td className="p-6"><div className="h-8 w-12 mx-auto bg-slate-50 rounded-full"></div></td>
+            <td className="p-6"><div className="h-8 w-24 bg-slate-50 rounded-2xl"></div></td>
+            <td className="p-6"><div className="h-4 w-4 bg-slate-50 rounded ml-auto"></div></td>
         </tr>
     ))
 );

@@ -119,7 +119,7 @@ const Opportunities = () => {
                     timer: 4000,
                     showConfirmButton: false,
                     background: '#0f172a',
-                    color: '#fff'
+                    color: '#1e293b'
                 });
             } catch (err) {
                 Swal.fire('خطأ', 'فشل في ربط إحداثياتك بالسيرفر', 'error');
@@ -143,12 +143,12 @@ const Opportunities = () => {
 
     // --- Render Logic ---
     return (
-        <div className="flex min-h-screen bg-[#020204] text-right font-['Tajawal'] text-slate-200 overflow-hidden" dir="rtl">
+        <div className="flex min-h-screen bg-slate-50 text-right font-['Tajawal'] text-slate-700 overflow-hidden" dir="rtl">
             {/* Animated Background Elements */}
             <div className="fixed inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-[-15%] right-[-10%] w-[50%] h-[50%] bg-indigo-600/10 blur-[140px] rounded-full animate-pulse" />
-                <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-purple-600/10 blur-[120px] rounded-full" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.03]" />
+                <div className="absolute top-[-15%] right-[-10%] w-[50%] h-[50%] bg-emerald-600/5 blur-[140px] rounded-full animate-pulse" />
+                <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-slate-600/5 blur-[120px] rounded-full" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.01]" />
             </div>
 
             <Sidebar />
@@ -165,7 +165,7 @@ const Opportunities = () => {
                                 <motion.div
                                     initial={{ opacity: 0, x: 30 }}
                                     animate={{ opacity: 1, x: 0 }}
-                                    className="flex items-center gap-3 text-indigo-400 bg-indigo-500/5 w-fit px-5 py-2 rounded-2xl border border-indigo-500/20 shadow-[0_0_20px_rgba(79,70,229,0.1)]"
+                                    className="flex items-center gap-3 text-emerald-600 bg-emerald-50 w-fit px-5 py-2 rounded-2xl border border-emerald-100 shadow-sm"
                                 >
                                     <Sparkles size={18} className="animate-pulse" />
                                     <span className="text-xs font-black uppercase tracking-[2px]">منصة مساندة الرقمية</span>
@@ -173,21 +173,21 @@ const Opportunities = () => {
                                 <motion.h1
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    className="text-4xl md:text-5xl font-black text-white"
+                                    className="text-4xl md:text-5xl font-black text-slate-900"
                                 >
-                                    استكشف <span className="bg-clip-text text-transparent bg-gradient-to-l from-indigo-400 via-purple-400 to-cyan-400">الفرص المتاحة</span>
+                                    استكشف <span className="bg-clip-text text-transparent bg-gradient-to-l from-emerald-600 via-teal-600 to-cyan-600">الفرص المتاحة</span>
                                 </motion.h1>
-                                <p className="text-slate-400 max-w-xl text-sm leading-relaxed">
+                                <p className="text-slate-500 max-w-xl text-sm leading-relaxed">
                                     هنا تجد بوابتك للمشاركة المجتمعية والتدريب المهني. جميع الفرص موثقة وتمنحك ساعات معتمدة في سيرتك الذاتية.
                                 </p>
                             </div>
 
-                            <div className="flex bg-white/5 p-1.5 rounded-2xl border border-white/5 backdrop-blur-md">
+                            <div className="flex bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm">
                                 {['all', 'trending', 'saved'].map((tab) => (
                                     <button
                                         key={tab}
                                         onClick={() => setActiveTab(tab)}
-                                        className={`px-6 py-2.5 rounded-xl text-xs font-bold transition-all ${activeTab === tab ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}
+                                        className={`px-6 py-2.5 rounded-xl text-xs font-bold transition-all ${activeTab === tab ? 'bg-emerald-600 text-slate-900 shadow-lg' : 'text-slate-400 hover:text-emerald-600'}`}
                                     >
                                         {tab === 'all' ? 'الكل' : tab === 'trending' ? 'الأكثر طلباً' : 'المحفوظة'}
                                     </button>
@@ -197,20 +197,20 @@ const Opportunities = () => {
 
                         {/* 2. Main Filter Console */}
                         <section className="relative mb-16 group">
-                            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-[2.5rem] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                            <div className="relative bg-[#0b0c14]/80 backdrop-blur-3xl border border-white/10 p-4 rounded-[2.2rem] shadow-2xl">
+                            <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 rounded-[2.5rem] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                            <div className="relative bg-white border border-slate-200 p-4 rounded-[2.2rem] shadow-xl">
                                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
 
                                     {/* Search Input */}
                                     <div className="lg:col-span-5 relative group">
-                                        <Search className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-indigo-400 transition-colors" size={20} />
+                                        <Search className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-emerald-600 transition-colors" size={20} />
                                         <input
                                             type="text"
                                             name="search"
                                             value={filters.search}
                                             onChange={handleFilterChange}
                                             placeholder="ابحث عن مسمى وظيفي، مهارة، أو شركة..."
-                                            className="w-full bg-black/40 border border-white/5 rounded-2xl py-4.5 pr-14 pl-6 text-sm outline-none focus:border-indigo-500/50 focus:ring-4 focus:ring-indigo-500/10 transition-all placeholder:text-slate-600"
+                                            className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4.5 pr-14 pl-6 text-sm outline-none focus:border-emerald-500/50 focus:ring-4 focus:ring-emerald-500/5 transition-all placeholder:text-slate-400"
                                         />
                                     </div>
 
@@ -218,27 +218,27 @@ const Opportunities = () => {
                                     <div className="lg:col-span-5 grid grid-cols-3 gap-3">
                                         {/* City Filter - تم إصلاحه */}
                                         <div className="relative">
-                                            <MapPin size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-indigo-400 pointer-events-none" />
+                                            <MapPin size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-emerald-600 pointer-events-none" />
                                             <select
                                                 name="location"
                                                 value={filters.location}
                                                 onChange={handleFilterChange}
-                                                className="w-full bg-black/40 border border-white/5 rounded-2xl py-4 pr-9 pl-3 text-[11px] font-bold outline-none hover:border-white/20 transition-all appearance-none cursor-pointer"
+                                                className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4 pr-9 pl-3 text-[11px] font-bold outline-none hover:border-slate-200 transition-all appearance-none cursor-pointer"
                                             >
                                                 <option value="">جميع المدن</option>
                                                 {availableCities.map(city => (
-                                                    <option key={city} value={city} className="bg-slate-900 text-white">{city}</option>
+                                                    <option key={city} value={city} className="bg-white text-slate-900">{city}</option>
                                                 ))}
                                             </select>
                                         </div>
 
                                         <div className="relative">
-                                            <Briefcase size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-purple-400 pointer-events-none" />
+                                            <Briefcase size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-teal-600 pointer-events-none" />
                                             <select
                                                 name="type"
                                                 value={filters.type}
                                                 onChange={handleFilterChange}
-                                                className="w-full bg-black/40 border border-white/5 rounded-2xl py-4 pr-9 pl-3 text-[11px] font-bold outline-none hover:border-white/20 transition-all appearance-none cursor-pointer"
+                                                className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4 pr-9 pl-3 text-[11px] font-bold outline-none hover:border-slate-200 transition-all appearance-none cursor-pointer"
                                             >
                                                 <option value="">كل الأنواع</option>
                                                 <option value="voluntary">تطوعي</option>
@@ -248,12 +248,12 @@ const Opportunities = () => {
                                         </div>
 
                                         <div className="relative">
-                                            <Users size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-cyan-400 pointer-events-none" />
+                                            <Users size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-600 pointer-events-none" />
                                             <select
                                                 name="gender"
                                                 value={filters.gender}
                                                 onChange={handleFilterChange}
-                                                className="w-full bg-black/40 border border-white/5 rounded-2xl py-4 pr-9 pl-3 text-[11px] font-bold outline-none hover:border-white/20 transition-all appearance-none cursor-pointer"
+                                                className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4 pr-9 pl-3 text-[11px] font-bold outline-none hover:border-slate-200 transition-all appearance-none cursor-pointer"
                                             >
                                                 <option value="">الجنس (الكل)</option>
                                                 <option value="male">رجال</option>
@@ -267,7 +267,7 @@ const Opportunities = () => {
                                     <div className="lg:col-span-2 flex gap-2">
                                         <button
                                             onClick={handleUpdateLocation}
-                                            className={`flex-1 flex items-center justify-center gap-2 rounded-2xl border transition-all duration-500 font-black text-xs ${filters.sortBy === 'nearest' ? 'bg-indigo-600 border-indigo-400 shadow-[0_0_20px_rgba(79,70,229,0.4)]' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}
+                                            className={`flex-1 flex items-center justify-center gap-2 rounded-2xl border transition-all duration-500 font-black text-xs ${filters.sortBy === 'nearest' ? 'bg-emerald-600 border-emerald-400 text-slate-900 shadow-lg shadow-emerald-500/20' : 'bg-slate-50 border-slate-100 hover:bg-slate-100 text-slate-600'}`}
                                         >
                                             {isLocating ? <Loader2 className="animate-spin" size={18} /> : <Navigation size={18} />}
                                             {filters.sortBy === 'nearest' ? 'الأقرب لك' : 'تحديد الموقع'}
@@ -323,7 +323,7 @@ const OpportunityCard = React.memo(({ opp, applicationStatus, index }) => {
 
     const statusMap = {
         pending: { label: 'قيد المراجعة', color: 'text-amber-400', bg: 'bg-amber-400/10', icon: <Clock size={14} /> },
-        accepted: { label: 'تم قبولك', color: 'text-emerald-400', bg: 'bg-emerald-400/10', icon: <CheckCircle2 size={14} /> },
+        accepted: { label: 'تم قبولك', color: 'text-emerald-600', bg: 'bg-emerald-400/10', icon: <CheckCircle2 size={14} /> },
         rejected: { label: 'نعتذر منك', color: 'text-red-400', bg: 'bg-red-400/10', icon: <XCircle size={14} /> }
     };
     const handleShare = async (e) => {
@@ -351,7 +351,7 @@ const OpportunityCard = React.memo(({ opp, applicationStatus, index }) => {
                     timer: 3000,
                     showConfirmButton: false,
                     background: '#0d0e17',
-                    color: '#fff'
+                    color: '#1e293b'
                 });
             }
         } catch (err) {
@@ -367,7 +367,7 @@ const OpportunityCard = React.memo(({ opp, applicationStatus, index }) => {
             transition={{ duration: 0.4, delay: index * 0.05 }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="group relative flex flex-col h-[520px] bg-[#0d0e17] rounded-[2.5rem] border border-white/5 hover:border-indigo-500/30 transition-all duration-500 overflow-hidden shadow-xl"
+            className="group relative flex flex-col h-[520px] bg-white rounded-[2.5rem] border border-slate-100 hover:border-emerald-500/30 transition-all duration-500 overflow-hidden shadow-lg hover:shadow-2xl"
             onClick={() => navigate(`/opportunities/${opp.id}`)}
         >
             {/* Image Section */}
@@ -381,23 +381,23 @@ const OpportunityCard = React.memo(({ opp, applicationStatus, index }) => {
                         onError={() => setImageError(true)}
                     />
                 ) : (
-                    <div className="w-full h-full bg-slate-900 flex items-center justify-center font-black text-slate-700">NO IMAGE</div>
+                    <div className="w-full h-full bg-slate-100 flex items-center justify-center font-black text-slate-600">NO IMAGE</div>
                 )}
 
                 {/* Badges on Image */}
                 <div className="absolute top-5 inset-x-5 flex justify-between items-start z-20">
                     <div className="flex gap-2">
-                        <span className="bg-indigo-600 text-white text-[9px] font-black px-3 py-1.5 rounded-xl uppercase shadow-lg">
+                        <span className="bg-emerald-600 text-slate-900 text-[9px] font-black px-3 py-1.5 rounded-xl uppercase shadow-lg">
                             {opp.type === 'voluntary' ? 'تطوع' : 'تدريب'}
                         </span>
                         {daysRemaining !== null && daysRemaining <= 3 && (
-                            <span className="bg-red-500 text-white text-[9px] font-black px-3 py-1.5 rounded-xl animate-pulse">
+                            <span className="bg-red-500 text-slate-900 text-[9px] font-black px-3 py-1.5 rounded-xl animate-pulse">
                                 ينتهي قريباً
                             </span>
                         )}
                     </div>
                     {applicationStatus && (
-                        <div className={`flex items-center gap-2 px-4 py-2 rounded-2xl backdrop-blur-xl border border-white/10 ${statusMap[applicationStatus]?.bg} ${statusMap[applicationStatus]?.color}`}>
+                        <div className={`flex items-center gap-2 px-4 py-2 rounded-2xl backdrop-blur-xl border border-slate-300 ${statusMap[applicationStatus]?.bg} ${statusMap[applicationStatus]?.color}`}>
                             {statusMap[applicationStatus]?.icon}
                             <span className="text-[10px] font-black">{statusMap[applicationStatus]?.label}</span>
                         </div>
@@ -405,37 +405,37 @@ const OpportunityCard = React.memo(({ opp, applicationStatus, index }) => {
                 </div>
 
                 {/* Floating Map Pin */}
-                <div className="absolute bottom-5 right-5 z-20 bg-white/10 backdrop-blur-md border border-white/10 px-4 py-2 rounded-2xl flex items-center gap-2">
-                    <MapPin size={14} className="text-indigo-400" />
-                    <span className="text-xs font-bold text-white">{opp.location}</span>
+                <div className="absolute bottom-5 right-5 z-20 bg-white/20 backdrop-blur-md border border-white/30 px-4 py-2 rounded-2xl flex items-center gap-2">
+                    <MapPin size={14} className="text-slate-900" />
+                    <span className="text-xs font-bold text-slate-900">{opp.location}</span>
                 </div>
             </div>
 
             {/* Content Section */}
             <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-center gap-3 mb-4">
-                    <div className="min-w-[40px] min-h-[40px] max-w-[40px] rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 p-[1px]">
-                        <div className="w-full h-full bg-[#0d0e17] rounded-xl flex items-center justify-center overflow-hidden">
+                    <div className="min-w-[40px] min-h-[40px] max-w-[40px] rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 p-[1px]">
+                        <div className="w-full h-full bg-white rounded-xl flex items-center justify-center overflow-hidden">
                             <img src={URLS.STORAGE+ "/" + opp.user?.profile_image || '/default-avatar.png'} className="w-full h-full object-cover" alt="org" />
                         </div>
                     </div>
                     <div className="flex flex-col">
-                        <span className="text-xs font-black text-indigo-400 truncate w-40">{opp.user?.organization?.org_name || 'جهة غير معروفة'}</span>
-                        <span className="text-[10px] text-slate-500 font-bold">منذ {new Date(opp.created_at).toLocaleDateString('ar-SA')}</span>
+                        <span className="text-xs font-black text-emerald-600 truncate w-40">{opp.user?.organization?.org_name || 'جهة غير معروفة'}</span>
+                        <span className="text-[10px] text-slate-400 font-bold">منذ {new Date(opp.created_at).toLocaleDateString('ar-SA')}</span>
                     </div>
                 </div>
 
-                <h3 className="text-xl font-black text-white mb-3 line-clamp-2 leading-snug group-hover:text-indigo-300 transition-colors">
+                <h3 className="text-xl font-black text-slate-900 mb-3 line-clamp-2 leading-snug group-hover:text-emerald-600 transition-colors">
                     {opp.title}
                 </h3>
 
                 <div className="flex flex-wrap gap-4 mb-6">
-                    <div className="flex items-center gap-2 text-slate-400">
-                        <Clock size={16} className="text-indigo-500/50" />
+                    <div className="flex items-center gap-2 text-slate-500">
+                        <Clock size={16} className="text-emerald-500/50" />
                         <span className="text-xs font-bold">{opp.total_logged_hours || 0} ساعة</span>
                     </div>
-                    <div className="flex items-center gap-2 text-slate-400">
-                        <Users size={16} className="text-purple-500/50" />
+                    <div className="flex items-center gap-2 text-slate-500">
+                        <Users size={16} className="text-teal-500/50" />
                         <span className="text-xs font-bold">{opp.required_volunteers} مقعد</span>
                     </div>
                 </div>
@@ -443,14 +443,14 @@ const OpportunityCard = React.memo(({ opp, applicationStatus, index }) => {
                 {/* Progress Bar */}
                 <div className="mt-auto space-y-3">
                     <div className="flex justify-between text-[10px] font-black">
-                        <span className="text-slate-500 uppercase tracking-widest"> المقاعد المحجوزة </span>
-                        <span className="text-indigo-400">{Math.round(progress)}%</span>
+                        <span className="text-slate-400 uppercase tracking-widest"> المقاعد المحجوزة </span>
+                        <span className="text-emerald-600">{Math.round(progress)}%</span>
                     </div>
-                    <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
+                    <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden border border-slate-50">
                         <motion.div
                             initial={{ width: 0 }}
                             animate={{ width: `${progress}%` }}
-                            className="h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full"
+                            className="h-full bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full"
                         />
                     </div>
                 </div>
@@ -458,21 +458,21 @@ const OpportunityCard = React.memo(({ opp, applicationStatus, index }) => {
                 {/* Card Action */}
                 <div className="mt-6 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="flex gap-2">
-                        <button className="p-3 bg-white/5 hover:bg-indigo-600/20 rounded-xl transition-colors border border-white/5">
-                            <Eye size={18} className="text-slate-400 hover:text-red-500" />
+                        <button className="p-3 bg-slate-50 hover:bg-emerald-50 rounded-xl transition-colors border border-slate-100">
+                            <Eye size={18} className="text-slate-400 hover:text-emerald-600" />
                         </button>
                         <button
                             onClick={handleShare}
-                            className="p-3 bg-white/5 hover:bg-indigo-600/20 rounded-xl transition-all duration-300 border border-white/5 active:scale-90 group/share"
+                            className="p-3 bg-slate-50 hover:bg-emerald-50 rounded-xl transition-all duration-300 border border-slate-100 active:scale-90 group/share"
                             title="مشاركة الفرصة"
                         >
                             <Share2
                                 size={18}
-                                className="text-slate-400 group-hover/share:text-indigo-400 transition-colors"
+                                className="text-slate-400 group-hover/share:text-emerald-600 transition-colors"
                             />
                         </button>
                     </div>
-                    <div className="flex items-center gap-2 text-indigo-400 font-black text-xs cursor-pointer group/btn">
+                    <div className="flex items-center gap-2 text-emerald-600 font-black text-xs cursor-pointer group/btn">
                         <span>التفاصيل</span>
                         <ArrowRight size={16} className="group-hover/btn:translate-x-[-4px] transition-transform rotate-180" />
                     </div>
@@ -490,13 +490,13 @@ const EmptyState = () => (
     <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="col-span-full py-32 flex flex-col items-center justify-center bg-white/[0.02] rounded-[3rem] border-2 border-dashed border-white/5"
+        className="col-span-full py-32 flex flex-col items-center justify-center bg-white rounded-[3rem] border-2 border-dashed border-slate-100 shadow-sm"
     >
-        <div className="w-24 h-24 bg-indigo-500/10 rounded-full flex items-center justify-center mb-6 animate-bounce">
-            <Search size={40} className="text-indigo-400" />
+        <div className="w-24 h-24 bg-emerald-50 rounded-full flex items-center justify-center mb-6 animate-bounce">
+            <Search size={40} className="text-emerald-500" />
         </div>
-        <h3 className="text-2xl font-black text-white mb-2">لم نجد ما تبحث عنه</h3>
-        <p className="text-slate-500 font-bold">جرب تغيير كلمات البحث أو الفلاتر المختارة</p>
+        <h3 className="text-2xl font-black text-slate-900 mb-2">لم نجد ما تبحث عنه</h3>
+        <p className="text-slate-400 font-bold">جرب تغيير كلمات البحث أو الفلاتر المختارة</p>
     </motion.div>
 );
 
@@ -507,12 +507,12 @@ const EmptyState = () => (
 const LoadingSkeleton = () => (
     <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8">
         {[1, 2, 3].map((i) => (
-            <div key={i} className="h-[500px] bg-white/5 rounded-[2.5rem] animate-pulse relative overflow-hidden">
-                <div className="h-1/2 bg-white/5" />
+            <div key={i} className="h-[500px] bg-white rounded-[2.5rem] animate-pulse relative overflow-hidden border border-slate-50">
+                <div className="h-1/2 bg-slate-50" />
                 <div className="p-6 space-y-4">
-                    <div className="h-4 w-1/2 bg-white/10 rounded-lg" />
-                    <div className="h-8 w-full bg-white/10 rounded-lg" />
-                    <div className="h-4 w-3/4 bg-white/10 rounded-lg" />
+                    <div className="h-4 w-1/2 bg-slate-50 rounded-lg" />
+                    <div className="h-8 w-full bg-slate-50 rounded-lg" />
+                    <div className="h-4 w-3/4 bg-slate-50 rounded-lg" />
                 </div>
             </div>
         ))}

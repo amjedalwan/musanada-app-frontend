@@ -30,7 +30,7 @@ const UserAvatar = ({ path, className, userName }) => {
 
                 />
             ) : (
-                <div className="w-full h-full bg-indigo-900 flex items-center justify-center text-white">
+                <div className="w-full h-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold">
                     {userName?.charAt(0) || 'U'}
                 </div>
             )}
@@ -137,14 +137,14 @@ const Sidebar = () => {
             text: "سيتعين عليك تسجيل الدخول مرة أخرى للوصول إلى حسابك",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#4f46e5', // Indigo-600 متناسق مع تصميمك
+            confirmButtonColor: '#059669', // Emerald-600
             cancelButtonColor: '#ef4444', // Red-500
             confirmButtonText: 'نعم، سجل الخروج',
             cancelButtonText: 'إلغاء',
-            background: '#070710', // متناسق مع خلفية السايدبار المظلمة
-            color: '#fff',
+            background: '#ffffff',
+            color: '#1e293b',
             customClass: {
-                popup: 'rounded-3xl border border-white/10 shadow-2xl'
+                popup: 'rounded-3xl border border-slate-200 shadow-2xl'
             }
         });
 
@@ -176,8 +176,8 @@ const Sidebar = () => {
                     icon: 'success',
                     timer: 1500,
                     showConfirmButton: false,
-                    background: '#070710',
-                    color: '#fff'
+                    background: '#ffffff',
+                    color: '#1e293b'
                 });
             }
         }
@@ -195,7 +195,7 @@ const Sidebar = () => {
                         animate={{ x: 0, opacity: 1 }}
                         exit={{ x: 50, opacity: 0 }}
                         onClick={() => setIsOpen(true)}
-                        className="lg:hidden fixed top-1/2 -translate-y-1/2 right-0 z-[9995] flex items-center justify-center w-6 h-16 bg-indigo-600 text-white rounded-l-xl shadow-[0_0_15px_rgba(79,70,229,0.4)] border-y border-l border-white/20"
+                        className="lg:hidden fixed top-1/2 -translate-y-1/2 right-0 z-[9995] flex items-center justify-center w-6 h-16 bg-emerald-600 text-white rounded-l-xl shadow-[0_0_15px_rgba(16,185,129,0.4)] border-y border-l border-emerald-500/20"
                     >
                         <motion.div animate={{ x: [0, -3, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
@@ -225,27 +225,27 @@ const Sidebar = () => {
                 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                 style={{ zIndex: 9999 }}
-                className="fixed lg:sticky top-0 right-0 bottom-0 h-screen bg-[#070710] border-l border-white/5 flex flex-col shadow-2xl"
+                className="fixed lg:sticky top-0 right-0 bottom-0 h-screen bg-white border-l border-slate-200 flex flex-col shadow-xl"
                 dir="rtl"
             >
                 {/* 1. Header */}
                 <div className="p-6 flex items-center justify-between min-h-[80px]">
                     {!isCollapsed && (
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+                            <div className="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center shadow-lg shadow-emerald-500/20">
                                 <span className="text-white font-black text-sm">M</span>
                             </div>
-                            <span className="font-black text-white text-lg tracking-tight">مساندة</span>
+                            <span className="font-black text-slate-900 text-lg tracking-tight">مساندة</span>
                         </motion.div>
                     )}
 
                     <button
                         onClick={() => setIsCollapsed(!isCollapsed)}
-                        className={`hidden lg:block p-2 rounded-xl bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition-all ${isCollapsed ? 'mx-auto' : ''}`}
+                        className={`hidden lg:block p-2 rounded-xl bg-slate-50 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 transition-all ${isCollapsed ? 'mx-auto' : ''}`}
                     >
                         {isCollapsed ? <PanelLeftOpen size={20} /> : <PanelLeftClose size={20} />}
                     </button>
-                    <button onClick={() => setIsOpen(false)} className="lg:hidden p-2 text-gray-400 hover:text-white">
+                    <button onClick={() => setIsOpen(false)} className="lg:hidden p-2 text-slate-400 hover:text-emerald-600">
                         <X size={24} />
                     </button>
                 </div>
@@ -254,14 +254,14 @@ const Sidebar = () => {
                 <div className="px-4 mb-2 transition-all">
                     <div
                         onClick={() => navigate('/profile')}
-                        className={`relative cursor-pointer group rounded-[2rem] bg-gradient-to-b from-white/[0.04] to-transparent border border-white/5 overflow-hidden transition-all hover:border-white/10 ${isCollapsed && windowWidth >= 1024 ? 'p-2' : 'p-5'}`}
+                        className={`relative cursor-pointer group rounded-[2rem] bg-gradient-to-b from-slate-50 to-transparent border border-slate-100 overflow-hidden transition-all hover:border-emerald-200 ${isCollapsed && windowWidth >= 1024 ? 'p-2' : 'p-5'}`}
                     >
                         <div className="relative z-10 flex flex-col items-center">
                             <div className={`relative transition-all duration-300 ${isCollapsed && windowWidth >= 1024 ? 'mb-0' : 'mb-3'}`}>
-                                <div className="absolute inset-0 bg-indigo-500 blur-md opacity-0 group-hover:opacity-30 transition-opacity"></div>
+                                <div className="absolute inset-0 bg-emerald-500 blur-md opacity-0 group-hover:opacity-20 transition-opacity"></div>
 
                                 {userData.role === 'guest' ? (
-                                    <div className={`${isCollapsed && windowWidth >= 1024 ? 'w-10 h-10' : 'w-16 h-16'} rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-600 border border-white/10 flex items-center justify-center text-white font-black relative z-10 group-hover:scale-105 transition-transform shadow-lg shadow-purple-500/20`}>
+                                    <div className={`${isCollapsed && windowWidth >= 1024 ? 'w-10 h-10' : 'w-16 h-16'} rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-600 border border-emerald-500/20 flex items-center justify-center text-white font-black relative z-10 group-hover:scale-105 transition-transform shadow-lg shadow-emerald-500/20`}>
                                         <ShieldCheck size={isCollapsed && windowWidth >= 1024 ? 20 : 32} />
                                     </div>
                                 ) : userData.avatar ? (
@@ -273,7 +273,7 @@ const Sidebar = () => {
                                     />
 
                                 ) : (
-                                    <div className={`${isCollapsed && windowWidth >= 1024 ? 'w-10 h-10' : 'w-16 h-16'} rounded-2xl bg-[#111122] border border-white/10 flex items-center justify-center text-indigo-400 font-black relative z-10 group-hover:scale-105 transition-transform`}>
+                                    <div className={`${isCollapsed && windowWidth >= 1024 ? 'w-10 h-10' : 'w-16 h-16'} rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center text-emerald-600 font-black relative z-10 group-hover:scale-105 transition-transform`}>
                                         {userData.name.charAt(0)}
                                     </div>
                                 )}
@@ -282,8 +282,8 @@ const Sidebar = () => {
                             {(!isCollapsed || windowWidth < 1024) && (
                                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center">
                                     <div className="flex items-center justify-center gap-3 mt-2">
-                                        {userData.role !== 'guest' && <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(168,85,247,0.5)]"></span>}
-                                        <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-purple-500/80">{userData.role === 'guest' ? 'زائر' : userData.name}</span>
+                                        {userData.role !== 'guest' && <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]"></span>}
+                                        <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-emerald-600">{userData.role === 'guest' ? 'زائر' : userData.name}</span>
                                     </div>
                                 </motion.div>
                             )}
@@ -298,9 +298,9 @@ const Sidebar = () => {
                             key={item.path}
                             to={item.path}
                             onClick={() => setIsOpen(false)}
-                            className={`flex items-center gap-4 p-3.5 rounded-2xl transition-all group relative ${isActive(item.path) ? 'bg-indigo-600/10 text-white shadow-sm' : 'text-gray-500 hover:text-white hover:bg-white/[0.03]'} ${isCollapsed && windowWidth >= 1024 ? 'justify-center px-0' : ''}`}
+                            className={`flex items-center gap-4 p-3.5 rounded-2xl transition-all group relative ${isActive(item.path) ? 'bg-emerald-50 text-emerald-700 shadow-sm' : 'text-slate-500 hover:text-emerald-600 hover:bg-emerald-50/50'} ${isCollapsed && windowWidth >= 1024 ? 'justify-center px-0' : ''}`}
                         >
-                            <div className={`transition-all duration-300 ${isActive(item.path) ? 'text-indigo-500 scale-110' : 'group-hover:scale-110 group-hover:text-gray-300'}`}>
+                            <div className={`transition-all duration-300 ${isActive(item.path) ? 'text-emerald-600 scale-110' : 'group-hover:scale-110 group-hover:text-emerald-500'}`}>
                                 <item.icon size={isCollapsed && windowWidth >= 1024 ? 22 : 19} strokeWidth={isActive(item.path) ? 2.5 : 2} />
                             </div>
 
@@ -311,11 +311,11 @@ const Sidebar = () => {
                             )}
 
                             {isActive(item.path) && (!isCollapsed || windowWidth < 1024) && (
-                                <motion.div layoutId="activeInd" className="mr-auto w-1.5 h-1.5 rounded-full bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.8)]" />
+                                <motion.div layoutId="activeInd" className="mr-auto w-1.5 h-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
                             )}
 
                             {isCollapsed && windowWidth >= 1024 && (
-                                <div className="absolute right-full mr-4 px-3 py-2 bg-gray-900 border border-white/10 text-white text-[11px] font-bold rounded-xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all translate-x-2 group-hover:translate-x-0 whitespace-nowrap z-[100] shadow-2xl">
+                                <div className="absolute right-full mr-4 px-3 py-2 bg-slate-900 text-white text-[11px] font-bold rounded-xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all translate-x-2 group-hover:translate-x-0 whitespace-nowrap z-[100] shadow-2xl">
                                     {item.name}
                                 </div>
                             )}
@@ -324,11 +324,11 @@ const Sidebar = () => {
                 </nav>
 
                 {/* 4. Footer Actions */}
-                <div className="p-4 border-t border-white/5 space-y-2">
+                <div className="p-4 border-t border-slate-100 space-y-2">
                     {userData.role !== 'guest' ? (
                         <button
                             onClick={handleLogout}
-                            className={`flex items-center gap-3 w-full p-3 rounded-2xl mb-2 text-red-500/70 hover:text-red-500 hover:bg-red-500/5 transition-all ${isCollapsed && windowWidth >= 1024 ? 'justify-center' : ''}`}
+                            className={`flex items-center gap-3 w-full p-3 rounded-2xl mb-2 text-red-500/70 hover:text-red-500 hover:bg-red-50 transition-all ${isCollapsed && windowWidth >= 1024 ? 'justify-center' : ''}`}
                         >
                             <LogOut size={20} />
                             {(!isCollapsed || windowWidth < 1024) && <span className="text-xs font-bold">تسجيل الخروج</span>}
@@ -336,7 +336,7 @@ const Sidebar = () => {
                     ) : (
                         <button
                             onClick={() => navigate('/login')}
-                            className={`flex items-center gap-3 w-full p-3 rounded-2xl text-indigo-400 hover:text-white hover:bg-indigo-600 transition-all ${isCollapsed && windowWidth >= 1024 ? 'justify-center' : ''}`}
+                            className={`flex items-center gap-3 w-full p-3 rounded-2xl text-emerald-600 hover:text-white hover:bg-emerald-600 transition-all ${isCollapsed && windowWidth >= 1024 ? 'justify-center' : ''}`}
                         >
                             <LogOut size={20} className="rotate-180" />
                             {(!isCollapsed || windowWidth < 1024) && <span className="text-xs font-bold">تسجيل الدخول</span>}

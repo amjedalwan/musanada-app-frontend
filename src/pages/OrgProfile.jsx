@@ -148,25 +148,25 @@ const OrgProfile = () => {
     };
 
     if (loading) return (
-        <div className="h-screen bg-[#050508] flex items-center justify-center">
-            <Loader2 className="animate-spin text-indigo-500" size={40} />
+        <div className="h-screen bg-slate-50 flex items-center justify-center">
+            <Loader2 className="animate-spin text-emerald-600" size={40} />
         </div>
     );
 
     return (
-        <div className="flex min-h-screen bg-[#050508] text-slate-200 font-['Tajawal']" dir="rtl">
+        <div className="flex min-h-screen bg-slate-50 text-slate-900 font-['Tajawal']" dir="rtl">
             <Sidebar role="organization" />
 
             <main className="flex-1  p-6 lg:p-10 relative z-10 overflow-y-auto max-h-screen custom-scrollbar">
                 <div className="max-w-7xl mx-auto space-y-8"> 
                     {/* Header Action Bar */}
-                    <header className="flex flex-col md:flex-row justify-between items-center gap-6 bg-white/[0.03] p-5 rounded-[2.5rem] border border-white/10 backdrop-blur-xl sticky top-4 z-[100]">
+                    <header className="flex flex-col md:flex-row justify-between items-center gap-6 bg-slate-50 p-5 rounded-[2.5rem] border border-slate-200 backdrop-blur-xl sticky top-4 z-[100]">
                         <div className="flex items-center gap-4">
-                            <div className="w-14 h-14 bg-indigo-500/20 rounded-2xl flex items-center justify-center border border-indigo-500/30 shadow-[0_0_20px_rgba(99,102,241,0.2)]">
-                                <Building2 className="text-indigo-400" size={28} />
+                            <div className="w-14 h-14 bg-emerald-500/20 rounded-2xl flex items-center justify-center border border-emerald-500/30 shadow-[0_0_20px_rgba(99,102,241,0.2)]">
+                                <Building2 className="text-emerald-600" size={28} />
                             </div>
                             <div>
-                                <h2 className="text-2xl font-black text-white tracking-tight">إدارة الملف المؤسسي</h2>
+                                <h2 className="text-2xl font-black text-slate-900 tracking-tight">إدارة الملف المؤسسي</h2>
                                 <div className="flex items-center gap-2 text-xs text-slate-500">
                                     <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
                                     {formData.full_name || 'مسؤول النظام'}
@@ -175,7 +175,7 @@ const OrgProfile = () => {
                         </div>
                         <div className="flex gap-3 w-full md:w-auto">
                             {!isEditing ? (
-                                <button onClick={() => setIsEditing(true)} className="group flex-1 md:flex-none flex items-center justify-center gap-2 bg-indigo-600/40 hover:bg-indigo-500/80 px-8 py-3 rounded-2xl transition-all font-bold shadow-lg shadow-indigo-600/25 active:scale-95">
+                                <button onClick={() => setIsEditing(true)} className="group flex-1 md:flex-none flex items-center justify-center gap-2 bg-emerald-600/40 hover:bg-emerald-500/80 px-8 py-3 rounded-2xl transition-all font-bold shadow-lg shadow-indigo-600/25 active:scale-95">
                                     <Edit3 size={18} className="group-hover:rotate-12 transition-transform" /> تعديل البيانات
                                 </button>
                             ) : (
@@ -183,7 +183,7 @@ const OrgProfile = () => {
                                     <button onClick={handleSave} disabled={saving} className="flex-1 bg-emerald-600 hover:bg-emerald-500 px-8 py-3 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 active:scale-95">
                                         {saving ? <Loader2 className="animate-spin" size={18} /> : <Save size={18} />} حفظ التغييرات
                                     </button>
-                                    <button onClick={() => setIsEditing(false)} className="bg-white/5 hover:bg-red-500/10 text-red-400 px-6 py-3 rounded-2xl border border-white/10 transition-colors">إلغاء</button>
+                                    <button onClick={() => setIsEditing(false)} className="bg-slate-50 hover:bg-red-500/10 text-red-400 px-6 py-3 rounded-2xl border border-slate-200 transition-colors">إلغاء</button>
                                 </div>
                             )}
                         </div>
@@ -198,16 +198,16 @@ const OrgProfile = () => {
                     <div className="grid grid-cols-12 gap-8">
 
                         {/* 1. Identity & Brand Section */}
-                        <section className="col-span-12 lg:col-span-8 bg-gradient-to-br from-indigo-500/[0.07] via-transparent to-transparent border border-white/10 rounded-[3rem] p-8 md:p-12 relative overflow-hidden group shadow-2xl">
+                        <section className="col-span-12 lg:col-span-8 bg-gradient-to-br from-indigo-500/[0.07] via-transparent to-transparent border border-slate-200 rounded-[3rem] p-8 md:p-12 relative overflow-hidden group shadow-2xl">
                             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent"></div>
 
                             <div className="flex flex-col md:flex-row items-center gap-10 relative z-10">
                                 <div className="relative group/avatar">
-                                    <div className="w-40 h-40 md:w-48 md:h-48 bg-black rounded-[3rem] border-4 border-white/5 overflow-hidden shadow-2xl transition-all duration-500 group-hover/avatar:rounded-[2rem] group-hover/avatar:border-indigo-500/50">
+                                    <div className="w-40 h-40 md:w-48 md:h-48 bg-black rounded-[3rem] border-4 border-slate-100 overflow-hidden shadow-2xl transition-all duration-500 group-hover/avatar:rounded-[2rem] group-hover/avatar:border-emerald-500/50">
                                         <img src={imagePreview || 'https://ui-avatars.com/api/?name=' + formData.full_name} className="w-full h-full object-cover" alt="Avatar" />
                                         {isEditing && (
                                             <label className="absolute inset-0 bg-emerald-900/60 backdrop-blur-md flex flex-col items-center justify-center cursor-pointer opacity-0 hover:opacity-100 transition-all">
-                                                <Camera className="text-white mb-2" size={32} />
+                                                <Camera className="text-slate-900 mb-2" size={32} />
                                                 <input type="file" hidden accept="image/*" onChange={(e) => {
                                                     const file = e.target.files[0];
                                                     if (file) {
@@ -220,7 +220,7 @@ const OrgProfile = () => {
                                     </div>
                                     {profile?.organization?.is_verified && (
                                         <div className="absolute -bottom-2 -right-2 bg-emerald-500 p-2.5 rounded-2xl border-4 border-[#050508] shadow-xl">
-                                            <ShieldCheck size={24} className="text-white" />
+                                            <ShieldCheck size={24} className="text-slate-900" />
                                         </div>
                                     )}
                                 </div>
@@ -232,7 +232,7 @@ const OrgProfile = () => {
                                             <div className="relative group/input">
                                                 <Tooltip text="يظهر هذا الاسم في جميع التقارير والمراسلات الرسمية" />
                                                 <input
-                                                    className="text-3xl font-black bg-white/5 border border-white/10 rounded-2xl px-6 py-3 w-full text-white outline-none focus:ring-2 ring-indigo-500/50 transition-all placeholder:text-slate-700"
+                                                    className="text-3xl font-black bg-slate-50 border border-slate-200 rounded-2xl px-6 py-3 w-full text-slate-900 outline-none focus:ring-2 ring-indigo-500/50 transition-all placeholder:text-slate-700"
                                                     value={formData.org_name}
                                                     onChange={(e) => setFormData({ ...formData, org_name: e.target.value })}
                                                     placeholder="اسم المؤسسة الرسمي"
@@ -243,9 +243,9 @@ const OrgProfile = () => {
                                             <div className="relative group/input">
                                                 <Tooltip text="اسم المدير المسؤول عن إدارة هذا الحساب" />
                                                 <div className="relative">
-                                                    <User size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-indigo-400" />
+                                                    <User size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-600" />
                                                     <input
-                                                        className="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-3 text-sm text-white outline-none focus:border-indigo-500"
+                                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-12 py-3 text-sm text-slate-900 outline-none focus:border-emerald-500"
                                                         value={formData.full_name}
                                                         onChange={(e) => setFormData({ ...formData, full_name: e.target.value })}
                                                         placeholder="اسم المدير المسؤول"
@@ -257,7 +257,7 @@ const OrgProfile = () => {
                                                 <div className="flex-1 relative group/input">
                                                     <Tooltip text="العنوان المختصر الذي سيظهر في بطاقة التعريف" />
                                                     <input
-                                                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm text-white outline-none focus:border-indigo-500"
+                                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-sm text-slate-900 outline-none focus:border-emerald-500"
                                                         value={formData.location}
                                                         onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                                                         placeholder="المدينة - الحي"
@@ -266,21 +266,21 @@ const OrgProfile = () => {
                                                 <div className="relative min-w-[140px] group/input">
                                                     <Tooltip text="يساعد في تصنيف مؤسستك ضمن محركات البحث" />
                                                     <select
-                                                        className="w-full bg-[#1a1a24] border border-white/10 rounded-xl px-4 py-2 text-sm text-indigo-400 outline-none appearance-none cursor-pointer"
+                                                        className="w-full bg-[#1a1a24] border border-slate-200 rounded-xl px-4 py-2 text-sm text-emerald-600 outline-none appearance-none cursor-pointer"
                                                         value={formData.org_type}
                                                         onChange={(e) => setFormData({ ...formData, org_type: e.target.value })}
                                                     >
-                                                        <option className="bg-gray-900 text-white" value="خيرية">خيرية</option>
-                                                        <option className="bg-gray-900 text-white" value="تنموية">تنموية</option>
-                                                        <option className="bg-gray-900 text-white" value="تعليمية">تعليمية</option>
-                                                        <option className="bg-gray-900 text-white" value="طبية">طبية</option>
+                                                        <option className="bg-white text-slate-900" value="خيرية">خيرية</option>
+                                                        <option className="bg-white text-slate-900" value="تنموية">تنموية</option>
+                                                        <option className="bg-white text-slate-900" value="تعليمية">تعليمية</option>
+                                                        <option className="bg-white text-slate-900" value="طبية">طبية</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                     ) : (
                                         <div className="animate-in fade-in slide-in-from-left-4">
-                                            <h1 className="text-4xl md:text-5xl font-black text-white leading-tight mb-4">{formData.org_name || 'اسم المؤسسة'}</h1>
+                                            <h1 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-4">{formData.org_name || 'اسم المؤسسة'}</h1>
                                             <div className="flex flex-wrap gap-3 justify-center md:justify-start">
                                                 <Badge icon={<MapPin size={14} />} text={formData.location || 'العنوان غير محدد'} color="indigo" />
                                                 <Badge icon={<Award size={14} />} text={formData.org_type} color="slate" />
@@ -294,13 +294,13 @@ const OrgProfile = () => {
 
                         {/* 2. Side Panel (Security & Contact) */}
                         <div className="col-span-12 lg:col-span-4 space-y-6">
-                            <div className="bg-white/[0.02] border border-white/5 rounded-[2.5rem] p-6 space-y-4 shadow-xl">
+                            <div className="bg-slate-50 border border-slate-100 rounded-[2.5rem] p-6 space-y-4 shadow-xl">
                                 <h4 className="text-xs font-black text-slate-500 uppercase tracking-widest px-2 mb-4 flex items-center gap-2">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div> قنوات التواصل
+                                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> قنوات التواصل
                                 </h4>
-                                <ContactItem icon={<Mail size={18} className="text-indigo-400" />} label="البريد الرسمي" value={formData.email} />
+                                <ContactItem icon={<Mail size={18} className="text-emerald-600" />} label="البريد الرسمي" value={formData.email} />
                                 <ContactItem
-                                    icon={<Phone size={18} className="text-emerald-400" />}
+                                    icon={<Phone size={18} className="text-emerald-600" />}
                                     label="هاتف التواصل"
                                     value={formData.phone}
                                     isEditing={isEditing}
@@ -317,7 +317,7 @@ const OrgProfile = () => {
                                         <Lock size={20} className="text-orange-400" />
                                     </div>
                                     <div className="text-right">
-                                        <span className="block text-sm font-black text-white">إعدادات الأمان</span>
+                                        <span className="block text-sm font-black text-slate-900">إعدادات الأمان</span>
                                         <span className="text-[10px] text-orange-500/70 uppercase font-bold">تغيير كلمة المرور</span>
                                     </div>
                                 </div>
@@ -326,16 +326,16 @@ const OrgProfile = () => {
                         </div>
 
                         {/* 3. Detailed Description Section */}
-                        <section className="col-span-12 lg:col-span-8 bg-[#0a0a0f] border border-white/5 rounded-[3rem] p-8 md:p-10 shadow-inner relative group">
+                        <section className="col-span-12 lg:col-span-8 bg-white border border-slate-100 rounded-[3rem] p-8 md:p-10 shadow-inner relative group">
                             <div className="flex items-center gap-3 mb-6">
-                                <div className="p-2 bg-indigo-500/10 rounded-lg text-indigo-400"><FileText size={20} /></div>
-                                <h3 className="font-black text-white text-lg">رسالة المؤسسة ونبذة عنها</h3>
+                                <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-600"><FileText size={20} /></div>
+                                <h3 className="font-black text-slate-900 text-lg">رسالة المؤسسة ونبذة عنها</h3>
                             </div>
                             {isEditing ? (
                                 <div className="relative group/input">
                                     <Tooltip text="اكتب وصفاً جذاباً لجذب المتطوعين والداعمين" />
                                     <textarea
-                                        className="w-full h-56 bg-white/[0.03] border border-white/10 rounded-[2rem] p-6 text-white leading-relaxed resize-none focus:ring-2 ring-indigo-500/30 outline-none transition-all"
+                                        className="w-full h-56 bg-slate-50 border border-slate-200 rounded-[2rem] p-6 text-slate-900 leading-relaxed resize-none focus:ring-2 ring-indigo-500/30 outline-none transition-all"
                                         value={formData.description}
                                         onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                                         placeholder="اكتب هنا رؤية المؤسسة، أهدافها..."
@@ -361,15 +361,15 @@ const OrgProfile = () => {
                                 hint="تأكد من كتابة الرابط بشكل صحيح"
                                 onChange={(v) => setFormData({ ...formData, website: v })}
                             />
-                            <div className="bg-white/[0.02] border border-white/5 rounded-[2.5rem] p-6 space-y-4 shadow-xl relative group">
+                            <div className="bg-slate-50 border border-slate-100 rounded-[2.5rem] p-6 space-y-4 shadow-xl relative group">
                                 <div className="flex items-center gap-3 mb-2">
-                                    <div className="p-2 bg-indigo-500/10 rounded-lg text-indigo-400">
+                                    <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-600">
                                         <ShieldCheck size={20} />
                                     </div>
-                                    <h3 className="font-black text-white text-sm">التوقيع الرقمي المعتمد</h3>
+                                    <h3 className="font-black text-slate-900 text-sm">التوقيع الرقمي المعتمد</h3>
                                 </div>
 
-                                <div className="relative h-32 w-full bg-black/40 rounded-2xl border-2 border-dashed border-white/10 overflow-hidden flex items-center justify-center">
+                                <div className="relative h-32 w-full bg-white rounded-2xl border-2 border-dashed border-slate-200 overflow-hidden flex items-center justify-center">
                                     {/* عرض التوقيع الحالي أو المعاينة الجديدة */}
                                     <img
                                         src={
@@ -385,8 +385,8 @@ const OrgProfile = () => {
 
                                     {isEditing && (
                                         <label className="absolute inset-0 bg-indigo-900/40 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer opacity-0 hover:opacity-100 transition-all">
-                                            <Camera className="text-white mb-1" size={24} />
-                                            <span className="text-[10px] text-white font-bold">تحديث التوقيع</span>
+                                            <Camera className="text-slate-900 mb-1" size={24} />
+                                            <span className="text-[10px] text-slate-900 font-bold">تحديث التوقيع</span>
                                             <input
                                                 type="file"
                                                 hidden
@@ -404,24 +404,24 @@ const OrgProfile = () => {
                         </div>
 
                         {/* 5. Geographic Mapping */}
-                        <section className="col-span-12 bg-white/[0.02] border border-white/10 rounded-[3.5rem] p-8 space-y-8">
+                        <section className="col-span-12 bg-slate-50 border border-slate-200 rounded-[3.5rem] p-8 space-y-8">
                             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                                 <div className="space-y-1">
                                     <div className="flex items-center gap-3">
-                                        <Navigation className="text-indigo-400 animate-bounce-short" />
-                                        <h3 className="text-xl font-black text-white">الموقع الجغرافي</h3>
+                                        <Navigation className="text-emerald-600 animate-bounce-short" />
+                                        <h3 className="text-xl font-black text-slate-900">الموقع الجغرافي</h3>
                                     </div>
                                     <p className="text-xs text-slate-500 mr-8">حدد مقر المؤسسة بدقة على الخريطة</p>
                                 </div>
                                 {isEditing && (
-                                    <button onClick={getCurrentLocation} className="flex items-center gap-3 bg-indigo-600 hover:bg-indigo-500 px-6 py-3 rounded-2xl font-black text-sm transition-all active:scale-95 shadow-lg shadow-indigo-600/20">
+                                    <button onClick={getCurrentLocation} className="flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-2xl font-black text-sm transition-all active:scale-95 shadow-lg shadow-emerald-600/20">
                                         <LocateFixed size={18} /> تحديد موقعي الحالي
                                     </button>
                                 )}
                             </div>
 
                             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-                                <div className="lg:col-span-3 h-[450px] rounded-[3rem] overflow-hidden border-4 border-white/5 relative shadow-2xl">
+                                <div className="lg:col-span-3 h-[450px] rounded-[3rem] overflow-hidden border-4 border-slate-100 relative shadow-2xl">
                                     <InteractiveMap
                                         key={`map-${isEditing}-${formData.lat}-${formData.lng}`}
                                         lat={formData.lat} lng={formData.lng}
@@ -432,8 +432,8 @@ const OrgProfile = () => {
                                 <div className="flex flex-col gap-4">
                                     <CoordDisplay label="Lat" value={formData.lat} icon="Y" />
                                     <CoordDisplay label="Lng" value={formData.lng} icon="X" />
-                                    <div className="p-6 bg-indigo-500/5 rounded-3xl border border-indigo-500/10 text-[11px] text-slate-500 leading-relaxed">
-                                        <div className="flex items-center gap-2 text-indigo-400 font-bold mb-2"><Info size={14} /> تنبيه</div>
+                                    <div className="p-6 bg-emerald-500/5 rounded-3xl border border-emerald-500/10 text-[11px] text-slate-500 leading-relaxed">
+                                        <div className="flex items-center gap-2 text-emerald-600 font-bold mb-2"><Info size={14} /> تنبيه</div>
                                         عند التعديل، يمكنك النقر مرتين على الخريطة لتحديث الإحداثيات تلقائياً.
                                     </div>
                                 </div>
@@ -452,22 +452,22 @@ const OrgProfile = () => {
                         onClick={() => !passLoading && setShowPassModal(false)}
                     ></div>
 
-                    <div className="relative bg-[#0f0f1a]/90 border border-white/10 w-full max-w-md rounded-[3rem] p-10 shadow-2xl animate-in fade-in zoom-in duration-300 backdrop-saturate-150">
+                    <div className="relative bg-white/90 border border-slate-200 w-full max-w-md rounded-[3rem] p-10 shadow-2xl animate-in fade-in zoom-in duration-300 backdrop-saturate-150">
 
                         {/* Header */}
                         <div className="flex items-center justify-between mb-8">
                             <div className="flex items-center gap-4">
-                                <div className="p-3 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl shadow-lg shadow-orange-500/20 text-white">
+                                <div className="p-3 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl shadow-lg shadow-orange-500/20 text-slate-900">
                                     <ShieldCheck size={24} />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-black text-white">تحديث الأمان</h3>
+                                    <h3 className="text-xl font-black text-slate-900">تحديث الأمان</h3>
                                     <p className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Security Settings</p>
                                 </div>
                             </div>
                             <button
                                 onClick={() => setShowPassModal(false)}
-                                className="p-2 hover:bg-white/5 rounded-full text-slate-500 transition-colors"
+                                className="p-2 hover:bg-slate-50 rounded-full text-slate-500 transition-colors"
                             >
                                 <X size={20} />
                             </button>
@@ -484,7 +484,7 @@ const OrgProfile = () => {
                                     <input
                                         required
                                         type={showPass.current ? "text" : "password"}
-                                        className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-white outline-none focus:ring-2 ring-orange-500/30 transition-all placeholder:text-slate-700"
+                                        className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-slate-900 outline-none focus:ring-2 ring-orange-500/30 transition-all placeholder:text-slate-700"
                                         placeholder="كلمة المرور الحالية"
                                         value={passData.current_password}
                                         onChange={(e) => setPassData({ ...passData, current_password: e.target.value })}
@@ -492,7 +492,7 @@ const OrgProfile = () => {
                                     <button
                                         type="button"
                                         onClick={() => setShowPass(prev => ({ ...prev, current: !prev.current }))}
-                                        className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition-colors"
+                                        className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-900 transition-colors"
                                     >
                                         {showPass.current ? <EyeOff size={18} /> : <Eye size={18} />}
                                     </button>
@@ -508,7 +508,7 @@ const OrgProfile = () => {
                                     <input
                                         required
                                         type={showPass.new ? "text" : "password"}
-                                        className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-white outline-none focus:ring-2 ring-emerald-500/30 transition-all placeholder:text-slate-700"
+                                        className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-slate-900 outline-none focus:ring-2 ring-emerald-500/30 transition-all placeholder:text-slate-700"
                                         placeholder="الجديدة (8 أحرف على الأقل)"
                                         value={passData.new_password}
                                         onChange={(e) => setPassData({ ...passData, new_password: e.target.value })}
@@ -516,7 +516,7 @@ const OrgProfile = () => {
                                     <button
                                         type="button"
                                         onClick={() => setShowPass(prev => ({ ...prev, new: !prev.new }))}
-                                        className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition-colors"
+                                        className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-900 transition-colors"
                                     >
                                         {showPass.new ? <EyeOff size={18} /> : <Eye size={18} />}
                                     </button>
@@ -530,7 +530,7 @@ const OrgProfile = () => {
                                                 key={step}
                                                 className={`h-1 flex-1 rounded-full transition-all duration-500 ${getPasswordStrength(passData.new_password) >= step
                                                     ? (step <= 2 ? 'bg-red-500' : step === 3 ? 'bg-orange-500' : 'bg-emerald-500')
-                                                    : 'bg-white/5'
+                                                    : 'bg-slate-50'
                                                     }`}
                                             />
                                         ))}
@@ -547,9 +547,9 @@ const OrgProfile = () => {
                                     <input
                                         required
                                         type={showPass.confirm ? "text" : "password"}
-                                        className={`w-full bg-white/[0.03] border rounded-2xl px-5 py-4 text-white outline-none transition-all placeholder:text-slate-700 ${passData.new_password_confirmation && passData.new_password !== passData.new_password_confirmation
+                                        className={`w-full bg-slate-50 border rounded-2xl px-5 py-4 text-slate-900 outline-none transition-all placeholder:text-slate-700 ${passData.new_password_confirmation && passData.new_password !== passData.new_password_confirmation
                                             ? 'border-red-500/50 focus:ring-red-500/20'
-                                            : 'border-white/10 focus:ring-emerald-500/30'
+                                            : 'border-slate-200 focus:ring-emerald-500/30'
                                             }`}
                                         placeholder="أعد كتابة كلمة المرور"
                                         value={passData.new_password_confirmation}
@@ -558,7 +558,7 @@ const OrgProfile = () => {
                                     <button
                                         type="button"
                                         onClick={() => setShowPass(prev => ({ ...prev, confirm: !prev.confirm }))}
-                                        className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition-colors"
+                                        className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-900 transition-colors"
                                     >
                                         {showPass.confirm ? <EyeOff size={18} /> : <Eye size={18} />}
                                     </button>
@@ -571,10 +571,10 @@ const OrgProfile = () => {
                                     <AlertCircle size={14} /> متطلبات الأمان:
                                 </p>
                                 <ul className="grid grid-cols-2 gap-x-2 gap-y-1">
-                                    <li className={`text-[9px] flex items-center gap-1 ${passData.new_password.length >= 8 ? 'text-emerald-400' : 'text-slate-500'}`}>
+                                    <li className={`text-[9px] flex items-center gap-1 ${passData.new_password.length >= 8 ? 'text-emerald-600' : 'text-slate-500'}`}>
                                         <div className={`w-1 h-1 rounded-full ${passData.new_password.length >= 8 ? 'bg-emerald-400' : 'bg-slate-600'}`} /> 8 أحرف على الأقل
                                     </li>
-                                    <li className={`text-[9px] flex items-center gap-1 ${/[A-Z]/.test(passData.new_password) ? 'text-emerald-400' : 'text-slate-500'}`}>
+                                    <li className={`text-[9px] flex items-center gap-1 ${/[A-Z]/.test(passData.new_password) ? 'text-emerald-600' : 'text-slate-500'}`}>
                                         <div className={`w-1 h-1 rounded-full ${/[A-Z]/.test(passData.new_password) ? 'bg-emerald-400' : 'bg-slate-600'}`} /> حرف كبير واحد
                                     </li>
                                 </ul>
@@ -582,7 +582,7 @@ const OrgProfile = () => {
 
                             <button
                                 disabled={passLoading}
-                                className="w-full relative overflow-hidden group bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 py-4 rounded-[1.5rem] font-black text-white transition-all shadow-xl shadow-emerald-900/20 active:scale-[0.98]"
+                                className="w-full relative overflow-hidden group bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 py-4 rounded-[1.5rem] font-black text-slate-900 transition-all shadow-xl shadow-emerald-900/20 active:scale-[0.98]"
                             >
                                 <div className="relative z-10 flex items-center justify-center gap-3">
                                     {passLoading ? <Loader2 className="animate-spin" size={20} /> : (
@@ -613,16 +613,16 @@ const OrgProfile = () => {
 
 const Tooltip = ({ text }) => (
     <div className="absolute right-0 -top-8 opacity-0 group-hover/input:opacity-100 group-focus-within/input:opacity-100 transition-all pointer-events-none z-[50]">
-        <span className="text-[10px] text-indigo-300 font-bold bg-[#1a1a2e] px-3 py-1.5 rounded-xl border border-indigo-500/30 shadow-2xl backdrop-blur-md flex items-center gap-2 animate-in slide-in-from-bottom-1">
-            <Info size={12} className="text-indigo-500" /> {text}
+        <span className="text-[10px] text-emerald-500 font-bold bg-white px-3 py-1.5 rounded-xl border border-emerald-500/30 shadow-2xl backdrop-blur-md flex items-center gap-2 animate-in slide-in-from-bottom-1">
+            <Info size={12} className="text-emerald-600" /> {text}
         </span>
     </div>
 );
 
 const Badge = ({ icon, text, color }) => {
     const colors = {
-        indigo: "bg-indigo-500/10 text-indigo-300 border-indigo-500/20",
-        slate: "bg-white/5 text-slate-400 border-white/10",
+        indigo: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
+        slate: "bg-slate-50 text-slate-400 border-slate-200",
         emerald: "bg-emerald-500/10 text-emerald-300 border-emerald-500/20"
     };
     return (
@@ -633,57 +633,57 @@ const Badge = ({ icon, text, color }) => {
 };
 
 const ContactItem = ({ icon, label, value, isEditing, onChange }) => (
-    <div className="bg-white/[0.03] border border-white/5 p-4 rounded-2xl flex items-center gap-4 hover:bg-white/[0.05] transition-all group">
-        <div className="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">{icon}</div>
+    <div className="bg-slate-50 border border-slate-100 p-4 rounded-2xl flex items-center gap-4 hover:bg-slate-50 transition-all group">
+        <div className="w-11 h-11 rounded-xl bg-slate-50 flex items-center justify-center group-hover:scale-110 transition-transform">{icon}</div>
         <div className="flex-1">
             <div className="text-[9px] text-slate-500 font-black uppercase tracking-widest mb-0.5">{label}</div>
             {isEditing ? (
-                <input className="bg-transparent border-b border-indigo-500/30 text-sm text-white w-full outline-none focus:border-indigo-500 transition-colors" value={value} onChange={(e) => onChange(e.target.value)} />
+                <input className="bg-transparent border-b border-emerald-500/30 text-sm text-slate-900 w-full outline-none focus:border-emerald-500 transition-colors" value={value} onChange={(e) => onChange(e.target.value)} />
             ) : (
-                <div className="text-sm font-bold text-white truncate">{value || '---'}</div>
+                <div className="text-sm font-bold text-slate-900 truncate">{value || '---'}</div>
             )}
         </div>
     </div>
 );
 
 const MetaInfoCard = ({ label, value, icon, isEditing, onChange, isLink, hint }) => (
-    <div className="bg-[#0a0a0f] border border-white/5 p-6 rounded-[2rem] relative group/input hover:border-white/10 transition-colors shadow-xl">
+    <div className="bg-white border border-slate-100 p-6 rounded-[2rem] relative group/input hover:border-slate-200 transition-colors shadow-xl">
         <Tooltip text={hint} />
         <div className="flex items-center justify-between mb-4 relative z-10">
             <span className="text-[10px] text-slate-500 font-black uppercase">{label}</span>
-            <div className="text-indigo-500 bg-indigo-500/5 p-2 rounded-xl">{icon}</div>
+            <div className="text-emerald-600 bg-emerald-500/5 p-2 rounded-xl">{icon}</div>
         </div>
         {isEditing ? (
-            <input className="bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white w-full outline-none focus:border-indigo-500/50" value={value} onChange={(e) => onChange(e.target.value)} />
+            <input className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 w-full outline-none focus:border-emerald-500/50" value={value} onChange={(e) => onChange(e.target.value)} />
         ) : isLink ? (
-            <a href={value} target="_blank" rel="noreferrer" className="text-indigo-400 font-black text-sm flex items-center gap-2 hover:underline">
+            <a href={value} target="_blank" rel="noreferrer" className="text-emerald-600 font-black text-sm flex items-center gap-2 hover:underline">
                 زيارة الموقع <ExternalLink size={14} />
             </a>
         ) : (
-            <div className="text-lg font-black text-white">{value || '---'}</div>
+            <div className="text-lg font-black text-slate-900">{value || '---'}</div>
         )}
     </div>
 );
 const QuickStat = ({ label, value, icon, color }) => {
     const theme = {
-        indigo: "from-indigo-500/20 to-transparent border-indigo-500/20 text-indigo-400",
-        emerald: "from-emerald-500/20 to-transparent border-emerald-500/20 text-emerald-400",
+        indigo: "from-indigo-500/20 to-transparent border-emerald-500/20 text-emerald-600",
+        emerald: "from-emerald-500/20 to-transparent border-emerald-500/20 text-emerald-600",
         orange: "from-orange-500/20 to-transparent border-orange-500/20 text-orange-400",
     };
     return (
         <div className={`bg-gradient-to-br ${theme[color]} border p-5 rounded-[2rem] flex flex-col items-center justify-center gap-2 backdrop-blur-sm`}>
             <div className="opacity-80">{icon}</div>
-            <span className="text-2xl font-black text-white">{value}</span>
+            <span className="text-2xl font-black text-slate-900">{value}</span>
             <span className="text-[10px] font-bold uppercase tracking-tighter opacity-60">{label}</span>
         </div>
     );
 };
 const CoordDisplay = ({ label, value, icon }) => (
-    <div className="bg-white/5 p-5 rounded-[1.8rem] border border-white/5 flex flex-col gap-1">
+    <div className="bg-slate-50 p-5 rounded-[1.8rem] border border-slate-100 flex flex-col gap-1">
         <div className="flex justify-between items-center text-[9px] text-slate-500 font-black uppercase tracking-widest">
-            {label} <span className="text-indigo-500/30">{icon}</span>
+            {label} <span className="text-emerald-600/30">{icon}</span>
         </div>
-        <span className="font-mono text-xl font-black text-indigo-400 tabular-nums">{value || '0.0000'}</span>
+        <span className="font-mono text-xl font-black text-emerald-600 tabular-nums">{value || '0.0000'}</span>
     </div>
 );
 

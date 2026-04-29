@@ -25,9 +25,9 @@ const Toast = Swal.mixin({
     showConfirmButton: false,
     timer: 3000,
     timerProgressBar: true,
-    background: '#1a1a2e',
-    color: '#fff',
-    customClass: { popup: 'rounded-2xl border border-white/10 shadow-2xl' }
+    background: '#ffffff',
+    color: '#1e293b',
+    customClass: { popup: 'rounded-2xl border border-slate-100 shadow-2xl' }
 });
 const AdminUsers = () => {
     // --- States Management ---
@@ -148,33 +148,33 @@ const AdminUsers = () => {
         // تصحيح منطق الصورة: إذا كانت القيمة الافتراضية أو نل، نستخدم مكتبة UI-Avatars
         const profileImg = (user.profile_image)
             ? `${API_URL}/storage/${user.profile_image}` // تأكد من مطابقة هذا الرابط لعنوان السيرفر لديك
-            : `https://ui-avatars.com/api/?name=${encodeURIComponent(user.full_name)}&background=${isStudent ? '4f46e5' : 'f59e0b'}&color=fff&size=256&bold=true`;
+            : `https://ui-avatars.com/api/?name=${encodeURIComponent(user.full_name)}&background=${isStudent ? '10b981' : 'f59e0b'}&color=fff&size=256&bold=true`;
 
         Swal.fire({
-            background: 'rgba(29, 14, 35, 0.63)',
+            background: '#ffffff',
             showConfirmButton: false,
             showCloseButton: true,
             width: '650px',
           
             customClass: {
-                container: 'backdrop-blur-sm',
-                popup: 'rounded-[2rem] border border-white/5 p-0 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]',
-                closeButton: 'text-white/30 hover:text-white transition-all focus:outline-none'
+                container: 'backdrop-blur-md',
+                popup: 'rounded-[2rem] border border-slate-100 p-0 overflow-hidden shadow-2xl',
+                closeButton: 'text-slate-400 hover:text-emerald-600 transition-all focus:outline-none'
             },
             html: `
             <div class="text-right dir-rtl select-none" dir="rtl" style="font-family: 'Tajawal', sans-serif;">
                 
-                <div class="h-24 bg-gradient-to-l mr-3 rounded-md ${isStudent ? 'from-indigo-900/40' : 'from-amber-900/30'} to-transparent relative">
+                <div class="h-24 bg-slate-50 relative">
                     <div class="absolute -bottom-10 right-5 flex items-end gap-5">
                         <div class="relative">
                             <img src="${profileImg}" 
                                  onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(user.full_name)}&background=333&color=fff'"
-                                 class="w-24 h-24 rounded-3xl object-cover border-[3px]  ${user.is_active ? 'border-emerald-300' : 'border-red-400'}"shadow-xl">
-                            <div class="absolute bottom-2 -left-1 w-5 h-5 rounded-full ${user.is_active ? 'bg-green-600' : 'bg-red-500'}"></div>
+                                 class="w-24 h-24 rounded-3xl object-cover border-4 border-white shadow-xl ${user.is_active ? '' : 'grayscale'}">
+                            <div class="absolute bottom-2 -left-1 w-5 h-5 rounded-full border-2 border-white ${user.is_active ? 'bg-emerald-500' : 'bg-red-500'}"></div>
                         </div>
                         <div class="pb-2">
-                            <h2 class="text-xl font-black text-white mb-1">${isStudent ? user.full_name : (data?.org_name || user.full_name)}</h2>
-                            <span class="text-[10px] px-3 py-1 rounded-lg font-bold tracking-widest uppercase ${isStudent ? 'bg-indigo-500/10 text-indigo-400' : 'bg-amber-500/10 text-amber-400'}">
+                            <h2 class="text-xl font-black text-slate-900 mb-1">${isStudent ? user.full_name : (data?.org_name || user.full_name)}</h2>
+                            <span class="text-[10px] px-3 py-1 rounded-lg font-bold tracking-widest uppercase ${isStudent ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' : 'bg-amber-50 text-amber-600 border border-amber-100'}">
                                 ${isStudent ? 'متطوع معتمد' : 'مؤسسة شريكة'}
                             </span>
                         </div>
@@ -183,18 +183,18 @@ const AdminUsers = () => {
 
                 <div class="px-8 pt-16 pb-10 space-y-8">
                     
-                    <div class="grid grid-cols-3 gap-4 border-y border-white/5 py-6">
+                    <div class="grid grid-cols-3 gap-4 border-y border-slate-50 py-6">
                         <div class="text-center">
-                            <p class="text-[9px] text-gray-500 font-bold mb-1 uppercase tracking-tighter">نوع الحساب</p>
-                            <p class="text-xs font-black text-gray-200">${isStudent ? 'متطوع' : 'مؤسسة'}</p>
+                            <p class="text-[9px] text-slate-400 font-bold mb-1 uppercase tracking-tighter">نوع الحساب</p>
+                            <p class="text-xs font-black text-slate-900">${isStudent ? 'متطوع' : 'مؤسسة'}</p>
                         </div>
-                        <div class="text-center border-x border-white/5">
-                            <p class="text-[9px] text-gray-500 font-bold mb-1 uppercase tracking-tighter">تاريخ الانضمام</p>
-                            <p class="text-xs font-black text-gray-200">${new Date(user.created_at).toLocaleDateString('ar-YE')}</p>
+                        <div class="text-center border-x border-slate-50">
+                            <p class="text-[9px] text-slate-400 font-bold mb-1 uppercase tracking-tighter">تاريخ الانضمام</p>
+                            <p class="text-xs font-black text-slate-900">${new Date(user.created_at).toLocaleDateString('ar-YE')}</p>
                         </div>
                         <div class="text-center">
-                            <p class="text-[9px] text-gray-500 font-bold mb-1 uppercase tracking-tighter">${isStudent ? 'ساعات التطوع' : 'التوثيق'}</p>
-                            <p class="text-xs font-black ${isStudent ? 'text-indigo-400' : (data?.is_verified ? 'text-emerald-400' : 'text-amber-400')}">
+                            <p class="text-[9px] text-slate-400 font-bold mb-1 uppercase tracking-tighter">${isStudent ? 'ساعات التطوع' : 'التوثيق'}</p>
+                            <p class="text-xs font-black ${isStudent ? 'text-emerald-600' : (data?.is_verified ? 'text-emerald-600' : 'text-amber-600')}">
                                 ${isStudent ? (data?.total_volunteer_hours || 0) : (data?.is_verified ? 'موثق' : 'تحت المراجعة')}
                             </p>
                         </div>
@@ -203,54 +203,54 @@ const AdminUsers = () => {
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="space-y-4">
                             <div class="group">
-                                <p class="text-[10px] text-gray-600 font-bold mb-2 pr-1">البريد الإلكتروني</p>
-                                <div class="bg-white/[0.03] p-3 rounded-xl border border-white/5 text-sm text-gray-300 font-medium group-hover:border-indigo-500/30 transition-all">${user.email}</div>
+                                <p class="text-[10px] text-slate-400 font-bold mb-2 pr-1">البريد الإلكتروني</p>
+                                <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-sm text-slate-600 font-medium group-hover:border-emerald-500/30 transition-all">${user.email}</div>
                             </div>
                             
                             ${isStudent ? `
                                 <div class="group">
-                                    <p class="text-[10px] text-gray-600 font-bold mb-2 pr-1">الجامعة</p>
-                                    <div class="bg-white/[0.03] p-3 rounded-xl border border-white/5 text-sm text-gray-300 font-medium transition-all">${data?.university || 'غير محدد'}</div>
+                                    <p class="text-[10px] text-slate-400 font-bold mb-2 pr-1">الجامعة</p>
+                                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-sm text-slate-600 font-medium transition-all">${data?.university || 'غير محدد'}</div>
                                 </div>
                             ` : `
                                 <div class="group">
-                                    <p class="text-[10px] text-gray-600 font-bold mb-2 pr-1">مسؤول التواصل</p>
-                                    <div class="bg-white/[0.03] p-3 rounded-xl border border-white/5 text-sm text-gray-300 font-medium transition-all">${data?.contact_person || 'غير متوفر'}</div>
+                                    <p class="text-[10px] text-slate-400 font-bold mb-2 pr-1">مسؤول التواصل</p>
+                                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-sm text-slate-600 font-medium transition-all">${data?.contact_person || 'غير متوفر'}</div>
                                 </div>
                             `}
                         </div>
 
                         <div class="space-y-4">
                             <div class="group">
-                                <p class="text-[10px] text-gray-600 font-bold mb-2 pr-1">رقم الهاتف / المعرف</p>
-                                <div class="bg-white/[0.03] p-3 rounded-xl border border-white/5 text-sm text-gray-300 font-medium transition-all">#ID-${user.id}</div>
+                                <p class="text-[10px] text-slate-400 font-bold mb-2 pr-1">رقم الهاتف / المعرف</p>
+                                <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-sm text-slate-600 font-medium transition-all">#ID-${user.id}</div>
                             </div>
 
                             ${isStudent ? `
                                 <div class="group">
-                                    <p class="text-[10px] text-gray-600 font-bold mb-2 pr-1">التخصص</p>
-                                    <div class="bg-white/[0.03] p-3 rounded-xl border border-white/5 text-sm text-gray-300 font-medium transition-all">${data?.major || 'غير محدد'}</div>
+                                    <p class="text-[10px] text-slate-400 font-bold mb-2 pr-1">التخصص</p>
+                                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-sm text-slate-600 font-medium transition-all">${data?.major || 'غير محدد'}</div>
                                 </div>
                             ` : `
                                 <div class="group">
-                                    <p class="text-[10px] text-gray-600 font-bold mb-2 pr-1">نوع النشاط</p>
-                                    <div class="bg-white/[0.03] p-3 rounded-xl border border-white/5 text-sm text-gray-300 font-medium transition-all">${data?.org_type || 'مؤسسة'}</div>
+                                    <p class="text-[10px] text-slate-400 font-bold mb-2 pr-1">نوع النشاط</p>
+                                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-sm text-slate-600 font-medium transition-all">${data?.org_type || 'مؤسسة'}</div>
                                 </div>
                             `}
                         </div>
                     </div>
 
                     <div class="relative group pt-4">
-                        <p class="text-[10px] text-gray-600 font-bold mb-3 pr-1">${isStudent ? 'النبذة الشخصية' : 'وصف المؤسسة'}</p>
-                        <div class="bg-gradient-to-br from-white/[0.04] to-transparent p-5 rounded-2xl border border-white/5 text-sm text-gray-400 leading-relaxed min-h-[80px]">
+                        <p class="text-[10px] text-slate-400 font-bold mb-3 pr-1">${isStudent ? 'النبذة الشخصية' : 'وصف المؤسسة'}</p>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 text-sm text-slate-500 leading-relaxed min-h-[80px]">
                             ${(isStudent ? data?.bio : data?.description) || 'لا يوجد وصف متاح لهذا الحساب.'}
                         </div>
                     </div>
                 </div>
 
-
-                    <button onclick="Swal.close()" class="px-6 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-white text-[11px] font-bold transition-all border border-white/10">إغلاق</button>
-                
+                <div class="px-8 pb-8 flex justify-end">
+                    <button onclick="Swal.close()" class="px-6 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 text-[11px] font-bold transition-all border border-slate-200">إغلاق</button>
+                </div>
             </div>
         `
         });
@@ -261,10 +261,10 @@ const AdminUsers = () => {
             layout
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className={`group relative ${user.is_active ? "bg-[#0f0f1a]/60 hover:bg-[#161625]" : "bg-[#3f0f1a]/30 hover:bg-[#3f0f1a]/70"} border border-white/5 rounded-[2.5rem] p-6  transition-all duration-500 shadow-xl`}
+            className={`group relative ${user.is_active ? "bg-white" : "bg-red-50/30"} border border-slate-100 rounded-[2.5rem] p-6 transition-all duration-500 shadow-sm hover:shadow-md`}
         >
             <div className="absolute top-6 left-6 flex gap-2">
-                <div className={`px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-wider ${user.role === 'student' ? 'bg-indigo-500/10 text-indigo-400' : 'bg-amber-500/10 text-amber-400'
+                <div className={`px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-wider ${user.role === 'student' ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' : 'bg-amber-50 text-amber-600 border border-amber-100'
                     }`}>
                     {user.role === 'student' ? 'متطوع' : 'مؤسسة'}
                 </div>
@@ -273,35 +273,34 @@ const AdminUsers = () => {
             <div className="flex flex-col items-center text-center mt-4">
                 {/* User Image Section */}
                 <div className="relative group/avatar mb-4">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-violet-600 rounded-[2rem] blur opacity-20 group-hover/avatar:opacity-50 transition duration-500"></div>
-                    <div className={`relative w-24 h-24 rounded-[1.8rem] border-2 ${user.is_active ? 'border-green-500 ' : 'border-red-500'}  bg-[#0c0c14] overflow-hidden"`}>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-[2rem] blur opacity-10 group-hover/avatar:opacity-30 transition duration-500"></div>
+                    <div className={`relative w-24 h-24 rounded-[1.8rem] border-2 ${user.is_active ? 'border-emerald-100' : 'border-red-100'} bg-slate-50 overflow-hidden`}>
                         <img
-                            src={user.profile_image ? `${API_URL}/storage/${user.profile_image}` : `https://ui-avatars.com/api/?name=${user.full_name}&background=6366f1&color=fff`}
+                            src={user.profile_image ? `${API_URL}/storage/${user.profile_image}` : `https://ui-avatars.com/api/?name=${user.full_name}&background=10b981&color=fff`}
                             alt={user.full_name}
-                            className="w-full h-full object-cover rounded-[1.4rem]"
+                            className={`w-full h-full object-cover rounded-[1.4rem] ${user.is_active ? '' : 'grayscale'}`}
 
                         />
 
                     </div>
-                    <div className={`absolute -bottom-1 left-0 w-5 h-5  rounded-full shadow-lg ${user.is_active ? 'bg-green-600 ' : 'bg-red-500'}`}></div>
+                    <div className={`absolute -bottom-1 left-0 w-5 h-5 rounded-full border-2 border-white shadow-sm ${user.is_active ? 'bg-emerald-500' : 'bg-red-500'}`}></div>
                 </div>
 
-                <h3 className="text-lg font-black text-white group-hover:text-indigo-400 transition-colors mb-1 truncate w-full px-2">
-
+                <h3 className="text-lg font-black text-slate-900 group-hover:text-emerald-600 transition-colors mb-1 truncate w-full px-2">
                     {user.role === 'student' ? user.full_name : user.org_name}
                 </h3>
-                <p className="text-gray-500 text-[11px] font-bold mb-4 flex items-center gap-2">
+                <p className="text-slate-400 text-[11px] font-bold mb-4 flex items-center gap-2">
                     <Mail size={12} /> {user.email}
                 </p>
 
                 <div className="grid grid-cols-2 gap-3 w-full mb-6">
-                    <div className="bg-white/5 p-3 rounded-2xl border border-white/5">
-                        <p className="text-[9px] text-gray-500 font-black uppercase mb-1">المعرف</p>
-                        <p className="text-xs font-bold text-indigo-300">#{user.id}</p>
+                    <div className="bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                        <p className="text-[9px] text-slate-400 font-black uppercase mb-1">المعرف</p>
+                        <p className="text-xs font-bold text-slate-600">#{user.id}</p>
                     </div>
-                    <div className="bg-white/5 p-3 rounded-2xl border border-white/5">
-                        <p className="text-[9px] text-gray-500 font-black uppercase mb-1">منذ</p>
-                        <p className="text-xs font-bold text-gray-300">{new Date(user.created_at).toLocaleDateString('ar-YE', { year: 'numeric', month: 'short' })}</p>
+                    <div className="bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                        <p className="text-[9px] text-slate-400 font-black uppercase mb-1">منذ</p>
+                        <p className="text-xs font-bold text-slate-600">{new Date(user.created_at).toLocaleDateString('ar-YE', { year: 'numeric', month: 'short' })}</p>
                     </div>
                 </div>
 
@@ -310,8 +309,8 @@ const AdminUsers = () => {
                         onClick={() => handleToggleStatus(user)}
                         disabled={actionLoading === user.id}
                         className={`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-2xl text-[11px] font-black transition-all ${user.is_active
-                            ? 'bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white'
-                            : 'bg-emerald-500/10 text-emerald-500 hover:bg-emerald-500 hover:text-white'
+                            ? 'bg-red-50 text-red-600 border border-red-100 hover:bg-red-600 hover:text-slate-900'
+                            : 'bg-emerald-50 text-emerald-600 border border-emerald-100 hover:bg-emerald-600 hover:text-slate-900'
                             }`}
                     >
                         {actionLoading === user.id ? <Loader2 size={16} className="animate-spin" /> : (user.is_active ? <Lock size={16} /> : <Unlock size={16} />)}
@@ -319,8 +318,8 @@ const AdminUsers = () => {
                     </button>
 
                     <button
-                        onClick={() => handleViewDetails(user)} // إضافة هذا السطر
-                        className="p-3.5 bg-white/5 text-gray-400 hover:bg-indigo-600 hover:text-white rounded-2xl transition-all border border-white/10"
+                        onClick={() => handleViewDetails(user)} 
+                        className="p-3.5 bg-slate-50 text-slate-400 hover:bg-emerald-600 hover:text-slate-900 rounded-2xl transition-all border border-slate-100"
                         title="عرض الملف الشخصي"
                     >
                         <Eye size={18} />
@@ -332,19 +331,19 @@ const AdminUsers = () => {
 
     if (isFirstLoading) return <LoadingScreen />;
     return (
-        <div className="flex min-h-screen bg-[#050508] text-white dir-rtl" dir="rtl">
+        <div className="flex min-h-screen bg-slate-50 text-slate-900 font-['Tajawal']" dir="rtl">
             <AdminSidebar />
 
-            <main className="flex-1 p-4 lg:p-10 max-w-[1600px] mx-auto w-full">
+            <main className="flex-1 p-4 lg:p-10 max-w-[1600px] mx-auto w-full max-h-screen overflow-y-auto custom-scrollbar">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
                     <div className="flex items-center gap-4">
-                        <div className="w-14 h-14 bg-indigo-600/20 rounded-[1.5rem] flex items-center justify-center border border-indigo-500/30">
-                            <Users className="text-indigo-500" size={28} />
+                        <div className="w-14 h-14 bg-emerald-50 rounded-[1.5rem] flex items-center justify-center border border-emerald-100 shadow-sm">
+                            <Users className="text-emerald-600" size={28} />
                         </div>
                         <div>
-                            <h1 className="text-3xl font-black tracking-tight">إدارة الكوادر</h1>
-                            <p className="text-gray-500 text-[10px] font-black uppercase tracking-widest mt-1">التحكم في مستخدمي منصة توبا سوفت</p>
+                            <h1 className="text-3xl font-black tracking-tight text-slate-900">إدارة الكوادر</h1>
+                            <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest mt-1">التحكم المركزي في مستخدمي المنصة</p>
                         </div>
                     </div>
 
@@ -354,11 +353,11 @@ const AdminUsers = () => {
                 {/* Search & Filters */}
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-8">
                     <div className="lg:col-span-2 relative group">
-                        <Search className="absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-indigo-500 transition-colors" size={20} />
+                        <Search className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-emerald-600 transition-colors" size={20} />
                         <input
                             type="text"
                             placeholder="ابحث عن اسم، بريد، أو معرف..."
-                            className="w-full bg-[#0f0f1a]/60 border border-white/5 pr-14 pl-6 py-4.5 rounded-2xl text-sm font-bold focus:outline-none focus:border-indigo-500/50 transition-all"
+                            className="w-full bg-white border border-slate-100 pr-14 pl-6 py-4.5 rounded-2xl text-sm font-bold text-slate-900 focus:outline-none focus:border-emerald-500/30 transition-all shadow-sm"
                             value={searchInput}
                             onChange={(e) => setSearchInput(e.target.value)}
                         />
@@ -366,7 +365,7 @@ const AdminUsers = () => {
                     <select
                         value={role}
                         onChange={(e) => setRole(e.target.value)}
-                        className="bg-[#0f0f1a]/60 border border-white/5 px-6 py-4.5 rounded-2xl text-sm font-black focus:outline-none focus:border-indigo-500/50 appearance-none"
+                        className="bg-white border border-slate-100 px-6 py-4.5 rounded-2xl text-sm font-black text-slate-600 focus:outline-none focus:border-emerald-500/30 appearance-none shadow-sm"
                     >
                         <option value="all">كل الأدوار</option>
                         <option value="student">المتطوعين</option>
@@ -375,7 +374,7 @@ const AdminUsers = () => {
                     <select
                         value={statusFilter}
                         onChange={(e) => setStatusFilter(e.target.value)}
-                        className="bg-[#0f0f1a]/60 border border-white/5 px-6 py-4.5 rounded-2xl text-sm font-black focus:outline-none focus:border-indigo-500/50 appearance-none"
+                        className="bg-white border border-slate-100 px-6 py-4.5 rounded-2xl text-sm font-black text-slate-600 focus:outline-none focus:border-emerald-500/30 appearance-none shadow-sm"
                     >
                         <option value="all">كل الحالات</option>
                         <option value="active">نشط فقط</option>
@@ -386,18 +385,18 @@ const AdminUsers = () => {
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
                     {[
-                        { label: 'الإجمالي', val: globalStats.total, icon: Users, color: 'text-indigo-500' },
-                        { label: 'المتطوعين', val: globalStats.students, icon: GraduationCap, color: 'text-blue-500' },
-                        { label: 'الشركاء', val: globalStats.orgs, icon: Building2, color: 'text-amber-500' },
+                        { label: 'الإجمالي', val: globalStats.total, icon: Users, color: 'text-slate-600' },
+                        { label: 'المتطوعين', val: globalStats.students, icon: GraduationCap, color: 'text-emerald-600' },
+                        { label: 'الشركاء', val: globalStats.orgs, icon: Building2, color: 'text-amber-600' },
                         { label: 'النشطين', val: globalStats.active, icon: Activity, color: 'text-emerald-500' },
                     ].map((st, i) => (
-                        <div key={i} className="bg-[#0f0f1a]/40 border border-white/5 p-4 rounded-3xl flex items-center gap-4">
-                            <div className={`p-3 rounded-2xl bg-white/5 ${st.color}`}>
+                        <div key={i} className="bg-white border border-slate-100 p-4 rounded-3xl flex items-center gap-4 shadow-sm">
+                            <div className={`p-3 rounded-2xl bg-slate-50 border border-slate-50 ${st.color}`}>
                                 <st.icon size={20} />
                             </div>
                             <div>
-                                <p className="text-[9px] font-black text-gray-500 uppercase">{st.label}</p>
-                                <p className="text-xl font-black">{st.val}</p>
+                                <p className="text-[9px] font-black text-slate-400 uppercase tracking-tighter">{st.label}</p>
+                                <p className="text-xl font-black text-slate-900">{st.val}</p>
                             </div>
                         </div>
                     ))}
@@ -405,14 +404,14 @@ const AdminUsers = () => {
 
                 {/* Content Area - Cards Grid */}
                 <div key={`${search}-${page}`} className="relative min-h-[500px]">
-                    <div className={`grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6 transition-opacity duration-300 ${loadingSearch ? 'opacity-50' : 'opacity-100'}`}>
+                    <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 transition-opacity duration-300 ${loadingSearch ? 'opacity-50' : 'opacity-100'}`}>
                         {loadingSearch ? (
                             Array.from({ length: 8 }).map((_, i) => <UserCardSkeleton key={i} />)
                         ) : users.length > 0 ? (
                             users.map(user => <UserCard key={user.id} user={user} />)
                         ) : !loadingSearch && (
                             <div className="col-span-full py-20 text-center">
-                                <h3 className="text-xl font-black text-gray-500">لا يوجد نتائج تطابق بحثك</h3>
+                                <h3 className="text-xl font-black text-slate-600">لا يوجد نتائج تطابق بحثك</h3>
                             </div>
                         )}
                     </div>
@@ -421,15 +420,15 @@ const AdminUsers = () => {
 
                 {/* Pagination */}
                 {meta.last_page > 1 && (
-                    <div className="mt-12 flex flex-wrap items-center justify-between gap-6 bg-[#0f0f1a]/60 p-6 rounded-[2rem] border border-white/5">
-                        <p className="text-[11px] font-black text-gray-500 uppercase italic">
+                    <div className="mt-12 flex flex-wrap items-center justify-between gap-6 bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm">
+                        <p className="text-[11px] font-black text-slate-400 uppercase italic">
                             عرض {users.length} من أصل {meta.total} مستخدم
                         </p>
                         <div className="flex items-center gap-2">
                             <button
                                 onClick={() => setPage(p => Math.max(1, p - 1))}
                                 disabled={page === 1}
-                                className="w-11 h-11 flex items-center justify-center rounded-xl bg-white/5 hover:bg-indigo-600 disabled:opacity-20 transition-all"
+                                className="w-11 h-11 flex items-center justify-center rounded-xl bg-slate-50 hover:bg-emerald-600 hover:text-slate-900 disabled:opacity-20 transition-all text-slate-400"
                             >
                                 <ChevronRight size={20} />
                             </button>
@@ -439,7 +438,7 @@ const AdminUsers = () => {
                                     <button
                                         key={i + 1}
                                         onClick={() => setPage(i + 1)}
-                                        className={`w-11 h-11 rounded-xl text-xs font-black transition-all ${page === i + 1 ? 'bg-indigo-600 text-white' : 'text-gray-500 hover:bg-white/10'
+                                        className={`w-11 h-11 rounded-xl text-xs font-black transition-all ${page === i + 1 ? 'bg-emerald-600 text-slate-900 shadow-lg' : 'text-slate-400 hover:bg-slate-50'
                                             }`}
                                     >
                                         {i + 1}
@@ -450,7 +449,7 @@ const AdminUsers = () => {
                             <button
                                 onClick={() => setPage(p => Math.min(meta.last_page, p + 1))}
                                 disabled={page === meta.last_page}
-                                className="w-11 h-11 flex items-center justify-center rounded-xl bg-white/5 hover:bg-indigo-600 disabled:opacity-20 transition-all"
+                                className="w-11 h-11 flex items-center justify-center rounded-xl bg-slate-50 hover:bg-emerald-600 hover:text-slate-900 disabled:opacity-20 transition-all text-slate-400"
                             >
                                 <ChevronLeft size={20} />
                             </button>
@@ -462,35 +461,35 @@ const AdminUsers = () => {
             <style>{`
                 .custom-scrollbar::-webkit-scrollbar { width: 6px; }
                 .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-                .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.05); border-radius: 20px; }
+                .custom-scrollbar::-webkit-scrollbar-thumb { background: #f1f5f9; border-radius: 20px; }
             `}</style>
         </div>
     );
 };
 const UserCardSkeleton = () => (
-    <div className="bg-[#0f0f1a]/40 border border-white/5 rounded-[2.5rem] p-6 animate-pulse">
+    <div className="bg-white border border-slate-100 rounded-[2.5rem] p-6 animate-pulse shadow-sm">
         <div className="flex flex-col items-center">
-            <div className="w-24 h-24 rounded-[1.8rem] bg-white/5 mb-4" />
-            <div className="h-4 w-3/4 bg-white/10 rounded mb-2" />
-            <div className="h-3 w-1/2 bg-white/5 rounded mb-6" />
+            <div className="w-24 h-24 rounded-[1.8rem] bg-slate-50 mb-4" />
+            <div className="h-4 w-3/4 bg-slate-50 rounded mb-2" />
+            <div className="h-3 w-1/2 bg-slate-50/50 rounded mb-6" />
             <div className="grid grid-cols-2 gap-3 w-full mb-6">
-                <div className="h-10 bg-white/5 rounded-2xl" />
-                <div className="h-10 bg-white/5 rounded-2xl" />
+                <div className="h-10 bg-slate-50 rounded-2xl" />
+                <div className="h-10 bg-slate-50 rounded-2xl" />
             </div>
-            <div className="h-12 w-full bg-white/5 rounded-2xl" />
+            <div className="h-12 w-full bg-slate-50 rounded-2xl" />
         </div>
     </div>
 );
 const LoadingScreen = () => (
-    <div className="h-screen bg-[#05050a] flex flex-col items-center justify-center relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full" />
+    <div className="h-screen bg-slate-50 flex flex-col items-center justify-center relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/5 blur-[150px] rounded-full" />
         <div className="relative">
-            <div className="w-32 h-32 border-4 border-blue-500/10 border-t-blue-500 rounded-full animate-spin" />
-            <div className="absolute inset-4 border-4 border-purple-500/10 border-b-purple-500 rounded-full animate-spin-slow " />
+            <div className="w-32 h-32 border-4 border-emerald-500/10 border-t-emerald-600 rounded-full animate-spin" />
+            <div className="absolute inset-4 border-4 border-slate-200 border-b-slate-400 rounded-full animate-spin-slow " />
         </div>
         <div className="mt-12 text-center relative z-10">
-            <h2 className="text-2xl font-black text-white tracking-[0.3em] uppercase">Musanada Intelligence</h2>
-            <p className="text-xs text-blue-400 mt-4 font-bold animate-pulse">جاري تجميع البيانات من بحيرة البيانات المركزية...</p>
+            <h2 className="text-2xl font-black text-slate-900 tracking-[0.3em] uppercase">MUSANADA ADMIN</h2>
+            <p className="text-xs text-emerald-600 mt-4 font-bold animate-pulse tracking-widest">جاري تحميل لوحة التحكم الذكية...</p>
         </div>
     </div>
 );
