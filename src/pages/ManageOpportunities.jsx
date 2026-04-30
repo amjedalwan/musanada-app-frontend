@@ -62,6 +62,7 @@ const ManageOpportunities = () => {
             showCancelButton: true,
             confirmButtonText: 'تحديث الآن',
             cancelButtonText: 'تراجع',
+            cancelButtonColor: '#3b82f6',
         });
 
         if (result.isConfirmed) {
@@ -85,7 +86,8 @@ const ManageOpportunities = () => {
             showCancelButton: true,
             confirmButtonText: 'تأكيد الإغلاق والتوثيق',
             cancelButtonText: 'تراجع',
-            confirmButtonColor: '#3b82f6',
+            confirmButtonColor: '#71873a',
+             cancelButtonColor: '#3b82f6',
         });
 
         if (result.isConfirmed) {
@@ -113,6 +115,7 @@ const ManageOpportunities = () => {
             showCancelButton: true,
             confirmButtonText: 'تحديث التاريخ',
             cancelButtonText: 'تراجع',
+            cancelButtonColor: '#3b82f6',
             preConfirm: () => {
                 const date = document.getElementById('swal-input1').value;
                 if (!date) Swal.showValidationMessage('يرجى اختيار تاريخ');
@@ -150,7 +153,8 @@ const ManageOpportunities = () => {
             showCancelButton: true,
             confirmButtonText: 'حذف نهائي',
             cancelButtonText: 'تراجع',
-            confirmButtonColor: '#ef4444',
+            cancelButtonColor: '#3b82f6',
+            confirmButtonColor: '#770a0a',
         });
         if (result.isConfirmed) {
             try {
@@ -178,57 +182,57 @@ const ManageOpportunities = () => {
             <Toaster position="bottom-center" />
             <Sidebar role="organization" />
 
-                {loading ? (
-                    <LoadingSpinner />
-                ) : (
-          
-            <main className="flex-1 p-4 sm:p-6 lg:p-10 xl:p-16 max-w-[1600px] mx-auto w-full overflow-x-hidden">
-                {/* Header Section */}
-                <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
-                    <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-                        <h1 className="text-2xl sm:text-3xl md:text-4xl font-black bg-gradient-to-l from-slate-900 to-slate-500 bg-clip-text text-transparent">
-                            إدارة الفرص
-                        </h1>
-                        <p className="text-slate-400 mt-1 text-xs md:text-sm">تحكم كامل في مبادراتك التطوعية من مكان واحد</p>
-                    </motion.div>
+            {loading ? (
+                <LoadingSpinner />
+            ) : (
 
-                    <button
-                        onClick={() => navigate('/create-opportunity')}
-                        className="w-full md:w-auto bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl flex items-center justify-center gap-2 transition-all font-bold text-sm shadow-xl shadow-emerald-500/20 text-slate-900 active:scale-95"
-                    >
-                        <Plus size={18} />
-                        إضافة فرصة جديدة
-                    </button>
-                </header>
+                <main className="flex-1 p-4 sm:p-6 lg:p-10 xl:p-16 max-w-[1600px] mx-auto w-full overflow-x-hidden">
+                    {/* Header Section */}
+                    <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
+                        <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
+                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black bg-gradient-to-l from-slate-900 to-slate-500 bg-clip-text text-transparent">
+                                إدارة الفرص
+                            </h1>
+                            <p className="text-slate-400 mt-1 text-xs md:text-sm">تحكم كامل في مبادراتك التطوعية من مكان واحد</p>
+                        </motion.div>
 
-                {/* Filters Section */}
-                <div className="flex flex-col xl:flex-row gap-4 mb-8">
-                    <div className="relative flex-1 group">
-                        <Search className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-emerald-600 transition-colors" size={18} />
-                        <input
-                            type="text"
-                            placeholder="ابحث عن عنوان الفرصة..."
-                            className="w-full bg-white border border-slate-200 rounded-xl py-3 pr-11 pl-4 focus:outline-none focus:border-emerald-500/30 transition-all placeholder:text-slate-600 text-xs md:text-sm"
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
+                        <button
+                            onClick={() => navigate('/create-opportunity')}
+                            className="w-full md:w-auto bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl flex items-center justify-center gap-2 transition-all font-bold text-sm shadow-xl shadow-emerald-500/20 text-slate-900 active:scale-95"
+                        >
+                            <Plus size={18} />
+                            إضافة فرصة جديدة
+                        </button>
+                    </header>
+
+                    {/* Filters Section */}
+                    <div className="flex flex-col xl:flex-row gap-4 mb-8">
+                        <div className="relative flex-1 group">
+                            <Search className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-emerald-600 transition-colors" size={18} />
+                            <input
+                                type="text"
+                                placeholder="ابحث عن عنوان الفرصة..."
+                                className="w-full bg-white border border-slate-200 rounded-xl py-3 pr-11 pl-4 focus:outline-none focus:border-emerald-500/30 transition-all placeholder:text-slate-600 text-xs md:text-sm"
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                        </div>
+
+                        <div className="flex overflow-x-auto pb-2 xl:pb-0 gap-2 p-1 bg-slate-100 rounded-xl border border-slate-200 no-scrollbar">
+                            {['all', 'open', 'closed', 'completed'].map((s) => (
+                                <button
+                                    key={s}
+                                    onClick={() => setStatusFilter(s)}
+                                    className={`whitespace-nowrap px-4 md:px-6 py-2 rounded-lg text-[11px] md:text-xs font-bold transition-all ${statusFilter === s ? 'bg-emerald-600 text-slate-900 shadow-lg' : 'text-slate-500 hover:text-slate-600'
+                                        }`}
+                                >
+                                    {s === 'all' ? 'الكل' : s === 'open' ? 'نشطة' : s === 'closed' ? 'مغلقة' : 'مكتملة'}
+                                </button>
+                            ))}
+                        </div>
                     </div>
 
-                    <div className="flex overflow-x-auto pb-2 xl:pb-0 gap-2 p-1 bg-slate-100 rounded-xl border border-slate-200 no-scrollbar">
-                        {['all', 'open', 'closed', 'completed'].map((s) => (
-                            <button
-                                key={s}
-                                onClick={() => setStatusFilter(s)}
-                                className={`whitespace-nowrap px-4 md:px-6 py-2 rounded-lg text-[11px] md:text-xs font-bold transition-all ${statusFilter === s ? 'bg-emerald-600 text-slate-900 shadow-lg' : 'text-slate-500 hover:text-slate-600'
-                                    }`}
-                            >
-                                {s === 'all' ? 'الكل' : s === 'open' ? 'نشطة' : s === 'closed' ? 'مغلقة' : 'مكتملة'}
-                            </button>
-                        ))}
-                    </div>
-                </div>
 
-              
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-6">
                         <AnimatePresence mode='popLayout'>
                             {filteredOpps.length > 0 ? (
@@ -255,8 +259,8 @@ const ManageOpportunities = () => {
                             )}
                         </AnimatePresence>
                     </div>
-              
-            </main>)}
+
+                </main>)}
         </div>
     );
 };
@@ -264,7 +268,7 @@ const ManageOpportunities = () => {
 const OpportunityCard = ({ opp, index, onChangeStatus, onExtendDeadline, onDelete, onEdit, onDetails }) => {
     const [imageError, setImageError] = useState(false);
     const imageUrl = opp.cover_image || null;
-  //  const progress = Math.min(((opp.accepted_count || 0) / (opp.required_volunteers || 1)) * 100, 100);
+    //  const progress = Math.min(((opp.accepted_count || 0) / (opp.required_volunteers || 1)) * 100, 100);
 
     const daysRemaining = useMemo(() => {
         if (!opp.deadline) return null;

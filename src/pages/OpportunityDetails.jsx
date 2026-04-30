@@ -346,15 +346,17 @@ const API_URL = import.meta.env.VITE_API_URL;
                                 </div>
                                 <div className="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm">
                                     <h3 className="text-lg font-black mb-6 flex items-center gap-3 text-teal-600">
-                                        <Award size={20} /> المتطلبات والشروط
+                                        <Award size={20} /> المتطلبات والمهارات
                                     </h3>
                                     <p className="text-slate-500 leading-relaxed text-sm font-medium whitespace-pre-wrap mb-6">
-                                        {opportunity?.requirements}
+                                        # {opportunity?.requirements}
                                     </p>
+                                   
                                     <div className="flex flex-wrap gap-2">
+                                      
                                         {opportunity?.skills?.map(skill => (
-                                            <span key={skill.id} className="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-xl text-[11px] font-bold text-slate-500">
-                                                #{skill.name}
+                                            <span key={skill.id} className="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-xl text-[11px] font-bold text-slate-500 shadow-sm">
+                                                {skill.name}
                                             </span>
                                         ))}
                                     </div>

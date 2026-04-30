@@ -228,7 +228,7 @@ const ManageCertificates = () => {
                                         key={t.id}
                                         onClick={() => setTab(t.id)}
                                         className={`flex items-center gap-2 px-4 sm:px-6 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${tab === t.id
-                                            ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-slate-900 shadow-lg shadow-purple-600/20'
+                                            ? 'bg-gradient-to-r from-emerald-600 to-slate-500 text-slate-900 shadow-lg shadow-purple-600/20'
                                             : 'text-slate-400 hover:text-slate-600 hover:bg-slate-50'
                                             }`}
                                     >
@@ -318,7 +318,7 @@ const API_URL = import.meta.env.VITE_API_URL;
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ delay: index * 0.05 }}
-            className={`group relative p-6 rounded-[2.5rem] border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${isIssued ? 'bg-[#0c0c10] border-slate-100 hover:border-emerald-200' : 'bg-[#12110c] border-amber-500/10 hover:border-amber-500/30'}`}
+            className={`group relative p-6 rounded-[2.5rem] border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${isIssued ? 'bg-[#fff] shadow-xl border-slate-100 hover:border-emerald-200' : 'bg-[#12110c] border-amber-500/10 hover:border-amber-500/30'}`}
         >
 
             <div className="flex justify-between items-start mb-8">
@@ -372,7 +372,7 @@ const API_URL = import.meta.env.VITE_API_URL;
                     <>
                         <button
                             onClick={handleView} // إضافة حدث الضغط هنا
-                            className="w-full bg-slate-50 hover:bg-emerald-600 py-4 rounded-2xl text-xs font-black transition-all flex items-center justify-center gap-2 group-hover:bg-emerald-600 group-hover:text-slate-900"
+                            className="w-full bg-slate-500 bg-emerald-600 py-4 rounded-2xl text-xs font-black transition-all flex items-center justify-center gap-2 group-hover:bg-emerald-600 group-hover:text-slate-900"
                         >
                             <Eye size={16} /> معاينة الوثيقة (PDF)
                         </button>

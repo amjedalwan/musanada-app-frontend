@@ -132,7 +132,7 @@ const SkillsManagement = () => {
                             whileHover={{ scale: 1.03, y: -2 }}
                             whileTap={{ scale: 0.97 }}
                             onClick={() => { setFormData({ id: null, name: '' }); setIsModalOpen(true); }}
-                            className="flex-1 lg:flex-none flex items-center justify-center gap-3 bg-slate-900 text-slate-900 px-8 py-4 rounded-2xl font-black text-sm transition-all hover:bg-slate-800 shadow-lg shadow-slate-900/10"
+                            className="flex-1 lg:flex-none flex items-center justify-center gap-3 bg-emerald-600 text-slate-900 px-8 py-4 rounded-2xl font-black text-sm transition-all hover:bg-emerald-400 shadow-lg shadow-slate-900/10"
                         >
                             <Plus size={20} strokeWidth={3} />
                             إضافة مهارة

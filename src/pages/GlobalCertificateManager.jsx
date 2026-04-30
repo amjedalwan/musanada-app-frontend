@@ -17,9 +17,9 @@ const GlobalCertificateManager = () => {
     // استقبال الألوان الديناميكية من الرابط
     const queryParams = new URLSearchParams(location.search);
     const colors = {
-        headerBg: queryParams.get('hBg') || "#111827",
+        headerBg: queryParams.get('hBg') || "#111929f2",
         bodyBg: queryParams.get('bBg') || "#ffffff",
-        footerBg: queryParams.get('fBg') || "#f9fafb",
+        footerBg: queryParams.get('fBg') || "#f9fafbe1",
         accentColor: queryParams.get('aColor') || "#b45309"
     };
 
@@ -47,6 +47,7 @@ const GlobalCertificateManager = () => {
                 setCertData(response.data.data);
             }
         } catch (err) {
+            console.log(err)
             toast.error('خطأ في جلب بيانات الشهادة');
         } finally {
             setLoading(false);
@@ -146,8 +147,8 @@ const GlobalCertificateManager = () => {
                             style={{ backgroundColor: colors.headerBg, color: textColorHeader }}
                             className="relative h-[220px]  flex flex-col items-center justify-center overflow-hidden"
                         >
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-slate-50 rounded-full -mr-32 -mt-32"></div>
-                            <div className="absolute bottom-0 left-0 w-32 h-32 bg-black/10 rounded-full -ml-16 -mb-16"></div>
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-slate-50/10 rounded-full -mr-32 -mt-32"></div>
+                            <div className="absolute bottom-0 left-0 w-32 h-32 bg-black/20 rounded-full -ml-16 -mb-16"></div>
 
                             {
                                 certData.orgLogo ? (
@@ -171,13 +172,14 @@ const GlobalCertificateManager = () => {
                         {/* 2. جسم الشهادة (Body) */}
                         <section
                             style={{ backgroundColor: colors.bodyBg, color: textColorBody }}
-                            className="flex-1 px-16 py-6 text-center flex flex-col items-center justify-center relative "
-                        ><div className="absolute inset-0 flex items-center  justify-center pointer-events-none opacity-[0.1] z-0">
+                            className="relative flex-1 px-16 py-6 text-center flex flex-col items-center justify-center relative "
+                        >
+                            <div className="absolute top-2 bottom-2 inset-0 flex items-center  justify-center pointer-events-none opacity-[0.08] z-0">
                                 {certData.orgLogo ? (
                                     <img
                                         src={`${API_BASE_URL}/storage/${certData.orgLogo}`}
                                         alt="Watermark"
-                                        className="w-full grayscale  blur-[2px] "
+                                        className="w-auto grayscale  blur-[2px] w-[fit-content] h-[-webkit-fill-available]"
                                     />
                                 ) : (
                                     <Award size={400} />
@@ -196,7 +198,7 @@ const GlobalCertificateManager = () => {
                             <p className="text-lg text-slate-500 font-medium mb-4">تشهد إدارة {certData.orgName} بأن {volunteerTitle[certData.opportunityType]}:</p>
 
                             <div className="relative mb-4">
-                                <h3 className="text-5xl font-black text-slate-900 leading-tight">
+                                <h3 className="text-5xl font-black text-slate-900/90 leading-tight">
                                     {certData.volunteerName}
                                 </h3>
                                 <div className="h-1 w-full bg-gradient-to-r from-transparent via-amber-200 to-transparent mt-4"></div>
@@ -208,14 +210,10 @@ const GlobalCertificateManager = () => {
                             </p>
 
                             <div className="relative mb-6">
-                                {/* طبقة الزجاج الرئيسية */}
-                                <div className="relative bg-slate-50 backdrop-blur-sm border border-white/40 py-6 px-10 rounded-2xl shadow-xl shadow-amber-950/5 overflow-hidden group">
+                               
+                                <div className="relative bg-slate-50/10 backdrop-blur-[3px] border border-white/40 py-6 px-10 rounded-2xl shadow-xl shadow-amber-950/10 overflow-hidden group">
 
-                                    {/* لمعة زجاجية ديكورية في الزاوية */}
-                                    <div className="absolute -top-10 -left-10 w-24 h-24 bg-slate-500 rounded-full blur-sm transition-all group-hover:scale-150"></div>
-
-                                    {/* النص - تأكد من استخدام لون داكن للتباين */}
-                                    <span className="relative z-10 text-2xl font-black text-amber-950 tracking-tight">
+                                    <span className="relative z-10 text-2xl font-black text-amber-950/80 tracking-tight">
                                         {certData.opportunityTitle}
                                     </span>
                                 </div>
@@ -226,14 +224,14 @@ const GlobalCertificateManager = () => {
 
                             {/* تفاصيل الفرصة الإضافية */}
                             <div className="grid grid-cols-2 gap-4 w-full max-w-lg  mb-6">
-                                <div className="flex items-center justify-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                <div className="flex items-center justify-center gap-3 bg-slate-300/10 shadow-sm backdrop-blur-[2px]  p-3 rounded-xl border border-slate-100">
                                     <div className="p-2 bg-white rounded-lg text-amber-600 shadow-sm"><UserCheck size={18} /></div>
                                     <div className="text-right  space-y-1">
                                         <p className="text-[10px] text-slate-400 font-bold">تاريخ القبول</p>
                                         <p className="text-sm font-black text-slate-800">{certData.joinDate}</p>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100 justify-center ">
+                                  <div className="flex items-center justify-center gap-3 bg-slate-300/10 shadow-sm backdrop-blur-[2px]  p-3 rounded-xl border border-slate-100">
                                     <div className="p-2 bg-white rounded-lg text-amber-600 shadow-sm"><ArrowLeftRight size={18} /></div>
                                     <div className="text-right space-y-1">
                                         <p className="text-[10px] text-slate-400 font-bold">فترة التنفيذ</p>

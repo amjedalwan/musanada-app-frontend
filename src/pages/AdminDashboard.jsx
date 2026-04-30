@@ -209,7 +209,7 @@ const API_URL = import.meta.env.VITE_API_URL;
                         </p>
                     </motion.div>
 
-                    <div className="flex items-center gap-3 w-full md:w-auto bg-white p-2 rounded-[1.5rem] border border-slate-100 shadow-sm">
+                    <div className="flex items-center  gap-3 w-full md:w-auto bg-white p-2 rounded-[1.5rem] border border-slate-100 shadow-sm ">
                         <button
                             onClick={() => fetchAdminData(true)}
                             disabled={refreshing}
@@ -219,7 +219,7 @@ const API_URL = import.meta.env.VITE_API_URL;
                         </button>
                         <button
                             onClick={() => navigate('/admin/analytics')}
-                            className="flex items-center gap-3 bg-slate-900 text-slate-900 px-6 py-4 rounded-xl font-black text-sm hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/10 active:scale-95"
+                            className="flex items-center gap-3 bg-emerald-600  hover:bg-emerald-300   text-slate-900 px-6 py-4 rounded-xl font-black text-sm  transition-all shadow-lg shadow-slate-900/10 active:scale-95"
                         >
                             <Download size={18} />
                             تصدير التقارير
