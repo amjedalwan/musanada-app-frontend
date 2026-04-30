@@ -150,129 +150,129 @@ const ManageCertificates = () => {
         <div className="flex min-h-screen bg-slate-50 text-gray-100 font-['Cairo'] selection:bg-emerald-500/30" dir="rtl">
             <Toaster position="top-center" reverseOrder={false} />
             <Sidebar role="organization" />
-   {loading ? (
-                    <LoadingSpinner />
-                ) : (
-            <main className="flex-1 p-4 lg:p-12 max-w-[1600px] mx-auto w-full transition-all duration-500">
+            {loading ? (
+                <LoadingSpinner />
+            ) : (
+                <main className="flex-1 p-4 lg:p-12 max-w-[1600px] mx-auto w-full transition-all duration-500">
 
-                {/* Header Section */}
-                <header className="relative mb-12">
-                    <div className="absolute -top-20 -right-20 w-64 h-64 bg-emerald-600/10 blur-[120px] rounded-full" />
-                    <div className="relative z-10 flex flex-col md:flex-row justify-between items-start gap-6">
-                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-                         
-                            <h1 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-3">
-                                إدارة <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-fuchsia-300 to-indigo-400">الشهادات المعتمدة</span>
-                            </h1>
-                            <p className="text-slate-500 max-w-xl text-lg leading-relaxed">
-                                لوحة تحكم متقدمة لإدارة وثائق المتطوعين، تتيح لك المراجعة، التعديل، والإصدار الفوري للشهادات الرقمية الموثقة.
-                            </p>
-                        </motion.div>
+                    {/* Header Section */}
+                    <header className="relative mb-12">
+                        <div className="absolute -top-20 -right-20 w-64 h-64 bg-emerald-600/10 blur-[120px] rounded-full" />
+                        <div className="relative z-10 flex flex-col md:flex-row justify-between items-start gap-6">
+                            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
 
-                        <div className="flex gap-4">
-                            <StatCard icon={<Award />} label="إجمالي المصدرة" count={issued.length} color="text-emerald-600" />
-                            <StatCard icon={<Clock />} label="بانتظار المراجعة" count={eligible.length} color="text-amber-400" />
-                        </div>
-                    </div>
-                </header>
+                                <h1 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-3">
+                                    إدارة <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-fuchsia-300 to-indigo-400">الشهادات المعتمدة</span>
+                                </h1>
+                                <p className="text-slate-500 max-w-xl text-lg leading-relaxed">
+                                    لوحة تحكم متقدمة لإدارة وثائق المتطوعين، تتيح لك المراجعة، التعديل، والإصدار الفوري للشهادات الرقمية الموثقة.
+                                </p>
+                            </motion.div>
 
-                {/* Filters & Tools Bar */}
-                <section className="sticky top-4 z-40 mb-10 p-2 sm:p-3 bg-slate-50 backdrop-blur-xl border border-slate-100 rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl">
-                    {/* الحاوية الرئيسية: عمودية في الجوال، أفقية في الشاشات الكبيرة */}
-                    <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
-
-                        {/* مجموعة البحث والفلترة - تتوسع لتملأ المساحة */}
-                        <div className="grid grid-cols-1 sm:flex md:flex-row gap-3 w-full flex-grow">
-
-                            {/* حقل البحث */}
-                            <div className="relative group w-full ">
-                                <Search className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-emerald-600 transition-colors" size={18} />
-                                <input
-                                    type="text"
-                                    placeholder="ابحث بالاسم..."
-                                    className="w-full bg-white border border-slate-100 rounded-2xl py-3 pr-11 pl-4 focus:border-purple-500/50 outline-none transition-all placeholder:text-slate-400 text-sm text-slate-900"
-                                    value={searchTerm}
-                                    onChange={(e) => setSearchTerm(e.target.value)}
-                                />
+                            <div className="flex gap-4">
+                                <StatCard icon={<Award />} label="إجمالي المصدرة" count={issued.length} color="text-emerald-600" />
+                                <StatCard icon={<Clock />} label="بانتظار المراجعة" count={eligible.length} color="text-amber-400" />
                             </div>
+                        </div>
+                    </header>
 
-                            {/* فلتر الفرص */}
-                            <div className="relative group w-full ">
-                                <Filter className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-emerald-600 transition-colors" size={16} />
-                                <select
-                                    className="w-full bg-white border border-slate-100 rounded-2xl py-3 pr-11 pl-10 
+                    {/* Filters & Tools Bar */}
+                    <section className="sticky top-4 z-40 mb-10 p-2 sm:p-3 bg-slate-50 backdrop-blur-xl border border-slate-100 rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl">
+                        {/* الحاوية الرئيسية: عمودية في الجوال، أفقية في الشاشات الكبيرة */}
+                        <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
+
+                            {/* مجموعة البحث والفلترة - تتوسع لتملأ المساحة */}
+                            <div className="grid grid-cols-1 sm:flex md:flex-row gap-3 w-full flex-grow">
+
+                                {/* حقل البحث */}
+                                <div className="relative group w-full ">
+                                    <Search className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-emerald-600 transition-colors" size={18} />
+                                    <input
+                                        type="text"
+                                        placeholder="ابحث بالاسم..."
+                                        className="w-full bg-white border border-slate-100 rounded-2xl py-3 pr-11 pl-4 focus:border-purple-500/50 outline-none transition-all placeholder:text-slate-400 text-sm text-slate-900"
+                                        value={searchTerm}
+                                        onChange={(e) => setSearchTerm(e.target.value)}
+                                    />
+                                </div>
+
+                                {/* فلتر الفرص */}
+                                <div className="relative group w-full ">
+                                    <Filter className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-emerald-600 transition-colors" size={16} />
+                                    <select
+                                        className="w-full bg-white border border-slate-100 rounded-2xl py-3 pr-11 pl-10 
                focus:border-purple-500/50 outline-none transition-all text-sm 
                appearance-none cursor-pointer text-slate-600
                [&::-ms-expand]:hidden" // لإخفاء السهم في متصفح Edge القديم
-                                    value={selectedOpportunity}
-                                    onChange={(e) => setSelectedOpportunity(e.target.value)}
-                                >
-                                    <option className="bg-white text-slate-900" value="all">كل الفرص</option>
-                                    {opportunitiesList.map(opp => (
-                                        <option className="bg-white text-slate-900" key={opp.id} value={opp.id}>{opp.title}</option>
-                                    ))}
-                                </select>
-                                <ChevronDown className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" size={14} />
-                            </div>
-                        </div>
-
-                        {/* التبويبات - تصطف في المنتصف في الجوال وعلى اليسار في الكاشات الكبيرة */}
-                        <div className=" w-auto flex justify-center lg:justify-end overflow-x-auto no-scrollbar min-w-[340px]">
-                            <div className="flex p-1 bg-white rounded-2xl border border-slate-100 min-w-max">
-                                {[
-                                    { id: 'all', label: 'الكل', icon: <BarChart3 size={14} /> },
-                                    { id: 'issued', label: 'المصدرة', icon: <CheckCircle2 size={14} /> },
-                                    { id: 'eligible', label: 'المؤهلون', icon: <Zap size={14} /> }
-                                ].map((t) => (
-                                    <button
-                                        key={t.id}
-                                        onClick={() => setTab(t.id)}
-                                        className={`flex items-center gap-2 px-4 sm:px-6 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${tab === t.id
-                                            ? 'bg-gradient-to-r from-emerald-600 to-slate-500 text-slate-900 shadow-lg shadow-purple-600/20'
-                                            : 'text-slate-400 hover:text-slate-600 hover:bg-slate-50'
-                                            }`}
+                                        value={selectedOpportunity}
+                                        onChange={(e) => setSelectedOpportunity(e.target.value)}
                                     >
-                                        {t.icon} <span>{t.label}</span>
-                                    </button>
-                                ))}
+                                        <option className="bg-white text-slate-900" value="all">كل الفرص</option>
+                                        {opportunitiesList.map(opp => (
+                                            <option className="bg-white text-slate-900" key={opp.id} value={opp.id}>{opp.title}</option>
+                                        ))}
+                                    </select>
+                                    <ChevronDown className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" size={14} />
+                                </div>
                             </div>
+
+                            {/* التبويبات - تصطف في المنتصف في الجوال وعلى اليسار في الكاشات الكبيرة */}
+                            <div className=" w-auto flex justify-center lg:justify-end overflow-x-auto no-scrollbar min-w-[340px]">
+                                <div className="flex p-1 bg-white rounded-2xl border border-slate-100 min-w-max">
+                                    {[
+                                        { id: 'all', label: 'الكل', icon: <BarChart3 size={14} /> },
+                                        { id: 'issued', label: 'المصدرة', icon: <CheckCircle2 size={14} /> },
+                                        { id: 'eligible', label: 'المؤهلون', icon: <Zap size={14} /> }
+                                    ].map((t) => (
+                                        <button
+                                            key={t.id}
+                                            onClick={() => setTab(t.id)}
+                                            className={`flex items-center gap-2 px-4 sm:px-6 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${tab === t.id
+                                                ? 'bg-gradient-to-r from-emerald-600 to-slate-500 text-slate-900 shadow-lg shadow-purple-600/20'
+                                                : 'text-slate-400 hover:text-slate-600 hover:bg-slate-50'
+                                                }`}
+                                        >
+                                            {t.icon} <span>{t.label}</span>
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
                         </div>
+                    </section>
 
-                    </div>
-                </section>
-
-                {/* Cards Grid */}
-                {loading ? (
-                    <LoadingGrid />
-                ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
-                        <AnimatePresence mode='popLayout'>
-                            {filteredData.map((item, index) => (
-                                // البحث عن السطر الذي يستدعي CertificateCard وتعديله كالتالي:
-                                <CertificateCard
-                                    key={item.id || `${item.user_id}-${item.opportunity_id}`}
-                                    data={item}
-                                    isIssued={!!item.certificate_code}
-                                    index={index}
-                                    onDelete={handleDelete} // مررنا دالة الحذف هنا
-                                    onIssue={() => handleIssue(item)}
-                                />
-                            ))}
-                        </AnimatePresence>
-                    </div>
-                )}
-
-                {/* Empty State */}
-                {!loading && filteredData.length === 0 && (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col items-center justify-center py-24 text-center">
-                        <div className="bg-slate-50 p-8 rounded-full mb-6">
-                            <Search size={48} className="text-slate-400" />
+                    {/* Cards Grid */}
+                    {loading ? (
+                        <LoadingGrid />
+                    ) : (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
+                            <AnimatePresence mode='popLayout'>
+                                {filteredData.map((item, index) => (
+                                    // البحث عن السطر الذي يستدعي CertificateCard وتعديله كالتالي:
+                                    <CertificateCard
+                                        key={item.id || `${item.user_id}-${item.opportunity_id}`}
+                                        data={item}
+                                        isIssued={!!item.certificate_code}
+                                        index={index}
+                                        onDelete={handleDelete} // مررنا دالة الحذف هنا
+                                        onIssue={() => handleIssue(item)}
+                                    />
+                                ))}
+                            </AnimatePresence>
                         </div>
-                        <h3 className="text-xl font-bold text-slate-500">لا توجد نتائج تطابق بحثك</h3>
-                        <p className="text-slate-400 mt-2">جرب تغيير الفلتر أو البحث عن اسم آخر</p>
-                    </motion.div>
-                )}
-            </main>)}
+                    )}
+
+                    {/* Empty State */}
+                    {!loading && filteredData.length === 0 && (
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col items-center justify-center py-24 text-center">
+                            <div className="bg-slate-50 p-8 rounded-full mb-6">
+                                <Search size={48} className="text-slate-400" />
+                            </div>
+                            <h3 className="text-xl font-bold text-slate-500">لا توجد نتائج تطابق بحثك</h3>
+                            <p className="text-slate-400 mt-2">جرب تغيير الفلتر أو البحث عن اسم آخر</p>
+                        </motion.div>
+                    )}
+                </main>)}
 
 
         </div>
@@ -292,7 +292,7 @@ const StatCard = ({ icon, label, count, color }) => (
 );
 const WEB_URL = WEB_APP_URL;
 const CertificateCard = ({ data, isIssued, index, onDelete, onIssue }) => {
-const API_URL = import.meta.env.VITE_API_URL;
+    const API_URL = import.meta.env.VITE_API_URL;
     const handleView = () => {
         if (data.certificate_code) {
             // خيار 1: الذهاب لصفحة عرض الشهادة العامة (باستخدام الكود)
@@ -360,7 +360,7 @@ const API_URL = import.meta.env.VITE_API_URL;
                     <p className="text-slate-400 text-sm flex items-center gap-2">
                         <Award size={14} className="text-emerald-600" /> {data.opportunity?.title}
                     </p>
-                 
+
                     <p className="text-slate-400 text-xs flex items-center gap-2">
                         <Clock size={14} className="text-amber-500" />
                         {data.approved_hours || 0} ساعة تطوعية معتمدة
@@ -371,8 +371,8 @@ const API_URL = import.meta.env.VITE_API_URL;
                 {isIssued ? (
                     <>
                         <button
-                            onClick={handleView} 
-                            className="w-full bg-slate-500 cursor-pointer hover:scale-105  bg-emerald-600 py-4 rounded-2xl text-xs font-black transition-all flex items-center justify-center gap-2 group-hover:bg-emerald-600 group-hover:text-slate-900"
+                            onClick={handleView}
+                            className="w-full bg-slate-500 cursor-pointer hover:scale-102  bg-emerald-600 py-4 rounded-2xl text-xs font-black transition-all flex items-center justify-center gap-2 group-hover:bg-emerald-600 group-hover:text-slate-900"
                         >
                             <Eye size={16} /> معاينة الوثيقة (PDF)
                         </button>
