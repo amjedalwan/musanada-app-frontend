@@ -371,8 +371,8 @@ const API_URL = import.meta.env.VITE_API_URL;
                 {isIssued ? (
                     <>
                         <button
-                            onClick={handleView} // إضافة حدث الضغط هنا
-                            className="w-full bg-slate-500 bg-emerald-600 py-4 rounded-2xl text-xs font-black transition-all flex items-center justify-center gap-2 group-hover:bg-emerald-600 group-hover:text-slate-900"
+                            onClick={handleView} 
+                            className="w-full bg-slate-500 cursor-pointer hover:scale-105  bg-emerald-600 py-4 rounded-2xl text-xs font-black transition-all flex items-center justify-center gap-2 group-hover:bg-emerald-600 group-hover:text-slate-900"
                         >
                             <Eye size={16} /> معاينة الوثيقة (PDF)
                         </button>
