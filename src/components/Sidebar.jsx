@@ -6,7 +6,7 @@ import {
     PlusCircle, Users, Search, X, Calendar, Map, PanelLeftClose, PanelLeftOpen
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import { LOGO } from '../config/constants';
 import { URLS } from '../config/constants';
 
 
@@ -43,7 +43,7 @@ const Sidebar = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
-
+  
     // 1. مراقبة عرض الشاشة باستخدام State لضمان استجابة Framer Motion
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -232,8 +232,10 @@ const Sidebar = () => {
                 <div className="p-6 flex items-center justify-between min-h-[80px]">
                     {!isCollapsed && (
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center shadow-lg shadow-emerald-500/20">
-                                <span className="text-white font-black text-sm">M</span>
+                            <div className="w-12 h-12 rounded-full bg-emerald-600 flex border border-1  border-green-500 items-center justify-center ">
+
+                                <img className="w-full h-full object-cover rounded-full" src={LOGO} />
+
                             </div>
                             <span className="font-black text-slate-900 text-lg tracking-tight">مساندة</span>
                         </motion.div>

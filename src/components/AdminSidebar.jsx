@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import { LOGO } from '../config/constants';
 const AdminSidebar = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -76,7 +76,7 @@ const AdminSidebar = () => {
             ]
         }
     ];
-
+   
     return (<>
         {/* لسان الفتح للجوال */}
         <AnimatePresence>
@@ -135,7 +135,7 @@ const AdminSidebar = () => {
                 <div className={`flex items-center gap-4 ${isCollapsed ? 'justify-center' : ''}`}>
                     <div className="relative">
                         <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-700 flex items-center justify-center text-white shadow-lg shadow-emerald-600/20">
-                            <ShieldCheck size={26} strokeWidth={2.5} />
+                            <img className="w-full h-full object-cover rounded-full" src={LOGO} />
                         </div>
                         <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full animate-pulse"></span>
                     </div>
@@ -235,7 +235,7 @@ const AdminSidebar = () => {
             </nav>
 
 
-       
+
         </motion.aside>
     </>
     );

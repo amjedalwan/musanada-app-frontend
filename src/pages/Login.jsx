@@ -8,7 +8,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import toast, { Toaster } from 'react-hot-toast';
 import api from '../api/axios';
-
+import { LOGO } from '../config/constants';
 /**
  * مكون حقل الإدخال المخصص بتأثيرات بصرية متقدمة
  */
@@ -75,7 +75,7 @@ const Login = () => {
     const [errors, setErrors] = useState({});
     const [showPassword, setShowPassword] = useState(false);
     const [loginStatus, setLoginStatus] = useState('idle'); // idle, success, error
-
+   
     // 1. التحقق من وجود جلسة نشطة وتوجيه المستخدم فوراً
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -117,11 +117,11 @@ const Login = () => {
         try {
             const response = await api.post('/login', credentials);
             const { token, user, role } = response.data;
-           
+
 
             // التحقق من حالة المؤسسة
             if (role === 'organization' && user.status === 'pending') {
-               
+
                 toast.error("حسابك قيد المراجعة من قبل الإدارة، ستصلك رسالة عند التفعيل.");
                 return;
             }
@@ -135,7 +135,7 @@ const Login = () => {
             setLoginStatus('success');
             toast.success(`مرحباً بك مجدداً، ${user.full_name || 'مستخدم مساندة'}`, { id: mainToast });
 
-           
+
             setTimeout(() => {
                 window.location.href = '/dashboard';
             }, 1000);
@@ -182,9 +182,10 @@ const Login = () => {
                 <div className="text-center mb-10">
                     <motion.div
                         whileHover={{ scale: 1.05, rotate: 5 }}
-                        className="inline-flex relative p-5 rounded-[2.5rem] bg-gradient-to-tr from-emerald-500 to-emerald-600 shadow-2xl shadow-emerald-600/20 mb-6 group cursor-pointer"
+                        className="inline-flex relative  rounded-full p-[1.5px] bg-gradient-to-tr from-green-500 to-green-600 shadow-2xl shadow-emerald-600/20 mb-6 group cursor-pointer"
                     >
-                        <ShieldCheck size={48} className="text-slate-900 stroke-[2.5]" />
+                     
+                        <img   className="w-[100px] h-[100px] object-cover rounded-full" src={LOGO} />
                         <motion.div
                             animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
                             transition={{ duration: 2, repeat: Infinity }}

@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react'; // تأكد من تثبيت المكتبة: npm install qrcode.react
 import api from '../api/axios';
+import { LOGO } from '../config/constants';
 import { toast, Toaster } from 'react-hot-toast';
 
 const GlobalCertificateManager = () => {
@@ -42,7 +43,7 @@ const GlobalCertificateManager = () => {
         try {
             setLoading(true);
             // جلب البيانات من API بناءً على الكود
-            const response = await api.get(`/org/certificates/verify/${code || 'MSND-2026-BDE223E4'}`);
+            const response = await api.get(`/certificates/verify/${code || 'MSND-2026-BDE223E4'}`);
             if (response.data.success) {
                 setCertData(response.data.data);
             }
@@ -96,8 +97,8 @@ const GlobalCertificateManager = () => {
             {/* شريط التحكم (لا يظهر عند الطباعة) */}
             <nav className="fixed top-0 left-0 right-0 z-50 p-4 bg-white backdrop-blur-xl border-b border-slate-100 flex justify-between items-center no-print">
                 <div className="flex items-center gap-3 text-slate-900">
-                    <div className="p-2 bg-amber-600 rounded-lg shadow-lg">
-                        <Award size={20} />
+                    <div className="p-[1px] bg-amber-600 rounded-full shadow-lg w-[50px] max-h-[50px]">
+                        <img src={LOGO} alt="logo" className='w-full object-cover rounded-full ' />
                     </div>
                     <span className="font-bold text-sm hidden md:block">منصة مساندة - نظام تصديق الشهادات الرقمي</span>
                 </div>
@@ -145,27 +146,39 @@ const GlobalCertificateManager = () => {
 
                         <header
                             style={{ backgroundColor: colors.headerBg, color: textColorHeader }}
-                            className="relative h-[220px]  flex flex-col items-center justify-center overflow-hidden"
+                            className="relative h-[200px]  flex flex-col items-center justify-center overflow-hidden"
                         >
                             <div className="absolute top-0 right-0 w-64 h-64 bg-slate-50/10 rounded-full -mr-32 -mt-32"></div>
                             <div className="absolute bottom-0 left-0 w-32 h-32 bg-black/20 rounded-full -ml-16 -mb-16"></div>
-
-                            {
-                                certData.orgLogo ? (
-                                    <img src={`${API_BASE_URL}/storage/${certData.orgLogo}`} alt="Logo" className="w-24 h-24 mb-4 z-10 object-contain bg-white p-2 rounded-2xl shadow-xl" />
-                                ) : (
-                                    <div className="w-20 h-20 mb-4 z-10 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-slate-300">
-                                        <Building2 size={40} />
-                                    </div>
-                                )
-                            }
-
-                            < div className="z-10 text-center" >
-                                <h1 className="text-3xl font-black mb-1 tracking-tight">{certData.orgName}</h1>
-                                <div className="flex items-center justify-center gap-4 mt-2 opacity-80 text-[10px] font-bold">
-                                    {certData.orgPhone && <span className="flex items-center gap-1"><Phone size={12} /> {certData.orgPhone}</span>}
-                                    {certData.orgWebsite && <span className="flex items-center gap-1"><Globe size={12} /> {certData.orgWebsite}</span>}
+                            <div className="flex justify-between w-full px-10 items-center">
+                                <div className=" z-10 rounded-full p-2 ">
+                                    {
+                                        certData.orgLogo ? (
+                                            <img src={`${API_BASE_URL}/storage/${certData.orgLogo}`} alt="Logo" className="w-20 h-20  z-10 object-contain bg-white p-1 rounded-sm shadow-xl" />
+                                        ) : (
+                                            <div className="w-20 h-20 mb-4 z-10 bg-white/10 backdrop-blur-md rounded-sm flex items-center justify-center border border-slate-300">
+                                                <Building2 size={40} />
+                                            </div>
+                                        )
+                                    }
                                 </div>
+                                < div className="z-10 text-center" >
+                                    <h1 className="text-3xl font-black mb-1 tracking-tight">{certData.orgName}</h1>
+
+                                </div>
+                                <div className=" z-10 rounded-full p-2 ">
+                                    <img
+                                        src={LOGO}
+                                        alt="Signature"
+                                        className="w-20 h-20 object-cover rounded-sm "
+                                        style={{ filter: textColorFooter === '#ffffff' ? 'brightness(0) invert(1)' : 'none' }}
+                                    />
+                                </div>
+
+                            </div>
+                            <div className="flex items-center justify-center gap-4 mt-2 opacity-80 text-[10px] font-bold">
+                                {certData.orgPhone && <span className="flex items-center gap-1"><Phone size={12} /> {certData.orgPhone}</span>}
+                                {certData.orgWebsite && <span className="flex items-center gap-1"><Globe size={12} /> {certData.orgWebsite}</span>}
                             </div>
                         </header>
 
@@ -210,7 +223,7 @@ const GlobalCertificateManager = () => {
                             </p>
 
                             <div className="relative mb-6">
-                               
+
                                 <div className="relative bg-slate-50/10 backdrop-blur-[3px] border border-white/40 py-6 px-10 rounded-2xl shadow-xl shadow-amber-950/10 overflow-hidden group">
 
                                     <span className="relative z-10 text-2xl font-black text-amber-950/80 tracking-tight">
@@ -231,7 +244,7 @@ const GlobalCertificateManager = () => {
                                         <p className="text-sm font-black text-slate-800">{certData.joinDate}</p>
                                     </div>
                                 </div>
-                                  <div className="flex items-center justify-center gap-3 bg-slate-300/10 shadow-sm backdrop-blur-[2px]  p-3 rounded-xl border border-slate-100">
+                                <div className="flex items-center justify-center gap-3 bg-slate-300/10 shadow-sm backdrop-blur-[2px]  p-3 rounded-xl border border-slate-100">
                                     <div className="p-2 bg-white rounded-lg text-amber-600 shadow-sm"><ArrowLeftRight size={18} /></div>
                                     <div className="text-right space-y-1">
                                         <p className="text-[10px] text-slate-400 font-bold">فترة التنفيذ</p>

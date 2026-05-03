@@ -81,16 +81,11 @@ const Certificates = () => {
                             className="flex flex-col md:flex-row md:items-end justify-between gap-6"
                         >
                             <div>
-                                <div className="flex items-center gap-3 mb-4">
-                                    <span className="px-3 py-1 bg-emerald-500/10 border border-emerald-200 rounded-full text-emerald-600 text-xs font-bold tracking-widest uppercase">
-                                        المحفظة الرقمية
-                                    </span>
-                                    <div className="h-[1px] w-12 bg-emerald-500/30"></div>
-                                </div>
-                                <h1 className="text-5xl font-black tracking-tight mb-4">
+                               
+                                <h1 className=" text-2xl md:text-5xl font-black tracking-tight mb-4">
                                     سجل <span className="bg-gradient-to-r from-emerald-600 via-blue-400 to-indigo-400 bg-clip-text text-transparent">الشهادات الموثقة</span>
                                 </h1>
-                                <p className="text-slate-500 max-w-xl leading-relaxed">
+                                <p className="text-slate-500 max-w-xl leading-relaxed text-sm md:text-md">
                                     استعرض وحمل شهاداتك المعتمدة الصادرة عن المؤسسات الشريكة. كل شهادة مزودة برمز استجابة سريع (QR) للتحقق من صحتها عالمياً.
                                 </p>
                             </div>
